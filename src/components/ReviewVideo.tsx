@@ -36,7 +36,7 @@ const videos: VideoCard[] = [
     subtitle: "PROJECT SPOTLIGHT",
     description: "Successful recovery and underwater salvage operation of a 247-ton caisson gate under challenging marine conditions.",
     videoUrl: "",
-    thumbnailUrl: "/assets/home-under-water-savage.jpg",
+    thumbnailUrl: "/images/home-underwater-salvage.png",
     timestamp: "0:00",
     transcript: "The underwater salvage operation executed by Ocean 9 was flawless. Their technical expertise, trained diving crews, and marine support equipment ensured complete safety and precision throughout.",
     reviewerName: "Anil Kulkarni",
@@ -72,7 +72,7 @@ const videos: VideoCard[] = [
     subtitle: "CLIENT SPOTLIGHT",
     description: "Rapid-response commercial diving crew deployment for harbor clearing, sediment management, and gate maintenance.",
     videoUrl: "",
-    thumbnailUrl: "/assets/home-dock-and-gate-operation.jpg",
+    thumbnailUrl: "/images/home-commerical-air-diving-operations.png",
     timestamp: "0:00",
     transcript: "Ocean 9's commercial diving crew responded promptly to our emergency harbor maintenance request. Efficient, fully equipped, and zero compromise on safety guidelines.",
     reviewerName: "Amitabh Roy",
@@ -84,7 +84,7 @@ const videos: VideoCard[] = [
     subtitle: "CLIENT TESTIMONIAL",
     description: "Subsea cable trenching, protection, and underwater jointing services for offshore power and telecommunications infrastructure.",
     videoUrl: "",
-    thumbnailUrl: "/assets/home-cable-repair-and-protection.jpg",
+    thumbnailUrl: "/images/home-cable-repair-small.png",
     timestamp: "0:00",
     transcript: "From initial subsea survey to final execution, Ocean 9's offshore team demonstrated remarkable capability and discipline. Truly a dependable partner for underwater operations.",
     reviewerName: "Gaurav Mehta",
@@ -444,8 +444,8 @@ const VideoCardItem: React.FC<{
         </div>
       </div>
 
-      {/* Solid hover state overlay - zero text or white bleeding */}
-      <div className="absolute inset-0 bg-[#001947] p-5 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-center text-center select-none z-30 rounded-2xl">
+      {/* Transparent Glass hover state overlay */}
+      <div className="absolute inset-0 bg-[#001438]/80 backdrop-blur-md border border-white/20 p-5 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-center text-center select-none z-30 rounded-2xl">
         <div className="flex items-center justify-center gap-1 mb-2 select-none">
           {[...Array(video.rating)].map((_, i) => (
             <svg key={i} className="w-4 h-4 text-[#20c9d2] fill-current" viewBox="0 0 20 20">

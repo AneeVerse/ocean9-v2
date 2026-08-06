@@ -21,7 +21,7 @@ const galleryItems: GalleryItem[] = [
     title: "Underwater Salvage & Pontoon Recovery",
     category: "Salvage",
     location: "Mumbai Port, MH",
-    image: "/assets/home-under-water-savage.jpg",
+    image: "/images/home-underwater-salvage.png",
     description: "Heavy marine salvage and precision underwater lift operations for sunken structural pontoons.",
   },
   {
@@ -29,7 +29,7 @@ const galleryItems: GalleryItem[] = [
     title: "Subsea Cable Trenching & Protection",
     category: "Repair",
     location: "Offshore Gujarat",
-    image: "/assets/home-cable-repair-and-protection.jpg",
+    image: "/images/home-cable-repair-protection.png",
     description: "High-pressure underwater cable repair, trenching, articulated armor installation and seabed protection.",
   },
   {
@@ -37,7 +37,7 @@ const galleryItems: GalleryItem[] = [
     title: "Dock Gate Maintenance & Seal Inspection",
     category: "Inspection",
     location: "Commercial Dry Dock",
-    image: "/assets/home-dock-and-gate-operation.jpg",
+    image: "/images/home-dock-and-gate-operation-img.png",
     description: "Subsea cleaning, hinge alignment, and rubber seal replacement for major port caisson gates.",
   },
   {
@@ -45,7 +45,7 @@ const galleryItems: GalleryItem[] = [
     title: "Commercial Air Diving Operations",
     category: "Diving",
     location: "Subsea Pipeline Hub",
-    image: "/assets/home-about-us.jpg",
+    image: "/images/home-commerical-air-diving-operations.png",
     description: "Certified IMCA compliant air diving team executing underwater structural audits and maintenance.",
   },
   {
@@ -53,7 +53,7 @@ const galleryItems: GalleryItem[] = [
     title: "Offshore Platform Subsea Survey",
     category: "Offshore",
     location: "Arabian Sea Platform",
-    image: "/assets/home-Unveiling-the-Wonders-of-Deep-blog.jpg",
+    image: "/images/home-offshore-platform-subsea.png",
     description: "Deep sea NDT inspection, anode installation, and jacket leg structural integrity verification.",
   },
   {
@@ -89,7 +89,7 @@ export default function ProjectGallerySection() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6">
           <div className="space-y-4 max-w-2xl">
             {/* Tag / Badge */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365] border border-[#205b9e]/80 shadow-[0_0_15px_rgba(32,91,158,0.2)] shrink-0 w-fit">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
               <svg
                 width="16"
                 height="16"
@@ -113,18 +113,18 @@ export default function ProjectGallerySection() {
           </div>
 
           <div className="max-w-md space-y-4 shrink-0">
-            <p className="font-roboto text-slate-200 text-sm sm:text-base leading-relaxed">
+            <p className="font-roboto text-white text-sm sm:text-base leading-relaxed">
               Explore photos from our diving, salvage, inspection, repair and marine operations.
             </p>
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-4 bg-[#002365] border border-white/40 hover:border-white text-white pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md group cursor-pointer"
+              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
             >
-              <span className="font-dm-sans font-medium text-[15px] leading-[24px] tracking-normal text-white whitespace-nowrap">
+              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
                 View Project Gallery
               </span>
-              <div className="w-[38px] h-[38px] rounded-full bg-white flex items-center justify-center text-[#002365] group-hover:scale-105 transition-transform shrink-0">
-                <ArrowUpRight className="w-5 h-5 stroke-[2] text-[#002365]" />
+              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
               </div>
             </Link>
           </div>
@@ -139,7 +139,7 @@ export default function ProjectGallerySection() {
               className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-poppins font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
                 activeCategory === cat
                   ? "bg-[#20c9d2] text-[#00173e] font-bold shadow-md shadow-cyan-500/20"
-                  : "bg-[#002365]/60 border border-white/10 text-slate-300 hover:border-cyan-400/50 hover:text-white"
+                  : "bg-[#002365]/60 border border-white/10 text-white/90 hover:border-cyan-400/50 hover:text-white"
               }`}
             >
               {cat}

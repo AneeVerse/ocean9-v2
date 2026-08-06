@@ -20,7 +20,7 @@ export default function ReadyToDive() {
         </h2>
 
         {/* Content Paragraph */}
-        <p className="font-roboto font-normal text-slate-200 text-sm sm:text-base lg:text-[17px] max-w-none lg:whitespace-nowrap mx-auto leading-relaxed drop-shadow-md">
+        <p className="font-roboto font-normal text-white text-sm sm:text-base lg:text-[17px] max-w-none lg:whitespace-nowrap mx-auto leading-relaxed drop-shadow-md">
           Share your project details with our team. We will understand your needs and suggest the right solution.
         </p>
 

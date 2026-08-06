@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Testimonials() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Left Side: Diver Image - Exact Figma 630x550 Sizing */}
@@ -20,28 +20,24 @@ export default function Testimonials() {
           {/* Right Side: Header Copy & Testimonial Card */}
           <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6 lg:space-y-0">
             <div className="space-y-2.5">
-              <span className="font-dm-sans font-bold text-xs sm:text-sm text-[#0055ff] tracking-wider uppercase block">
+              <span className="font-dm-sans font-bold text-xs sm:text-sm text-cyan-400 tracking-wider uppercase block">
                 TESTIMONIAL
               </span>
 
-              <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[42px] text-[#002365] leading-tight tracking-tight">
+              <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[42px] text-white leading-tight tracking-tight">
                 What Our Clients <br className="hidden sm:inline" />
                 Are Saying
               </h2>
 
-              <p className="font-roboto text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              <p className="font-roboto text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl">
+                Hear directly from port authorities, offshore contractors, and industrial facility managers about our commercial diving and subsea engineering performance.
               </p>
             </div>
 
             {/* Testimonial Quote Card in Ocean 9 Navy (#002365) */}
             <div className="bg-[#002365] border border-[#205b9e]/30 rounded-[24px] p-6 sm:p-7 lg:p-8 shadow-xl relative overflow-hidden mt-4 lg:mt-0">
               <p className="font-roboto text-slate-200 text-xs sm:text-sm leading-relaxed mb-6">
-                &ldquo;The diving experience with this company was outstanding! The instructors
-                were highly professional and made sure everyone felt safe and comfortable. The
-                equipment was top-notch, and the underwater scenery was absolutely breathtaking. I
-                highly recommend them for an unforgettable diving adventure!&rdquo;
+                &ldquo;Ocean 9 delivered exceptional commercial diving support during our dock gate maintenance and subsea pipeline inspection. Their IMCA-certified team operated with total safety, precision, and strict adherence to project schedules under challenging marine conditions.&rdquo;
               </p>
 
               {/* Author Info & Outline Quote Mark Icon */}
@@ -57,7 +53,7 @@ export default function Testimonials() {
                   </div>
                   <div>
                     <h4 className="font-poppins font-bold text-base text-white">Drew Feig</h4>
-                    <p className="font-roboto text-xs text-slate-400 font-medium">Client</p>
+                    <p className="font-roboto text-xs text-slate-400 font-medium">Marine Engineering Manager</p>
                   </div>
                 </div>
 

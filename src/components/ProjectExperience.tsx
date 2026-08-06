@@ -7,17 +7,17 @@ export default function ProjectExperience() {
     {
       title: "Underwater Salvage",
       description: "Recovery of sunken pontoons, gates, anchors and marine structures.",
-      image: "/assets/home-under-water-savage.jpg",
+      image: "/images/home-underwater-salvage.png",
     },
     {
       title: "Cable Repair and Protection",
       description: "Underwater cable repair, trenching, burial and protection work.",
-      image: "/assets/home-cable-repair-and-protection.jpg",
+      image: "/images/home-cable-repair-small.png",
     },
     {
       title: "Dock and Gate Operations",
       description: "Inspection, cleaning, installation and repair support for dock gates.",
-      image: "/assets/home-dock-and-gate-operation.jpg",
+      image: "/images/home-dock-and-gate-operation-small.png",
     },
     {
       title: "Industrial Diving Support",
@@ -33,7 +33,7 @@ export default function ProjectExperience() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-14 gap-6">
           <div className="space-y-4">
             {/* Tag / Badge */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365] border border-[#205b9e]/80 shadow-[0_0_15px_rgba(32,91,158,0.2)] shrink-0">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0">
               <svg
                 width="16"
                 height="16"
@@ -57,18 +57,18 @@ export default function ProjectExperience() {
           </div>
 
           <div className="max-w-md space-y-4">
-            <p className="font-roboto text-slate-200 text-sm sm:text-base leading-relaxed">
+            <p className="font-roboto text-white/95 text-sm sm:text-base leading-relaxed">
               We have completed underwater and marine work for ports, docks, industries, vessels and offshore projects.
             </p>
             <Link
               href="#projects"
-              className="inline-flex items-center gap-4 bg-[#002365] border border-white/40 hover:border-white text-white pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md group cursor-pointer"
+              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
             >
-              <span className="font-dm-sans font-medium text-[15px] leading-[24px] tracking-normal text-white whitespace-nowrap">
+              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
                 View Our Projects
               </span>
-              <div className="w-[38px] h-[38px] rounded-full bg-white flex items-center justify-center text-[#002365] group-hover:scale-105 transition-transform shrink-0">
-                <ArrowUpRight className="w-5 h-5 stroke-[2] text-[#002365]" />
+              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
               </div>
             </Link>
           </div>
@@ -77,7 +77,7 @@ export default function ProjectExperience() {
         {/* Project Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch lg:h-[620px]">
           {/* Main Featured Project Card (Left) */}
-          <div className="lg:col-span-6 group relative rounded-[24px] overflow-hidden aspect-[549/650] lg:aspect-auto lg:h-full w-full border border-white/10 shadow-2xl bg-slate-900">
+          <div className="lg:col-span-6 group relative rounded-[24px] overflow-hidden aspect-[549/650] lg:aspect-auto lg:h-full w-full shadow-2xl bg-slate-900">
             <Image
               src={projects[0].image}
               alt={projects[0].title}
@@ -89,7 +89,7 @@ export default function ProjectExperience() {
               <h3 className="font-poppins font-bold text-xl sm:text-2xl text-white group-hover:text-cyan-300 transition-colors">
                 {projects[0].title}
               </h3>
-              <p className="font-roboto text-slate-200 text-xs sm:text-sm leading-relaxed max-w-md">
+              <p className="font-roboto text-white/90 text-xs sm:text-sm leading-relaxed max-w-md">
                 {projects[0].description}
               </p>
             </div>
@@ -100,20 +100,20 @@ export default function ProjectExperience() {
             {projects.slice(1).map((proj, idx) => (
               <div
                 key={idx}
-                className="flex-1 group relative rounded-[20px] sm:rounded-[24px] overflow-hidden min-h-[160px] sm:min-h-[180px] w-full border border-white/10 shadow-xl bg-slate-900"
+                className="flex-1 group relative rounded-[20px] sm:rounded-[24px] overflow-hidden min-h-[160px] sm:min-h-[180px] w-full shadow-xl bg-slate-900"
               >
                 <Image
                   src={proj.image}
                   alt={proj.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-5 right-5 z-10 space-y-1">
                   <h3 className="font-poppins font-bold text-base sm:text-lg text-white group-hover:text-cyan-300 transition-colors">
                     {proj.title}
                   </h3>
-                  <p className="font-roboto text-slate-200 text-xs leading-relaxed max-w-md">
+                  <p className="font-roboto text-white/90 text-xs leading-relaxed max-w-md">
                     {proj.description}
                   </p>
                 </div>

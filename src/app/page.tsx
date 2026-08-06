@@ -44,81 +44,124 @@ function HomeContent() {
       <Navbar />
       <Hero />
 
-      {/* Single Continuous Background from ClientStrip / About Us to Services Provided */}
-      <div className="relative bg-[#002365] overflow-hidden">
-        <Image
-          src="/images/home-from-about-to-sercive3.png"
-          alt="Ocean 9 Background"
-          fill
-          className="object-cover object-[center_18%] pointer-events-none opacity-90"
-          priority
-        />
-        <OceanBubbles className="pointer-events-none absolute inset-0 z-0 opacity-75" bubbleCount={150} topOffset={205} />
-        <div className="relative z-10">
-          <ClientStrip />
-          <AboutSection />
-          <ServicesSection />
+      {/* Continuous Ocean Container with Full-Height Bubble Stream */}
+      <div className="relative">
+        <OceanBubbles className="pointer-events-none absolute inset-0 z-10 opacity-80" bubbleCount={1000} topOffset={205} />
+
+        {/* Group 1: Continuous Background from ClientStrip / About Us to Services Provided */}
+        <div className="relative bg-[#000b20] overflow-hidden">
+          <Image
+            src="/images/home-about-us-to-service-bg-img.png"
+            alt="Ocean 9 About to Services Background"
+            fill
+            className="object-cover object-top pointer-events-none opacity-100"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 0%, black 85%, rgba(0,0,0,0.85) 90%, rgba(0,0,0,0.5) 95%, rgba(0,0,0,0.15) 98%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 85%, rgba(0,0,0,0.85) 90%, rgba(0,0,0,0.5) 95%, rgba(0,0,0,0.15) 98%, transparent 100%)",
+            }}
+            priority
+          />
+          {/* Dark Feather Gradient Blend at Bottom of Group 1 */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
+          <div className="relative z-30">
+            <ClientStrip />
+            <AboutSection />
+            <ServicesSection />
+          </div>
         </div>
-      </div>
 
-      <WhyChooseUs />
-      <CapabilitiesSection />
-      <Testimonials />
-
-      {/* Single Continuous Background from Project Experience to FAQs */}
-      <div className="relative bg-[#002365] overflow-hidden">
-        <Image
-          src="/images/home-about-us-to-service2.png"
-          alt="Ocean 9 Projects to FAQ Background"
-          fill
-          className="object-cover object-[center_top] pointer-events-none opacity-90"
-          priority
-        />
-        <OceanBubbles className="pointer-events-none absolute inset-0 z-0 opacity-75" bubbleCount={150} />
-        <div className="relative z-10">
-          <ProjectExperience />
-          <WorkHistory />
-          <ReviewsSection />
-          <BlogSection />
-          <FAQSection />
+        {/* Group 2: Continuous Background for Why Choose Us & Capabilities */}
+        <div className="relative bg-[#000b20] overflow-hidden">
+          <Image
+            src="/images/home-bg2-img.png"
+            alt="Ocean 9 Mid Depth Background"
+            fill
+            className="object-cover object-top pointer-events-none opacity-100"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 85%, rgba(0,0,0,0.85) 90%, rgba(0,0,0,0.5) 95%, rgba(0,0,0,0.15) 98%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 85%, rgba(0,0,0,0.85) 90%, rgba(0,0,0,0.5) 95%, rgba(0,0,0,0.15) 98%, transparent 100%)",
+            }}
+            priority
+          />
+          {/* Dark Feather Gradient Blend at Top of Group 2 */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
+          {/* Dark Feather Gradient Blend at Bottom of Group 2 */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
+          <div className="relative z-30">
+            <WhyChooseUs />
+            <CapabilitiesSection />
+            {/* <Testimonials /> */}
+          </div>
         </div>
-      </div>
 
-      <HSESection />
-
-      {/* Single Continuous Ocean Background for Project Gallery & Video Gallery */}
-      <div className="relative bg-[#002365] overflow-hidden">
-        <Image
-          src="/images/home-from-about-to-sercive3.png"
-          alt="Ocean 9 Media Background"
-          fill
-          className="object-cover object-[center_top] pointer-events-none opacity-90"
-          priority
-        />
-        <OceanBubbles className="pointer-events-none absolute inset-0 z-0 opacity-75" bubbleCount={140} />
-        <div className="relative z-10">
-          <ProjectGallerySection />
-          <VideoGallerySection />
+        {/* Group 3: Continuous Background from Project Experience to FAQs */}
+        <div className="relative bg-[#000b20] overflow-hidden">
+          <Image
+            src="/images/home-bg3.png"
+            alt="Ocean 9 Projects to FAQ Background"
+            fill
+            className="object-cover object-top pointer-events-none opacity-100"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 85%, rgba(0,0,0,0.85) 90%, rgba(0,0,0,0.5) 95%, rgba(0,0,0,0.15) 98%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 85%, rgba(0,0,0,0.85) 90%, rgba(0,0,0,0.5) 95%, rgba(0,0,0,0.15) 98%, transparent 100%)",
+            }}
+            priority
+          />
+          {/* Dark Feather Gradient Blend at Top of Group 3 (Transition from Capabilities) */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
+          <div className="relative z-30">
+            <ProjectExperience />
+            <WorkHistory />
+            <ReviewsSection />
+            <BlogSection />
+            <FAQSection />
+          </div>
+          {/* Dark Feather Gradient Blend at Bottom of Group 3 */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
         </div>
-      </div>
 
-      <ContactSection />
-      <CareersSection />
+        {/* Group 4: Continuous Background for HSE, Gallery, Contact & Careers */}
+        <div className="relative bg-[#000b20] overflow-hidden">
+          <Image
+            src="/images/home-bg4.png"
+            alt="Ocean 9 Deep Ocean Background"
+            fill
+            className="object-cover object-top pointer-events-none opacity-100"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 100%)",
+            }}
+            priority
+          />
+          {/* Dark Feather Gradient Blend at Top of Group 4 */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
+          {/* Soft Dark Feather Overlay at Bottom of Above Image */}
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#001230]/88 via-[#001230]/40 to-transparent pointer-events-none z-5" />
+          <div className="relative z-30">
+            <HSESection />
+            <ProjectGallerySection />
+            <VideoGallerySection />
+            <ContactSection />
+            <CareersSection />
+          </div>
+        </div>
 
-      {/* Single Continuous Ocean Background for Ready to Dive & Footer */}
-      <div className="relative bg-[#00173e] overflow-hidden">
-        <Image
-          src="/images/footer-and-above-section-bg.png"
-          alt="Ocean Background"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        <OceanBubbles className="pointer-events-none absolute inset-0 z-0 opacity-75" bubbleCount={130} />
-        <div className="relative z-10">
-          <ReadyToDive />
-          <SwimmingFishStrip />
-          <Footer />
+        {/* Group 5: Continuous Ocean Background for Ready to Dive & Footer */}
+        <div className="relative bg-[#001230] overflow-hidden">
+          <Image
+            src="/images/home-bg5.png"
+            alt="Ocean Seabed Footer Background"
+            fill
+            className="object-cover object-[center_25%] pointer-events-none opacity-100"
+            priority
+          />
+          {/* Dark Color Gradient Overlay for Footer */}
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#001230]/88 via-[#001230]/40 to-transparent pointer-events-none z-5" />
+          <div className="relative z-30">
+            <ReadyToDive />
+            <SwimmingFishStrip />
+            <Footer />
+          </div>
         </div>
       </div>
     </main>

@@ -71,14 +71,14 @@ export default function CapabilitiesSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-24 lg:py-28 bg-white relative overflow-hidden">
+    <section className="py-20 sm:py-24 lg:py-28 bg-transparent relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14">
           {/* Left: Badge, Heading, Subtitle */}
           <div className="space-y-4 max-w-3xl">
-            {/* Tag / Badge: Exact About Us Badge Styling */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365] border border-[#205b9e]/80 shadow-[0_0_15px_rgba(32,91,158,0.2)] shrink-0">
+            {/* Section Tag / Badge */}
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0">
               <svg
                 width="16"
                 height="16"
@@ -95,12 +95,12 @@ export default function CapabilitiesSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[46px] text-[#002365] leading-[1.18] tracking-tight">
+            <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[46px] text-white leading-[1.18] tracking-tight">
               Built for Challenging Projects
             </h2>
 
             {/* Subtitle */}
-            <p className="font-roboto text-slate-600 text-base sm:text-lg lg:text-[19px] leading-relaxed">
+            <p className="font-roboto text-white/95 text-base sm:text-lg lg:text-[19px] leading-relaxed">
               Our teams support a wide range of underwater and marine operations, including:
             </p>
           </div>
@@ -109,13 +109,13 @@ export default function CapabilitiesSection() {
           <div className="shrink-0 self-start md:self-end">
             <Link
               href="/services"
-              className="inline-flex items-center gap-4 bg-[#002365] border border-[#002365] hover:border-[#003D82] text-white pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md group cursor-pointer hover:bg-[#003D82]"
+              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
             >
-              <span className="font-dm-sans font-medium text-[15px] leading-[24px] tracking-normal text-white whitespace-nowrap">
+              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
                 Explore Our Capabilities
               </span>
-              <div className="w-[38px] h-[38px] rounded-full bg-white flex items-center justify-center text-[#002365] group-hover:scale-105 transition-transform shrink-0 shadow-xs">
-                <ArrowUpRight className="w-5 h-5 stroke-[2] text-[#002365]" />
+              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
               </div>
             </Link>
           </div>
@@ -129,27 +129,30 @@ export default function CapabilitiesSection() {
             return (
               <div
                 key={item.id}
-                className="group relative bg-white border border-[#85baf3] rounded-[22px] p-7 text-left flex flex-col justify-between shadow-[0_4px_20px_rgba(0,35,101,0.05)] hover:shadow-[0_16px_40px_rgba(0,61,130,0.16)] hover:border-[#003D82] hover:-translate-y-1.5 transition-all duration-300 ease-out min-h-[195px]"
+                className="group relative overflow-hidden bg-transparent backdrop-blur-md border border-white/15 hover:border-cyan-300/30 rounded-[22px] p-7 text-left flex flex-col justify-between shadow-xl hover:shadow-[0_0_25px_rgba(34,211,238,0.22)] hover:bg-cyan-500/5 hover:-translate-y-1.5 transition-all duration-500 ease-out min-h-[195px] cursor-pointer"
               >
+                {/* Watery Shimmer Ambient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/0 via-cyan-400/10 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
                 {/* Card Header: Number + Blue Bar on Left, Circular Light-Blue Icon Container on Right */}
-                <div className="flex items-start justify-between gap-3">
+                <div className="flex items-start justify-between gap-3 relative z-10">
                   {/* Left: Number + Short Blue Bar */}
                   <div className="flex flex-col items-start">
-                    <span className="font-dm-sans font-bold text-base text-[#003D82] tracking-tight group-hover:text-[#002365] transition-colors">
+                    <span className="font-dm-sans font-bold text-base text-cyan-300 tracking-tight group-hover:text-cyan-200 transition-colors">
                       {item.id}
                     </span>
-                    <div className="w-6 h-[2.5px] bg-[#003D82] mt-1 rounded-full group-hover:w-9 transition-all duration-300" />
+                    <div className="w-6 h-[2.5px] bg-cyan-400 mt-1 rounded-full group-hover:w-9 transition-all duration-300" />
                   </div>
 
-                  {/* Right: Circular Ocean 9 Light Blue Icon Badge */}
-                  <div className="w-11 h-11 rounded-full bg-[#eaf3ff] border border-[#85baf3] text-[#003D82] group-hover:bg-[#003D82] group-hover:border-[#003D82] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-xs shrink-0 group-hover:scale-105">
+                  {/* Right: Circular Ocean 9 Water Icon Badge */}
+                  <div className="w-11 h-11 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 group-hover:bg-cyan-400 group-hover:text-[#00173e] group-hover:shadow-[0_0_15px_rgba(34,211,238,0.6)] flex items-center justify-center transition-all duration-300 shadow-xs shrink-0 group-hover:scale-110">
                     <Icon className="w-5 h-5 transition-transform duration-300" />
                   </div>
                 </div>
 
                 {/* Capability Title */}
-                <div className="mt-5">
-                  <h3 className="font-poppins font-bold text-lg sm:text-[19px] text-[#002365] leading-[1.3] group-hover:text-[#003D82] transition-colors">
+                <div className="mt-5 relative z-10">
+                  <h3 className="font-poppins font-bold text-lg sm:text-[19px] text-white leading-[1.3] group-hover:text-cyan-200 transition-colors">
                     {item.title}
                   </h3>
                 </div>

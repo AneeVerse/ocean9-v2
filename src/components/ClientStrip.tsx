@@ -59,7 +59,7 @@ export default function ClientStrip() {
       <section className="bg-[#e0f2fe] py-0.5 sm:py-1 overflow-hidden relative isolate transform-gpu">
         <div className="w-full flex overflow-hidden isolate">
           {/* Unified 60fps Marquee Wrapper */}
-          <div className="animate-marquee flex items-center shrink-0">
+          <div className="animate-marquee flex items-center shrink-0 [will-change:transform] [transform:translateZ(0)]">
             {/* Track Set 1 */}
             <div className="flex items-center shrink-0">
               {trackClients.map((client, index) => (

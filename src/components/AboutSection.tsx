@@ -15,9 +15,9 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Diver Image (Figma exact 424.2px x 511px) */}
           <div className="lg:col-span-5 relative flex justify-center lg:justify-start">
-            <div className="relative rounded-[28px] overflow-hidden shadow-2xl border border-white/10 w-full max-w-[424px] h-[380px] sm:h-[450px] lg:h-[511px]">
+            <div className="relative rounded-[28px] overflow-hidden shadow-2xl w-full max-w-[424px] h-[380px] sm:h-[450px] lg:h-[511px]">
               <Image
-                src="/assets/home-about-us.jpg"
+                src="/images/home-about-us2.png"
                 alt="Underwater Operations & Marine Engineering"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-500"
@@ -28,7 +28,7 @@ export default function AboutSection() {
           {/* Right Column: Copy & Video / Contact CTA */}
           <div className="lg:col-span-7 space-y-6">
             {/* Tag / Badge: About Ocean 9 */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365] border border-[#205b9e]/80 shadow-[0_0_15px_rgba(32,91,158,0.2)] shrink-0">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0">
               <svg
                 width="16"
                 height="16"
@@ -49,17 +49,17 @@ export default function AboutSection() {
             </h2>
 
             {/* Paragraph 1 */}
-            <p className="font-roboto font-normal text-slate-300 text-xs sm:text-sm lg:text-[14px] xl:text-[15px] leading-relaxed tracking-normal max-w-none lg:whitespace-nowrap">
+            <p className="font-roboto font-normal text-white text-xs sm:text-sm lg:text-[14px] xl:text-[15px] leading-relaxed tracking-normal max-w-none lg:whitespace-nowrap">
               Ocean 9 Offshore Services Pvt. Ltd. provides underwater diving, marine and subsea engineering services.
             </p>
 
             {/* Paragraph 2 */}
-            <p className="font-roboto font-normal text-slate-300 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
+            <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
               We support offshore and onshore projects with trained teams, diving equipment and marine support. Our focus is simple: complete every job safely, properly and on time.
             </p>
 
             {/* Company Profile Description */}
-            <p className="font-roboto font-normal text-slate-300 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
+            <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
               Ocean 9’s company profile describes the business as an underwater diving and subsea engineering service provider with diving personnel, equipment and vessel support.
             </p>
 
@@ -69,7 +69,7 @@ export default function AboutSection() {
               <button
                 onClick={() => setIsVideoModalOpen(true)}
                 type="button"
-                className="relative w-full sm:w-[405px] max-w-[405px] h-[120px] sm:h-[136px] lg:h-[146px] rounded-2xl overflow-hidden group shadow-lg border border-white/10 shrink-0 text-left cursor-pointer focus:outline-none"
+                className="relative w-full sm:w-[405px] max-w-[405px] h-[120px] sm:h-[136px] lg:h-[146px] rounded-2xl overflow-hidden group shadow-lg shrink-0 text-left cursor-pointer focus:outline-none"
               >
                 <Image
                   src="/assets/home-about-us-video-thumbnail.jpg"
@@ -105,25 +105,25 @@ export default function AboutSection() {
             <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
               38<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">+</span>
             </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-slate-300">Project Assignments</p>
+            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Project Assignments</p>
           </div>
           <div className="space-y-1">
             <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
               14<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">+</span>
             </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-slate-300">Clients Served</p>
+            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Clients Served</p>
           </div>
           <div className="space-y-1">
             <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
               6<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">+</span>
             </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-slate-300">Years of Experience</p>
+            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Years of Experience</p>
           </div>
           <div className="space-y-1">
             <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
               247<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">T</span>
             </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-slate-300">Caisson Gate Salvaged</p>
+            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Caisson Gate Salvaged</p>
           </div>
         </div>
       </div>

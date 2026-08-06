@@ -7,9 +7,6 @@ import { Phone, Mail, MapPin, Smartphone, ArrowRight } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-transparent text-white pt-12 pb-12 relative overflow-hidden">
-      {/* Soft Legibility Gradient Scrim to make all footer text 100% sharp over background image textures */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000d24]/90 via-[#00173e]/75 to-transparent pointer-events-none z-0" />
-
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/15">
           {/* Brand Info & Contact Details */}

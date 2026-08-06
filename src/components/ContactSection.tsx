@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
@@ -12,7 +12,28 @@ export default function ContactSection() {
     message: "",
   });
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const subjects = [
+    "Diving Services",
+    "Offshore Operations",
+    "Salvage & Subsea",
+    "General Inquiry",
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,18 +45,17 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-white relative text-slate-900">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-transparent relative text-white">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Left Column: Form Container (Soft Light Blue Card) */}
-          <div className="lg:col-span-6 bg-[#e6f3fe] rounded-[24px] lg:rounded-[28px] p-8 sm:p-10 lg:p-12 text-slate-900 shadow-2xl flex flex-col justify-between">
+          {/* Left Column: Form Container (Ocean Transparent Glass Card) */}
+          <div className="lg:col-span-6 bg-transparent backdrop-blur-md border border-white/20 rounded-[24px] lg:rounded-[28px] p-8 sm:p-10 lg:p-12 text-white shadow-2xl flex flex-col justify-between">
             <div className="space-y-3 mb-6 sm:mb-8">
-              <h2 className="font-poppins font-normal text-[#002365] text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
+              <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
                 Get in Touch
               </h2>
-              <p className="font-roboto text-slate-600 text-sm sm:text-base leading-relaxed">
-                Have questions about our courses or dives? Send us a message—we&apos;ll get back
-                to you soon.
+              <p className="font-roboto text-white/95 text-sm sm:text-base leading-relaxed">
+                Have questions about our subsea services or commercial diving operations? Send us a message—we&apos;ll get back to you soon.
               </p>
             </div>
 
@@ -48,7 +68,7 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
-                    <label className="font-roboto font-semibold text-[#002365] text-sm block">
+                    <label className="font-roboto font-semibold text-cyan-300 text-sm block">
                       Name
                     </label>
                     <input
@@ -57,12 +77,12 @@ export default function ContactSection() {
                       placeholder="Your full name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3.5 bg-white border border-slate-200/80 rounded-[12px] text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#0055ff] transition-all placeholder:text-slate-400 shadow-sm"
+                      className="w-full px-4 py-3.5 bg-transparent border border-white/20 rounded-[12px] text-white text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all placeholder:text-slate-400 backdrop-blur-md shadow-inner"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="font-roboto font-semibold text-[#002365] text-sm block">
+                    <label className="font-roboto font-semibold text-cyan-300 text-sm block">
                       Email
                     </label>
                     <input
@@ -71,35 +91,65 @@ export default function ContactSection() {
                       placeholder="Your email address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3.5 bg-white border border-slate-200/80 rounded-[12px] text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#0055ff] transition-all placeholder:text-slate-400 shadow-sm"
+                      className="w-full px-4 py-3.5 bg-transparent border border-white/20 rounded-[12px] text-white text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all placeholder:text-slate-400 backdrop-blur-md shadow-inner"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="font-roboto font-semibold text-[#002365] text-sm block">
+                {/* Custom Transparent Glass Dropdown */}
+                <div className="space-y-2 relative">
+                  <label className="font-roboto font-semibold text-cyan-300 text-sm block">
                     Subject
                   </label>
-                  <div className="relative">
-                    <select
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3.5 bg-white border border-slate-200/80 rounded-[12px] text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#0055ff] transition-all appearance-none cursor-pointer pr-10 shadow-sm"
+                  <div ref={dropdownRef} className="relative">
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className={`w-full px-4 py-3.5 bg-transparent border rounded-[12px] text-sm text-left flex items-center justify-between backdrop-blur-md shadow-inner transition-all cursor-pointer ${
+                        isDropdownOpen
+                          ? "border-cyan-400 ring-1 ring-cyan-400/50 text-white"
+                          : "border-white/20 text-white hover:border-white/40"
+                      }`}
                     >
-                      <option value="">Select a subject</option>
-                      <option value="Diving Services">Diving Services</option>
-                      <option value="Offshore Operations">Offshore Operations</option>
-                      <option value="Salvage & Subsea">Salvage & Subsea</option>
-                      <option value="General Inquiry">General Inquiry</option>
-                    </select>
-                    <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#002365]">
-                      <ChevronDown className="w-4 h-4 stroke-[2.5]" />
-                    </div>
+                      <span className={formData.subject ? "text-white" : "text-slate-400"}>
+                        {formData.subject || "Select a subject"}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 stroke-[2.5] text-cyan-300 transition-transform duration-200 ${
+                          isDropdownOpen ? "rotate-180 text-cyan-400" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* Glassmorphism Dropdown Menu Popover */}
+                    {isDropdownOpen && (
+                      <div className="absolute top-full left-0 right-0 mt-2 bg-[#001438]/85 backdrop-blur-xl border border-white/20 rounded-[14px] shadow-[0_12px_35px_rgba(0,0,0,0.7)] z-50 overflow-hidden py-1.5">
+                        {subjects.map((sub) => (
+                          <div
+                            key={sub}
+                            onClick={() => {
+                              setFormData({ ...formData, subject: sub });
+                              setIsDropdownOpen(false);
+                            }}
+                            className={`px-4 py-3 text-sm font-medium transition-colors cursor-pointer flex items-center justify-between ${
+                              formData.subject === sub
+                                ? "bg-cyan-500/20 text-cyan-300 font-bold"
+                                : "text-white/90 hover:bg-cyan-500/15 hover:text-cyan-300"
+                            }`}
+                          >
+                            <span>{sub}</span>
+                            {formData.subject === sub && (
+                              <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="font-roboto font-semibold text-[#002365] text-sm block">
+                  <label className="font-roboto font-semibold text-cyan-300 text-sm block">
                     Message
                   </label>
                   <textarea
@@ -108,14 +158,14 @@ export default function ContactSection() {
                     placeholder="Type your message here..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3.5 bg-white border border-slate-200/80 rounded-[12px] text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#0055ff] transition-all placeholder:text-slate-400 resize-none shadow-sm"
+                    className="w-full px-4 py-3.5 bg-transparent border border-white/20 rounded-[12px] text-white text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all placeholder:text-slate-400 resize-none backdrop-blur-md shadow-inner"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-[#002365] hover:bg-[#00173e] text-white font-dm-sans font-medium text-sm sm:text-base px-7 py-3.5 rounded-[12px] transition-all duration-300 shadow-md hover:scale-[1.02] cursor-pointer"
+                    className="bg-white hover:bg-slate-100 text-[#002365] font-dm-sans font-semibold text-sm sm:text-base px-8 py-3.5 rounded-[12px] transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] hover:scale-[1.02] cursor-pointer"
                   >
                     Send Message
                   </button>
@@ -125,7 +175,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right Column: Diver Image Panel with Overlay Quote */}
-          <div className="lg:col-span-6 relative rounded-[24px] lg:rounded-[28px] overflow-hidden shadow-2xl min-h-[440px] lg:h-full border border-white/10 w-full bg-slate-900">
+          <div className="lg:col-span-6 relative rounded-[24px] lg:rounded-[28px] overflow-hidden shadow-2xl min-h-[440px] lg:h-full w-full bg-slate-900">
             <Image
               src="/assets/home-get-in-touch.png"
               alt="Get in Touch Diving Operations"
@@ -135,13 +185,12 @@ export default function ContactSection() {
             {/* Bottom Glassmorphism Overlay Card */}
             <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 bg-white/5 backdrop-blur-sm backdrop-saturate-150 px-4 sm:px-5 py-4.5 sm:py-5 rounded-[16px] shadow-2xl space-y-3.5">
               <p className="font-roboto font-normal text-white text-[18px] sm:text-[21.5px] lg:text-[23px] leading-relaxed drop-shadow-md tracking-tight">
-                Dive beneath the surface and discover endless wonder,<br />
-                where treasures await at every turn.
+                Delivering safe, precise, and reliable underwater engineering solutions for complex subsea and offshore operations.
               </p>
               <div className="flex items-center gap-1.5 text-xs sm:text-sm">
-                <span className="font-roboto font-medium text-white drop-shadow-sm">John Smith</span>
-                <span className="text-slate-200 font-normal">•</span>
-                <span className="font-roboto text-slate-200 font-normal drop-shadow-sm">Dive Instructor</span>
+                <span className="font-roboto font-medium text-white drop-shadow-sm">Capt. Rajesh Sharma</span>
+                <span className="text-white/80 font-normal">•</span>
+                <span className="font-roboto text-white/90 font-normal drop-shadow-sm">Lead Subsea Operations Engineer</span>
               </div>
             </div>
           </div>

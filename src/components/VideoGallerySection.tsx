@@ -23,7 +23,7 @@ const videoItems: VideoItem[] = [
     category: "Subsea Operations",
     duration: "02:45",
     videoUrl: "/assets/13998175_3840_2160_60fps (1)_compressed.mp4",
-    thumbnail: "/assets/home-about-us-video-thumbnail.jpg",
+    thumbnail: "/images/home-commerical-air-diving-operations.png",
     description: "Live footage of Ocean 9 air diving crew executing subsea structural inspection and maintenance.",
   },
   {
@@ -32,7 +32,7 @@ const videoItems: VideoItem[] = [
     category: "Marine Salvage",
     duration: "03:15",
     videoUrl: "/assets/13998175_3840_2160_60fps (1)_compressed.mp4",
-    thumbnail: "/assets/home-under-water-savage.jpg",
+    thumbnail: "/images/home-underwater-salvage.png",
     description: "Successful underwater salvage and pontoon recovery operation under challenging tidal currents.",
   },
   {
@@ -41,7 +41,7 @@ const videoItems: VideoItem[] = [
     category: "Offshore Diving",
     duration: "04:10",
     videoUrl: "/assets/13998175_3840_2160_60fps (1)_compressed.mp4",
-    thumbnail: "/assets/home-why-choose-us-for-your-dive.jpg",
+    thumbnail: "/images/home-offshore-platform-subsea.png",
     description: "High-precision subsea NDT testing and platform structural inspection conducted by certified divers.",
   },
   {
@@ -50,7 +50,7 @@ const videoItems: VideoItem[] = [
     category: "Cable Repair",
     duration: "02:20",
     videoUrl: "/assets/13998175_3840_2160_60fps (1)_compressed.mp4",
-    thumbnail: "/assets/home-cable-repair-and-protection.jpg",
+    thumbnail: "/images/home-cable-repair-protection.png",
     description: "Underwater power cable trenching, protection sleeve installation and subsea jointing support.",
   },
 ];
@@ -71,7 +71,7 @@ export default function VideoGallerySection() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6">
           <div className="space-y-4 max-w-2xl">
             {/* Tag / Badge */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365] border border-[#205b9e]/80 shadow-[0_0_15px_rgba(32,91,158,0.2)] shrink-0 w-fit">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
               <svg
                 width="16"
                 height="16"
@@ -95,18 +95,18 @@ export default function VideoGallerySection() {
           </div>
 
           <div className="max-w-md space-y-4 shrink-0">
-            <p className="font-roboto text-slate-200 text-sm sm:text-base leading-relaxed">
+            <p className="font-roboto text-white text-sm sm:text-base font-normal leading-relaxed">
               See Ocean 9 teams working on underwater, onshore and offshore projects.
             </p>
             <Link
               href="/videos"
-              className="inline-flex items-center gap-4 bg-[#002365] border border-white/40 hover:border-white text-white pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md group cursor-pointer"
+              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
             >
-              <span className="font-dm-sans font-medium text-[15px] leading-[24px] tracking-normal text-white whitespace-nowrap">
+              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
                 View Video Gallery
               </span>
-              <div className="w-[38px] h-[38px] rounded-full bg-[#ffffff] flex items-center justify-center text-[#002365] group-hover:scale-105 transition-transform shrink-0">
-                <ArrowUpRight className="w-5 h-5 stroke-[2] text-[#002365]" />
+              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
               </div>
             </Link>
           </div>
@@ -118,7 +118,7 @@ export default function VideoGallerySection() {
             <div
               key={item.id}
               onClick={() => setSelectedVideo(item)}
-              className="group relative bg-white rounded-2xl sm:rounded-[24px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1.5"
+              className="group relative bg-transparent backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-[24px] overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] hover:border-cyan-300/40 hover:bg-cyan-500/5 transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1.5"
             >
               {/* Thumbnail Container */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 rounded-t-2xl sm:rounded-t-[24px]">
@@ -149,12 +149,12 @@ export default function VideoGallerySection() {
                 </div>
               </div>
 
-              {/* Card Footer Text (White Box matching Services Provided) */}
-              <div className="p-4.5 sm:p-5 bg-white rounded-b-2xl sm:rounded-b-[24px] flex-1 flex flex-col justify-between space-y-2">
-                <h3 className="font-poppins font-bold text-sm sm:text-base text-[#002365] group-hover:text-[#003D82] transition-colors leading-snug line-clamp-2">
+              {/* Card Footer Text (Transparent Glass matching Services Provided) */}
+              <div className="p-4.5 sm:p-5 bg-transparent rounded-b-2xl sm:rounded-b-[24px] flex-1 flex flex-col justify-between space-y-2">
+                <h3 className="font-poppins font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="font-roboto text-xs sm:text-[13px] text-slate-600 leading-relaxed line-clamp-2">
+                <p className="font-roboto text-xs sm:text-[13px] text-white/85 leading-relaxed line-clamp-2">
                   {item.description}
                 </p>
               </div>

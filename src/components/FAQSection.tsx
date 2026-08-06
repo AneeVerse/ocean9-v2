@@ -9,29 +9,29 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "What are the basic scuba safety rules diving?",
+      question: "What commercial diving standards and certifications does Ocean 9 follow?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod luctus tempor incididunt ut labore magna.",
+        "Ocean 9 operates in full compliance with IMCA (International Marine Contractors Association) standards, class society guidelines (DNV, ABS, IRS), and international subsea safety regulations.",
     },
     {
-      question: "How to improve air consumption underwater?",
+      question: "What types of subsea inspection and NDT services do you offer?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proper buoyancy control and relaxed breathing techniques are key.",
+        "We provide comprehensive non-destructive testing (NDT), ultrasonic thickness gauging, magnetic particle inspection (MPI), visual dive inspections, and high-definition underwater video reporting for vessels and offshore structures.",
     },
     {
-      question: "What to consider when buying gear diving ?",
+      question: "What emergency salvage and subsea response capabilities do you provide?",
       answer:
-        "Focus on fit, comfort, safety certification, and your specific diving environment when purchasing equipment.",
+        "Our rapid-response dive team is equipped for emergency underwater salvage, caisson gate recovery, vessel hull repair, de-silting, and subsea obstacle clearing with 24/7 mobilization capability.",
     },
     {
       question: "What services do you provide for commercial offshore projects?",
       answer:
-        "We offer underwater salvage, subsea pipeline & cable inspection, dock and caisson gate maintenance, hull cleaning, and certified commercial diving services.",
+        "We offer underwater salvage, subsea pipeline & cable trenching/inspection, dock and caisson gate maintenance, hull cleaning, and certified commercial air & mixed gas diving services.",
     },
     {
-      question: "How do you ensure safety during underwater salvage operations?",
+      question: "How do you ensure safety during underwater operations?",
       answer:
-        "Our team follows strict IMCA & marine diving safety guidelines, using redundant air supplies, surface-supplied diving gear, and real-time dive monitoring.",
+        "Every dive plan undergoes rigorous risk assessment and JSA (Job Safety Analysis). We utilize surface-supplied diving gear, redundant breathing gas systems, surface-to-diver comms, and real-time dive monitoring.",
     },
   ];
 
@@ -46,7 +46,7 @@ export default function FAQSection() {
           {/* Left Column: Badge + Image with Call Us Box */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             {/* Tag / Badge: Matching About Us exact badge styling */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365] border border-[#205b9e]/80 shadow-[0_0_15px_rgba(32,91,158,0.2)] shrink-0 self-start">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 self-start">
               <svg
                 width="16"
                 height="16"
@@ -63,9 +63,9 @@ export default function FAQSection() {
             </div>
 
             {/* Image Container */}
-            <div className="relative rounded-[24px] overflow-hidden shadow-2xl border border-white/10 aspect-[4/3] lg:aspect-auto lg:flex-1 w-full bg-slate-900 min-h-[360px] sm:min-h-[440px]">
+            <div className="relative rounded-[24px] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto lg:flex-1 w-full bg-slate-900 min-h-[360px] sm:min-h-[440px]">
               <Image
-                src="/assets/home-FAQ.jpg"
+                src="/images/home-faq-img.png"
                 alt="Diver underwater with stingray"
                 fill
                 className="object-cover"
@@ -81,7 +81,7 @@ export default function FAQSection() {
                   <p className="font-poppins font-bold text-white text-sm sm:text-base leading-tight">
                     Call Us Now!
                   </p>
-                  <p className="font-roboto text-slate-300 text-xs sm:text-sm tracking-wide mt-0.5">
+                  <p className="font-roboto text-cyan-200 text-xs sm:text-sm tracking-wide mt-0.5">
                     +123 – 456 – 7890
                   </p>
                 </div>
@@ -115,7 +115,7 @@ export default function FAQSection() {
                     </button>
 
                     {isOpen && (
-                      <div className="pl-9 pt-3 text-slate-300 text-xs sm:text-sm font-roboto leading-relaxed max-w-xl">
+                      <div className="pl-9 pt-3 text-white/90 text-xs sm:text-sm font-roboto leading-relaxed max-w-xl">
                         {faq.answer}
                       </div>
                     )}

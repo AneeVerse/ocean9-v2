@@ -39,7 +39,7 @@ export default function Hero() {
           </h1>
 
           {/* Description formatted in 2 lines */}
-          <p className="text-slate-200 text-sm sm:text-base lg:text-[17px] max-w-3xl mb-8 leading-relaxed font-normal">
+          <p className="text-white/95 text-sm sm:text-base lg:text-[17px] max-w-3xl mb-8 leading-relaxed font-normal">
             Ocean 9 provides safe and practical solutions for diving, subsea, marine and <br className="hidden sm:inline" />
             underwater projects.
           </p>

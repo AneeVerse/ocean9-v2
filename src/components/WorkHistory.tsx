@@ -19,7 +19,7 @@ export default function WorkHistory() {
               <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal drop-shadow-md">
                 Ocean 9’s work history
               </h2>
-              <p className="font-roboto font-normal text-slate-100 text-sm sm:text-base lg:text-[17px] leading-relaxed max-w-xl drop-shadow-sm">
+              <p className="font-roboto font-normal text-white text-sm sm:text-base lg:text-[17px] leading-relaxed max-w-xl drop-shadow-sm">
                 Includes projects for Reliance Industries, the Indian Navy, Adani, Airtel, Tata
                 Communications and other marine and infrastructure clients.
               </p>

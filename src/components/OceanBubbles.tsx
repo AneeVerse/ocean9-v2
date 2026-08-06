@@ -32,6 +32,7 @@ interface OceanBubblesProps {
   interactive?: boolean;
   startAfterHero?: boolean;
   topOffset?: number;
+  disableTopBurst?: boolean;
 }
 
 export default function OceanBubbles({
@@ -40,6 +41,7 @@ export default function OceanBubbles({
   interactive = true,
   startAfterHero = false,
   topOffset = 0,
+  disableTopBurst = false,
 }: OceanBubblesProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -126,8 +128,10 @@ export default function OceanBubbles({
       window.addEventListener("scroll", handleScroll, { passive: true });
     }
 
-    // Active pop particles array
+    // Active pop particles array & cached bounding boxes
     let popParticles: PopParticle[] = [];
+    let cachedF1Box: { left: number; right: number; top: number; bottom: number } | null = null;
+    let cachedF2Box: { left: number; right: number; top: number; bottom: number } | null = null;
 
     // Trigger bubble burst animation along the curved boundary or clicked position
     const triggerBurst = (x: number, y: number, radius: number, opacity: number) => {
@@ -328,42 +332,53 @@ export default function OceanBubbles({
         topCutoff = Math.max(0, heroHeight - scrollY);
       }
 
-      // Track real-time bounding rectangles of swimming fish elements
-      const containerRect = container.getBoundingClientRect();
-      const fish1Elem = document.getElementById("swimming-fish-1");
-      const fish2Elem = document.getElementById("swimming-fish-2");
+      // Track real-time bounding rectangles of swimming fish elements (Throttled every 12 frames to prevent layout thrashing)
+      if (time % 12 === 0 || !cachedF1Box) {
+        const containerRect = container.getBoundingClientRect();
+        const fish1Elem = document.getElementById("swimming-fish-1");
+        const fish2Elem = document.getElementById("swimming-fish-2");
 
-      let f1Box: { left: number; right: number; top: number; bottom: number } | null = null;
-      let f2Box: { left: number; right: number; top: number; bottom: number } | null = null;
+        if (fish1Elem) {
+          const r = fish1Elem.getBoundingClientRect();
+          const w = r.width;
+          const h = r.height;
+          const insetX = w * 0.12;
+          const insetY = h * 0.14;
+          cachedF1Box = {
+            left: r.left + insetX - containerRect.left,
+            right: r.right - insetX - containerRect.left,
+            top: r.top + insetY - containerRect.top,
+            bottom: r.bottom - insetY - containerRect.top,
+          };
+        } else {
+          cachedF1Box = null;
+        }
 
-      if (fish1Elem) {
-        const r = fish1Elem.getBoundingClientRect();
-        const w = r.width;
-        const h = r.height;
-        // Natural elliptical bounds fitting fish body & fins
-        const insetX = w * 0.12;
-        const insetY = h * 0.14;
-        f1Box = {
-          left: r.left + insetX - containerRect.left,
-          right: r.right - insetX - containerRect.left,
-          top: r.top + insetY - containerRect.top,
-          bottom: r.bottom - insetY - containerRect.top,
-        };
+        if (fish2Elem) {
+          const r = fish2Elem.getBoundingClientRect();
+          const w = r.width;
+          const h = r.height;
+          const insetX = w * 0.12;
+          const insetY = h * 0.14;
+          cachedF2Box = {
+            left: r.left + insetX - containerRect.left,
+            right: r.right - insetX - containerRect.left,
+            top: r.top + insetY - containerRect.top,
+            bottom: r.bottom - insetY - containerRect.top,
+          };
+        } else {
+          cachedF2Box = null;
+        }
       }
-      if (fish2Elem) {
-        const r = fish2Elem.getBoundingClientRect();
-        const w = r.width;
-        const h = r.height;
-        // Natural elliptical bounds fitting fish body & fins
-        const insetX = w * 0.12;
-        const insetY = h * 0.14;
-        f2Box = {
-          left: r.left + insetX - containerRect.left,
-          right: r.right - insetX - containerRect.left,
-          top: r.top + insetY - containerRect.top,
-          bottom: r.bottom - insetY - containerRect.top,
-        };
-      }
+
+      const f1Box = cachedF1Box;
+      const f2Box = cachedF2Box;
+
+      // Calculate current visible viewport bounds relative to container for viewport culling
+      const currentScrollY = window.scrollY;
+      const containerTopInDoc = container.getBoundingClientRect().top + currentScrollY;
+      const viewMinY = currentScrollY - containerTopInDoc - 300;
+      const viewMaxY = currentScrollY - containerTopInDoc + window.innerHeight + 300;
 
       // Smooth mouse interpolation
       mouse.x += (mouse.targetX - mouse.x) * 0.12;
@@ -448,17 +463,39 @@ export default function OceanBubbles({
 
         b.x = currentX;
 
-        // Check if bubble reaches curved top boundary -> TRIGGER BURST ANIMATION ALONG THE CURVE!
-        const minTop = getCurvedMinTop(b.x, b.radius);
-        if (b.y <= minTop) {
-          triggerBurst(b.x, b.y, b.radius, b.opacity);
-          bubbles[i] = createBubble(false);
+        // Calculate smooth ease-out dissolution in disableTopBurst mode
+        const fadeStart = 160; // Start dissolving 160px before top
+        const fadeEnd = b.radius + 15; // 100% invisible 15px BEFORE touching top edge (y = 0)
+
+        if (disableTopBurst) {
+          if (b.y <= fadeEnd) {
+            bubbles[i] = createBubble(false);
+            continue;
+          }
+        } else {
+          const minTop = getCurvedMinTop(b.x, b.radius);
+          if (b.y <= minTop) {
+            triggerBurst(b.x, b.y, b.radius, b.opacity);
+            bubbles[i] = createBubble(false);
+            continue;
+          }
+        }
+
+        // Viewport Culling: Skip expensive canvas gradient drawing for offscreen bubbles
+        if (b.y < viewMinY || b.y > viewMaxY) {
           continue;
         }
 
         // Clip/skip drawing if bubble is within the Hero section area when startAfterHero is true
         if (startAfterHero && isFixed && b.y < topCutoff) {
           continue;
+        }
+
+        // Calculate smooth quadratic ease-out opacity so NO bubble is ever drawn near y = 0
+        let drawOpacity = b.opacity;
+        if (disableTopBurst && b.y < fadeStart) {
+          const factor = Math.max(0, Math.min(1, (b.y - fadeEnd) / (fadeStart - fadeEnd)));
+          drawOpacity = b.opacity * (factor * factor);
         }
 
         // Draw bubble without costly ctx.shadowBlur rasterization
@@ -474,9 +511,9 @@ export default function OceanBubbles({
           0,
           b.radius
         );
-        grad.addColorStop(0, `rgba(230, 252, 255, ${b.opacity * 0.6})`);
-        grad.addColorStop(0.5, `rgba(0, 210, 255, ${b.opacity * 0.32})`);
-        grad.addColorStop(1, `rgba(0, 150, 255, ${b.opacity * 0.75})`);
+        grad.addColorStop(0, `rgba(230, 252, 255, ${drawOpacity * 0.6})`);
+        grad.addColorStop(0.5, `rgba(0, 210, 255, ${drawOpacity * 0.32})`);
+        grad.addColorStop(1, `rgba(0, 150, 255, ${drawOpacity * 0.75})`);
 
         ctx.beginPath();
         ctx.arc(0, 0, b.radius, 0, Math.PI * 2);
@@ -484,7 +521,7 @@ export default function OceanBubbles({
         ctx.fill();
 
         // Crisp rim stroke
-        ctx.strokeStyle = `rgba(255, 255, 255, ${b.opacity * 0.85})`;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${drawOpacity * 0.85})`;
         ctx.lineWidth = Math.max(0.8, b.radius * 0.08);
         ctx.stroke();
 
