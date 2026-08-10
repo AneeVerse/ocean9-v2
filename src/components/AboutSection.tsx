@@ -12,10 +12,10 @@ export default function AboutSection() {
     <section id="about" className="py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Diver Image (Figma exact 424.2px x 511px) */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-start">
-            <div className="relative rounded-[28px] overflow-hidden shadow-2xl w-full max-w-[424px] h-[380px] sm:h-[450px] lg:h-[511px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
+          {/* Left Column: Diver Image (Matches Right Column Height) */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-start h-full">
+            <div className="relative rounded-[28px] overflow-hidden shadow-2xl w-full max-w-[424px] h-[380px] sm:h-[450px] lg:h-full min-h-[440px]">
               <Image
                 src="/images/home-about-us2.png"
                 alt="Underwater Operations & Marine Engineering"
@@ -72,10 +72,10 @@ export default function AboutSection() {
                 className="relative w-full sm:w-[405px] max-w-[405px] h-[120px] sm:h-[136px] lg:h-[146px] rounded-2xl overflow-hidden group shadow-lg shrink-0 text-left cursor-pointer focus:outline-none"
               >
                 <Image
-                  src="/assets/home-about-us-video-thumbnail.jpg"
+                  src="/images/home-commerical-air-diving-operations.png"
                   alt="About Ocean 9 Video Preview"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                 <div className="absolute inset-0 flex items-center justify-center">

@@ -34,10 +34,10 @@ export default function BlogSection() {
   ];
 
   return (
-    <section id="blog" className="py-12 sm:py-16 lg:py-20 bg-transparent relative text-white">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="blog" className="py-6 sm:py-8 lg:py-10 bg-transparent relative text-white">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 space-y-4">
+        <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 space-y-2">
           {/* Badge: Fixed SVG viewBox to prevent star clipping */}
           <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0">
             <svg
@@ -55,25 +55,25 @@ export default function BlogSection() {
             </span>
           </div>
 
-          <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
+          <h2 className="font-poppins font-normal text-white text-2xl sm:text-3xl lg:text-[38px] leading-tight tracking-normal">
             Latest Insights & Articles
           </h2>
 
-          <p className="font-roboto text-white text-sm sm:text-base leading-relaxed">
+          <p className="font-roboto text-white/90 text-xs sm:text-sm leading-relaxed sm:whitespace-nowrap">
             Stay updated with expert articles on commercial diving, subsea engineering, and offshore marine operations.
           </p>
         </div>
 
         {/* Blog Cards Grid with Ocean Watery Hover Effects */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {posts.map((post, idx) => (
             <article
               key={idx}
-              className="bg-transparent backdrop-blur-md rounded-[22px] border border-white/20 p-3.5 sm:p-4 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-cyan-300/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] hover:bg-cyan-500/5 group flex flex-col justify-between cursor-pointer relative overflow-hidden"
+              className="bg-transparent backdrop-blur-md rounded-[20px] border border-white/20 p-3 sm:p-3.5 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-cyan-300/40 hover:shadow-[0_0_25px_rgba(34,211,238,0.2)] hover:bg-cyan-500/5 group flex flex-col justify-between cursor-pointer relative overflow-hidden"
             >
-              <div className="space-y-4 relative z-10">
+              <div className="space-y-2.5 relative z-10">
                 {/* Image Container with Ocean Wave Shimmer Sweep */}
-                <div className="relative aspect-[16/10] w-full rounded-[16px] overflow-hidden bg-slate-900">
+                <div className="relative aspect-[16/9] w-full rounded-[14px] overflow-hidden bg-slate-900">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -88,47 +88,62 @@ export default function BlogSection() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-300/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
 
                   {/* Category Pill */}
-                  <div className="absolute top-3.5 left-3.5 z-10">
-                    <span className="px-3 py-1 rounded-full bg-[#002365]/90 border border-cyan-400/40 text-cyan-300 text-[11px] font-medium tracking-wide group-hover:bg-cyan-400 group-hover:text-[#00173e] group-hover:border-cyan-400 transition-all duration-300 shadow-md">
+                  <div className="absolute top-2.5 left-2.5 z-10">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#002365]/90 border border-cyan-400/40 text-cyan-300 text-[10.5px] font-medium tracking-wide group-hover:bg-cyan-400 group-hover:text-[#00173e] group-hover:border-cyan-400 transition-all duration-300 shadow-md">
                       {post.category}
                     </span>
                   </div>
                 </div>
 
                 {/* Author & Date Metadata */}
-                <div className="flex items-center gap-5 text-white/90 text-xs font-normal pt-1">
-                  <span className="flex items-center gap-2">
-                    <User className="w-4 h-4 text-cyan-400" />
+                <div className="flex items-center gap-4 text-white/90 text-[11px] sm:text-xs font-normal pt-0.5">
+                  <span className="flex items-center gap-1.5">
+                    <User className="w-3.5 h-3.5 text-cyan-400" />
                     {post.author}
                   </span>
-                  <span className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-cyan-400" />
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                     {post.date}
                   </span>
                 </div>
 
                 {/* Blog Title */}
-                <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#20c9d2] group-hover:text-white transition-colors duration-300 leading-snug">
+                <h3 className="font-poppins font-bold text-base sm:text-lg text-[#20c9d2] group-hover:text-white transition-colors duration-300 leading-snug line-clamp-2">
                   <Link href="#">{post.title}</Link>
                 </h3>
 
                 {/* Excerpt */}
-                <p className="font-roboto text-white/85 text-xs sm:text-sm leading-relaxed">
+                <p className="font-roboto text-white/85 text-xs leading-relaxed line-clamp-2">
                   {post.excerpt}
                 </p>
 
                 {/* Oceanic Action Row */}
-                <div className="pt-3 flex items-center justify-between border-t border-white/10 mt-2">
-                  <span className="text-xs font-medium text-white group-hover:text-cyan-300 transition-colors duration-300">
+                <div className="pt-2 flex items-center justify-between border-t border-white/10 mt-1">
+                  <span className="text-[11px] sm:text-xs font-medium text-white group-hover:text-cyan-300 transition-colors duration-300">
                     Read Article
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-transparent border border-cyan-400/40 flex items-center justify-center text-cyan-300 group-hover:bg-cyan-400 group-hover:text-[#00173e] group-hover:border-cyan-400 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.7)] transition-all duration-300">
-                    <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                  <div className="w-7 h-7 rounded-full bg-transparent border border-cyan-400/40 flex items-center justify-center text-cyan-300 group-hover:bg-cyan-400 group-hover:text-[#00173e] group-hover:border-cyan-400 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.7)] transition-all duration-300">
+                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
                   </div>
                 </div>
               </div>
             </article>
           ))}
+        </div>
+
+        {/* View All Articles CTA Button */}
+        <div className="mt-6 sm:mt-8 flex justify-center">
+          <Link
+            href="#blog"
+            className="inline-flex items-center gap-3.5 bg-white hover:bg-slate-100 text-[#002365] pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
+          >
+            <span className="font-dm-sans font-semibold text-xs sm:text-sm leading-relaxed text-[#002365] whitespace-nowrap">
+              View All Articles
+            </span>
+            <div className="w-[34px] h-[34px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+              <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+            </div>
+          </Link>
         </div>
       </div>
     </section>

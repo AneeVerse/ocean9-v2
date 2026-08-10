@@ -6,6 +6,7 @@
   --font-poppins: var(--font-poppins), system-ui, -apple-system, sans-serif;
   --font-roboto: var(--font-roboto), system-ui, -apple-system, sans-serif;
   --font-oswald: var(--font-oswald), system-ui, -apple-system, sans-serif;
+  --font-cinzel: var(--font-cinzel), Georgia, serif;
   --color-ocean-dark: #002365;
   --color-ocean-card: #001947;
   --color-ocean-card-hover: #002d75;
@@ -16,6 +17,10 @@
 
 .font-oswald {
   font-family: var(--font-oswald), system-ui, -apple-system, sans-serif;
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel), Georgia, serif;
 }
 
 :root {

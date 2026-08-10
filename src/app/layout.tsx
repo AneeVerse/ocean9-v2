@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Poppins, Roboto, Oswald } from "next/font/google";
+import { DM_Sans, Poppins, Roboto, Oswald, Cinzel } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -26,6 +26,12 @@ const oswald = Oswald({
   weight: ["400", "500", "600", "700"],
 });
 
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+});
+
 export const metadata: Metadata = {
   title: "Ocean 9 - Reliable Underwater Diving, Marine & Offshore Services",
   description:
@@ -46,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${poppins.variable} ${roboto.variable} ${oswald.variable} font-sans scroll-smooth`}>
+    <html lang="en" className={`${dmSans.variable} ${poppins.variable} ${roboto.variable} ${oswald.variable} ${cinzel.variable} font-sans scroll-smooth`}>
       <body className="bg-[#030A16] text-white antialiased font-sans overflow-x-hidden selection:bg-cyan-500 selection:text-white">
         {children}
       </body>

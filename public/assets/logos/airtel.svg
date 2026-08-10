@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 50" fill="none">
+  <!-- Airtel Iconic Red Wave Motif -->
+  <g transform="translate(10, 5)">
+    <path d="M20 38 C8 38 0 30 0 19 C0 8 9 0 20 0 C31 0 38 7 38 17 C38 27 30 31 22 31 C17 31 14 28 16 23 C18 18 23 17 26 17 C28 17 29 18 29 19 C29 21 27 23 23 23 C21 23 20 22 20 21 C20 20 21 19 22 19 C23 19 23 19.5 23 20" fill="#E60000"/>
+    <path d="M18 6 C10 6 5 12 5 19 C5 26 11 32 19 32 C26 32 31 28 32 21 C28 25 22 26 18 24 C14 22 13 18 15 13 C17 8 23 6 28 8" fill="#FF1A1A"/>
+  </g>
+  
+  <!-- Text Label -->
+  <text x="56" y="32" fill="#FFFFFF" font-family="'Poppins', sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5">airtel</text>
+</svg>

@@ -466,7 +466,7 @@ const VideoCardItem: React.FC<{
             }}
             className="bg-white hover:bg-slate-100 text-[#002365] px-5 py-2 rounded-full text-xs font-bold transition-colors duration-200 select-none shadow-md cursor-pointer"
           >
-            Read Testimonial
+            Watch Full Video
           </button>
         </div>
       </div>

@@ -110,7 +110,8 @@ function HomeContent() {
           {/* Dark Feather Gradient Blend at Top of Group 3 (Transition from Capabilities) */}
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
           <div className="relative z-30">
-            <ProjectExperience />
+            {/* <ProjectExperience /> */}
+            <ProjectGallerySection />
             <WorkHistory />
             <ReviewsSection />
             <BlogSection />
@@ -128,37 +129,40 @@ function HomeContent() {
             fill
             className="object-cover object-top pointer-events-none opacity-100"
             style={{
-              maskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 100%)",
+              maskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 75%, rgba(0,0,0,0.85) 85%, rgba(0,0,0,0.5) 92%, rgba(0,0,0,0.15) 97%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 2%, rgba(0,0,0,0.5) 5%, rgba(0,0,0,0.85) 10%, black 15%, black 75%, rgba(0,0,0,0.85) 85%, rgba(0,0,0,0.5) 92%, rgba(0,0,0,0.15) 97%, transparent 100%)",
             }}
             priority
           />
           {/* Dark Feather Gradient Blend at Top of Group 4 */}
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
-          {/* Soft Dark Feather Overlay at Bottom of Above Image */}
-          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#001230]/88 via-[#001230]/40 to-transparent pointer-events-none z-5" />
+          {/* Soft Dark Feather Overlay at Bottom of Group 4 */}
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#000b20] via-[#000b20]/60 to-transparent pointer-events-none z-[5]" />
           <div className="relative z-30">
             <HSESection />
-            <ProjectGallerySection />
             <VideoGallerySection />
             <ContactSection />
-            <CareersSection />
+            {/* <CareersSection /> */}
           </div>
         </div>
 
-        {/* Group 5: Continuous Ocean Background for Ready to Dive & Footer */}
-        <div className="relative bg-[#001230] overflow-hidden">
+        {/* Group 5: Continuous Ocean Background for Footer */}
+        <div className="relative bg-[#000b20] overflow-hidden min-h-[520px] sm:min-h-[600px] flex flex-col justify-end">
           <Image
             src="/images/home-bg5.png"
             alt="Ocean Seabed Footer Background"
             fill
-            className="object-cover object-[center_25%] pointer-events-none opacity-100"
+            className="object-cover object-[center_45%] translate-y-4 sm:translate-y-6 scale-105 pointer-events-none opacity-100"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 5%, rgba(0,0,0,0.5) 12%, rgba(0,0,0,0.85) 22%, black 32%, black 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 5%, rgba(0,0,0,0.5) 12%, rgba(0,0,0,0.85) 22%, black 32%, black 100%)",
+            }}
             priority
           />
           {/* Dark Color Gradient Overlay for Footer */}
-          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#001230]/88 via-[#001230]/40 to-transparent pointer-events-none z-5" />
-          <div className="relative z-30">
-            <ReadyToDive />
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#000b20] via-[#000b20]/60 to-transparent pointer-events-none z-[5]" />
+          <div className="relative z-30 w-full">
+            {/* <ReadyToDive /> */}
             <SwimmingFishStrip />
             <Footer />
           </div>

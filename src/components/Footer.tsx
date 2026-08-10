@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Smartphone, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-transparent text-white pt-12 pb-12 relative overflow-hidden">
+    <footer className="bg-transparent text-white pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/15">
           {/* Brand Info & Contact Details */}
@@ -201,9 +201,32 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="pt-8 text-center text-xs sm:text-sm text-white/90 font-medium drop-shadow-sm">
-          © Ocean 9 Offshore Services Pvt. Ltd. All rights reserved.
+        {/* Bottom Copyright & Footer Info Bar */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-white/90 font-medium drop-shadow-sm">
+          {/* Left: Website Copyright */}
+          <div className="text-center md:text-left">
+            © 2026 Ocean 9 Offshore Services Pvt. Ltd. All rights reserved.
+          </div>
+
+          {/* Middle: Terms & Privacy */}
+          <div className="flex items-center gap-6">
+            <Link href="#" className="hover:text-cyan-300 transition-colors">
+              Terms
+            </Link>
+            <Link href="#" className="hover:text-cyan-300 transition-colors">
+              Privacy
+            </Link>
+          </div>
+
+          {/* Right: Aneeverse Branding & Logo */}
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span>Designed & Managed by Aneeverse</span>
+            <img
+              src="/assets/aneeverse-logo.png"
+              alt="Aneeverse Logo"
+              className="w-5 h-5 sm:w-6 sm:h-6 object-contain shrink-0"
+            />
+          </div>
         </div>
       </div>
     </footer>
