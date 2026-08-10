@@ -85,10 +85,10 @@ export default function ProjectGallerySection() {
   return (
     <section id="project-gallery" className="py-12 sm:py-16 lg:py-20 bg-transparent text-white relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Layout */}
-        <div className="flex flex-col lg:flex-row justify-between mb-10 sm:mb-12 gap-6 lg:gap-8 items-stretch">
-          {/* Left Side: Badge (Top) + Filter Tabs (Bottom) */}
-          <div className="flex flex-col justify-between space-y-6 lg:space-y-0">
+        {/* Header Layout (Matches Video Gallery layout) */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6 lg:gap-8">
+          {/* Left Column: Badge + Title + Subtitle + Filters */}
+          <div className="space-y-3 max-w-3xl">
             {/* Tag / Badge */}
             <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
               <svg
@@ -106,8 +106,18 @@ export default function ProjectGallerySection() {
               </span>
             </div>
 
+            {/* Main Heading - Single Line */}
+            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-normal whitespace-nowrap">
+              See Our Team at Work
+            </h2>
+
+            {/* Subtitle Text on Left */}
+            <p className="font-roboto font-normal text-white/95 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-xl">
+              Explore projects from our diving, salvage, inspection, repair and marine operations.
+            </p>
+
             {/* Category Pill Filters */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -124,32 +134,19 @@ export default function ProjectGallerySection() {
             </div>
           </div>
 
-          {/* Right Side: Title (Single Line), Subtitle (Single Line), CTA (Right-End Aligned) */}
-          <div className="flex flex-col items-start lg:items-end text-left lg:text-right space-y-2.5 shrink-0 justify-between">
-            {/* Main Heading - Single Line */}
-            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-normal whitespace-nowrap">
-              See Our Team at Work
-            </h2>
-
-            {/* Subtitle - Hidden for now */}
-            {/* <p className="font-roboto text-white text-xs sm:text-sm lg:text-base leading-relaxed whitespace-nowrap">
-              Explore photos from our diving, salvage, inspection, repair and marine operations.
-            </p> */}
-
-            {/* CTA Button */}
-            <div className="pt-1">
-              <Link
-                href="/gallery"
-                className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
-              >
-                <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
-                  View Project Gallery
-                </span>
-                <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
-                  <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
-                </div>
-              </Link>
-            </div>
+          {/* Right Side: CTA Button */}
+          <div className="shrink-0 pb-1">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
+            >
+              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
+                View Project Gallery
+              </span>
+              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
+              </div>
+            </Link>
           </div>
         </div>
 

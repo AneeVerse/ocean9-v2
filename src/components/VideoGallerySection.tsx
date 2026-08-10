@@ -67,9 +67,9 @@ export default function VideoGallerySection() {
   return (
     <section id="video-gallery" className="py-12 sm:py-16 lg:py-20 bg-transparent text-white relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Layout (Exact ProjectExperience Consistency) */}
+        {/* Header Layout */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6">
-          <div className="space-y-4 max-w-2xl">
+          <div className="space-y-3 max-w-3xl">
             {/* Tag / Badge */}
             <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
               <svg
@@ -87,17 +87,18 @@ export default function VideoGallerySection() {
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
-              Watch Our <br className="hidden sm:inline" />
-              Operations
+            {/* Main Heading - Single Line */}
+            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-normal whitespace-nowrap">
+              Watch Our Operations
             </h2>
-          </div>
 
-          <div className="max-w-md space-y-4 shrink-0">
-            <p className="font-roboto text-white text-sm sm:text-base font-normal leading-relaxed">
+            {/* Subtitle - Below Title */}
+            <p className="font-roboto text-white/95 text-sm sm:text-base font-normal leading-relaxed max-w-xl">
               See Ocean 9 teams working on underwater, onshore and offshore projects.
             </p>
+          </div>
+
+          <div className="shrink-0 pb-1">
             <Link
               href="/videos"
               className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"

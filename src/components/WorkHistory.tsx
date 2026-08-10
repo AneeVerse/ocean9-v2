@@ -31,9 +31,6 @@ export default function WorkHistory() {
     },
   ];
 
-  const row1 = clientsList.slice(0, 3);
-  const row2 = clientsList.slice(3, 5);
-
   return (
     <section className="py-12 sm:py-16 bg-transparent relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -50,18 +47,19 @@ export default function WorkHistory() {
               </p>
             </div>
 
-            {/* Right Compact 3-col & 2-col Logo Rows */}
-            <div className="lg:col-span-6 flex flex-col items-center lg:items-end justify-center gap-4 sm:gap-5 lg:gap-6">
-              {/* Row 1: 3 Logos */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-end gap-5 sm:gap-7 lg:gap-8">
-                {row1.map((client, idx) => (
+            {/* Right Side: Infinite Marquee Carousel with 3 Logos visible in view */}
+            <div
+              className="lg:col-span-6 w-full overflow-hidden relative py-2"
+              style={{
+                maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+              }}
+            >
+              <div className="flex items-center gap-8 sm:gap-12 animate-marquee">
+                {[...clientsList, ...clientsList].map((client, idx) => (
                   <div
                     key={idx}
-                    className={`group flex ${
-                      client.showText
-                        ? "flex-col items-center justify-center gap-1.5"
-                        : "items-center justify-center"
-                    } px-1 transition-all duration-300 transform hover:scale-105 cursor-pointer`}
+                    className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
                   >
                     <img
                       src={client.src}
@@ -69,32 +67,7 @@ export default function WorkHistory() {
                       className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
                     />
                     {client.showText && (
-                      <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-0.5">
-                        {client.text}
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Row 2: 2 Logos */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-end gap-6 sm:gap-8 lg:gap-10">
-                {row2.map((client, idx) => (
-                  <div
-                    key={idx}
-                    className={`group flex ${
-                      client.showText
-                        ? "flex-col items-center justify-center gap-1.5"
-                        : "items-center justify-center"
-                    } px-1 transition-all duration-300 transform hover:scale-105 cursor-pointer`}
-                  >
-                    <img
-                      src={client.src}
-                      alt={client.name}
-                      className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
-                    />
-                    {client.showText && (
-                      <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-0.5">
+                      <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-1">
                         {client.text}
                       </span>
                     )}
