@@ -332,47 +332,34 @@ export default function OceanBubbles({
         topCutoff = Math.max(0, heroHeight - scrollY);
       }
 
-      // Track real-time bounding rectangles of swimming fish elements (Throttled every 12 frames to prevent layout thrashing)
-      if (time % 12 === 0 || !cachedF1Box) {
-        const containerRect = container.getBoundingClientRect();
-        const fish1Elem = document.getElementById("swimming-fish-1");
-        const fish2Elem = document.getElementById("swimming-fish-2");
+      // Track real-time bounding rectangles of swimming fish elements on every frame
+      const containerRect = container.getBoundingClientRect();
+      const fish1Elem = document.getElementById("swimming-fish-1");
+      const fish2Elem = document.getElementById("swimming-fish-2");
 
-        if (fish1Elem) {
-          const r = fish1Elem.getBoundingClientRect();
-          const w = r.width;
-          const h = r.height;
-          const insetX = w * 0.12;
-          const insetY = h * 0.14;
-          cachedF1Box = {
-            left: r.left + insetX - containerRect.left,
-            right: r.right - insetX - containerRect.left,
-            top: r.top + insetY - containerRect.top,
-            bottom: r.bottom - insetY - containerRect.top,
-          };
-        } else {
-          cachedF1Box = null;
-        }
+      const f1Box = fish1Elem
+        ? (() => {
+            const r = fish1Elem.getBoundingClientRect();
+            return {
+              left: r.left - containerRect.left,
+              top: r.top - containerRect.top,
+              w: r.width,
+              h: r.height,
+            };
+          })()
+        : null;
 
-        if (fish2Elem) {
-          const r = fish2Elem.getBoundingClientRect();
-          const w = r.width;
-          const h = r.height;
-          const insetX = w * 0.12;
-          const insetY = h * 0.14;
-          cachedF2Box = {
-            left: r.left + insetX - containerRect.left,
-            right: r.right - insetX - containerRect.left,
-            top: r.top + insetY - containerRect.top,
-            bottom: r.bottom - insetY - containerRect.top,
-          };
-        } else {
-          cachedF2Box = null;
-        }
-      }
-
-      const f1Box = cachedF1Box;
-      const f2Box = cachedF2Box;
+      const f2Box = fish2Elem
+        ? (() => {
+            const r = fish2Elem.getBoundingClientRect();
+            return {
+              left: r.left - containerRect.left,
+              top: r.top - containerRect.top,
+              w: r.width,
+              h: r.height,
+            };
+          })()
+        : null;
 
       // Calculate current visible viewport bounds relative to container for viewport culling
       const currentScrollY = window.scrollY;
@@ -383,6 +370,35 @@ export default function OceanBubbles({
       // Smooth mouse interpolation
       mouse.x += (mouse.targetX - mouse.x) * 0.12;
       mouse.y += (mouse.targetY - mouse.y) * 0.12;
+
+      // Profile functions to define exact fish body contours (Mouth, Snout, Head, Body, Fins, Tail)
+      const getFish1YBounds = (normX: number) => {
+        // Fish 1 (swimming right): Mouth at right tip (normX ~0.80 to 0.935), Tail at left (normX ~0.05 to 0.25)
+        if (normX < 0.05 || normX > 0.935) return null;
+        if (normX >= 0.80) {
+          const t = (normX - 0.80) / (0.935 - 0.80);
+          return { minY: 0.30 + t * 0.15, maxY: 0.70 - t * 0.12 };
+        } else if (normX >= 0.25) {
+          return { minY: 0.22, maxY: 0.78 };
+        } else {
+          const t = (0.25 - normX) / (0.25 - 0.05);
+          return { minY: 0.27 + t * 0.08, maxY: 0.73 - t * 0.11 };
+        }
+      };
+
+      const getFish2YBounds = (normX: number) => {
+        // Fish 2 (swimming left): Mouth at left tip (normX ~0.065 to 0.20), Tail at right (normX ~0.75 to 0.95)
+        if (normX < 0.065 || normX > 0.95) return null;
+        if (normX <= 0.20) {
+          const t = (0.20 - normX) / (0.20 - 0.065);
+          return { minY: 0.30 + t * 0.15, maxY: 0.70 - t * 0.12 };
+        } else if (normX <= 0.75) {
+          return { minY: 0.22, maxY: 0.78 };
+        } else {
+          const t = (normX - 0.75) / (0.95 - 0.75);
+          return { minY: 0.27 + t * 0.08, maxY: 0.73 - t * 0.11 };
+        }
+      };
 
       // 1. Render and update active bubbles
       for (let i = 0; i < bubbles.length; i++) {
@@ -395,53 +411,31 @@ export default function OceanBubbles({
         const wobble = Math.sin(time * b.wobbleSpeed + b.wobblePhase) * b.wobbleAmp;
         let currentX = b.baseX + wobble;
 
-        // Check Fish 1 collision (Smooth elliptical fish surface contact)
-        if (f1Box && f1Box.right > f1Box.left && f1Box.bottom > f1Box.top) {
-          const cx = (f1Box.left + f1Box.right) / 2;
-          const cy = (f1Box.top + f1Box.bottom) / 2;
-          const rx = (f1Box.right - f1Box.left) / 2;
-          const ry = (f1Box.bottom - f1Box.top) / 2;
-
-          // Normalized elliptical distance from bubble center to fish center
-          const normDist = Math.hypot((currentX - cx) / rx, (b.y - cy) / ry);
-
-          // Burst when bubble edge touches smooth elliptical fish outline
-          if (normDist <= 1.0 + (b.radius / ry) * 0.5) {
-            // Main body bubbles burst on fish surface; background bubbles pass behind
-            if (b.layer > 0 && Math.random() < 0.75) {
+        // Check Fish 1 collision (Swimming Right - Mouth at right tip)
+        if (f1Box && f1Box.w > 0 && f1Box.h > 0) {
+          const normX = (currentX - f1Box.left) / f1Box.w;
+          const bounds = getFish1YBounds(normX);
+          if (bounds) {
+            const minYPx = f1Box.top + bounds.minY * f1Box.h;
+            const maxYPx = f1Box.top + bounds.maxY * f1Box.h;
+            if (b.y + b.radius >= minYPx && b.y - b.radius <= maxYPx) {
               triggerBurst(currentX, b.y, b.radius, b.opacity);
-              const newB = createBubble(false);
-              // 40% chance spawn recycled bubble above fish to keep continuous upward bubble flow
-              if (Math.random() < 0.4) {
-                newB.y = Math.max(10, f1Box.top - 15 - Math.random() * 30);
-              }
-              bubbles[i] = newB;
+              bubbles[i] = createBubble(false);
               continue;
             }
           }
         }
 
-        // Check Fish 2 collision (Smooth elliptical fish surface contact)
-        if (f2Box && f2Box.right > f2Box.left && f2Box.bottom > f2Box.top) {
-          const cx = (f2Box.left + f2Box.right) / 2;
-          const cy = (f2Box.top + f2Box.bottom) / 2;
-          const rx = (f2Box.right - f2Box.left) / 2;
-          const ry = (f2Box.bottom - f2Box.top) / 2;
-
-          // Normalized elliptical distance from bubble center to fish center
-          const normDist = Math.hypot((currentX - cx) / rx, (b.y - cy) / ry);
-
-          // Burst when bubble edge touches smooth elliptical fish outline
-          if (normDist <= 1.0 + (b.radius / ry) * 0.5) {
-            // Main body bubbles burst on fish surface; background bubbles pass behind
-            if (b.layer > 0 && Math.random() < 0.75) {
+        // Check Fish 2 collision (Swimming Left - Mouth at left tip)
+        if (f2Box && f2Box.w > 0 && f2Box.h > 0) {
+          const normX = (currentX - f2Box.left) / f2Box.w;
+          const bounds = getFish2YBounds(normX);
+          if (bounds) {
+            const minYPx = f2Box.top + bounds.minY * f2Box.h;
+            const maxYPx = f2Box.top + bounds.maxY * f2Box.h;
+            if (b.y + b.radius >= minYPx && b.y - b.radius <= maxYPx) {
               triggerBurst(currentX, b.y, b.radius, b.opacity);
-              const newB = createBubble(false);
-              // 40% chance spawn recycled bubble above fish to keep continuous upward bubble flow
-              if (Math.random() < 0.4) {
-                newB.y = Math.max(10, f2Box.top - 15 - Math.random() * 30);
-              }
-              bubbles[i] = newB;
+              bubbles[i] = createBubble(false);
               continue;
             }
           }

@@ -55,24 +55,48 @@ export default function WorkHistory() {
                 WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
               }}
             >
-              <div className="flex items-center gap-8 sm:gap-12 animate-marquee">
-                {[...clientsList, ...clientsList].map((client, idx) => (
-                  <div
-                    key={idx}
-                    className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
-                  >
-                    <img
-                      src={client.src}
-                      alt={client.name}
-                      className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
-                    />
-                    {client.showText && (
-                      <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-1">
-                        {client.text}
-                      </span>
-                    )}
-                  </div>
-                ))}
+              <div className="flex items-center animate-marquee shrink-0">
+                {/* Track Set 1 */}
+                <div className="flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12">
+                  {clientsList.map((client, idx) => (
+                    <div
+                      key={`set1-${idx}`}
+                      className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    >
+                      <img
+                        src={client.src}
+                        alt={client.name}
+                        className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
+                      />
+                      {client.showText && (
+                        <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-1">
+                          {client.text}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Track Set 2 (Identical Duplicate for Seamless 60fps Loop) */}
+                <div className="flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12" aria-hidden="true">
+                  {clientsList.map((client, idx) => (
+                    <div
+                      key={`set2-${idx}`}
+                      className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    >
+                      <img
+                        src={client.src}
+                        alt={client.name}
+                        className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
+                      />
+                      {client.showText && (
+                        <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-1">
+                          {client.text}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

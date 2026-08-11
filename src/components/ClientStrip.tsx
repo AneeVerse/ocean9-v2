@@ -50,16 +50,19 @@ export default function ClientStrip() {
         >
           <path
             d="M0 0 Q 720 76 1440 0 L 1440 101 L 0 101 Z"
-            fill="#e0f2fe"
+            fill="#ffffff"
           />
         </svg>
       </div>
 
-      {/* Main Blue Banner with Auto Infinite Marquee Scrolling */}
-      <section className="bg-[#e0f2fe] py-0.5 sm:py-1 overflow-hidden relative isolate transform-gpu">
+      {/* Main White Banner with Auto Infinite Marquee Scrolling */}
+      <section className="bg-white py-0.5 sm:py-1 overflow-hidden relative isolate transform-gpu">
         <div className="w-full flex overflow-hidden isolate">
-          {/* Unified 60fps Marquee Wrapper */}
-          <div className="animate-marquee flex items-center shrink-0 [will-change:transform] [transform:translateZ(0)]">
+          {/* Unified 60fps Marquee Wrapper with Optimal 30s Speed */}
+          <div
+            className="animate-marquee flex items-center shrink-0 [will-change:transform] [transform:translateZ(0)] hover:[animation-play-state:paused]"
+            style={{ animationDuration: "30s" }}
+          >
             {/* Track Set 1 */}
             <div className="flex items-center shrink-0">
               {trackClients.map((client, index) => (
@@ -110,7 +113,7 @@ export default function ClientStrip() {
         >
           <path
             d="M0 0 L 1440 0 L 1440 101 Q 720 25 0 101 Z"
-            fill="#e0f2fe"
+            fill="#ffffff"
           />
         </svg>
       </div>
