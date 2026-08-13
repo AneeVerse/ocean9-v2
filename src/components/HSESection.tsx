@@ -49,46 +49,46 @@ export default function HSESection() {
   ];
 
   return (
-    <section id="hse" className="py-8 sm:py-10 lg:py-12 bg-transparent relative overflow-hidden text-white flex items-center min-h-[calc(100vh-80px)] max-h-[840px]">
+    <section id="hse" className="py-16 sm:py-20 lg:py-24 bg-white relative z-40 overflow-hidden text-slate-900">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-30 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-stretch">
-          {/* Left Column: Content (Strict 1-Fold Fit & Equal Height Alignment) */}
-          <div className="lg:col-span-7 flex flex-col justify-between h-full py-0.5 space-y-4 lg:space-y-5">
-            <div className="space-y-3.5 lg:space-y-4">
-              {/* Tag / Badge: Brand Transparent Glass Badge matching all other section badges */}
-              <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] shrink-0 backdrop-blur-md w-fit">
-                <ShieldCheck className="w-4.5 h-4.5 text-cyan-400 shrink-0" />
-                <span className="font-roboto font-normal text-white text-[14px] tracking-normal">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          {/* Left Column: Content */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              {/* Tag / Badge */}
+              <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#001742] text-white shrink-0 w-fit shadow-xs">
+                <ShieldCheck className="w-4.5 h-4.5 text-cyan-400 shrink-0 stroke-[2.5]" />
+                <span className="font-roboto font-semibold text-white text-[14px] tracking-normal">
                   Health, Safety and Environment
                 </span>
               </div>
 
-              {/* Subhead Kicker below Section Badge */}
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
-                <span className="font-dm-sans font-bold text-xs uppercase tracking-widest text-cyan-400">
-                  Safety Comes First
+              {/* Subhead Kicker */}
+              <div className="flex items-center gap-2 pt-1">
+                <span className="w-2 h-2 rounded-full bg-[#1e66f5]"></span>
+                <span className="font-dm-sans font-bold text-xs uppercase tracking-widest text-[#1e66f5]">
+                  SAFETY COMES FIRST
                 </span>
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-poppins font-bold text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] text-white leading-[1.15] tracking-tight">
+              <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#001742] leading-[1.15] tracking-tight">
                 Safe Work.<br />
-                Responsible Operations<span className="text-cyan-400">.</span>
+                Responsible Operations<span className="text-cyan-500">.</span>
               </h2>
 
-              {/* Highlight Quote Box - Transparent Glass matching Work History */}
-              <div className="flex items-start gap-3.5 bg-transparent backdrop-blur-md border border-white/20 border-l-[4px] border-l-cyan-400 rounded-r-xl rounded-l-xs p-3.5 sm:p-4 shadow-xl hover:bg-white/5 transition-all duration-300">
-                <span className="font-serif font-black text-2xl sm:text-3xl text-cyan-400 leading-none select-none shrink-0 mt-0.5">
+              {/* Quote Box - Light Sky Blue container */}
+              <div className="flex items-center gap-3.5 bg-[#f0f7ff] border border-[#dbeafe] border-l-[4px] border-l-[#1e66f5] rounded-r-2xl rounded-l-xs p-4 sm:p-4.5 shadow-xs">
+                <span className="font-serif font-black text-2xl sm:text-3xl text-[#1e66f5] leading-none select-none shrink-0">
                   “
                 </span>
-                <p className="font-poppins font-medium text-cyan-100 text-xs sm:text-sm leading-relaxed italic">
+                <p className="font-poppins font-semibold text-[#001742] text-xs sm:text-sm leading-relaxed">
                   &ldquo;No job is more important than the safety of our team, clients and the environment.&rdquo;
                 </p>
               </div>
 
-              {/* Detailed Content Paragraphs - Pure White High Contrast Readable Text */}
-              <div className="space-y-2 font-roboto text-white text-xs sm:text-[13.5px] font-normal leading-relaxed">
+              {/* Detailed Content Paragraphs */}
+              <div className="space-y-2 font-roboto text-slate-500 text-sm sm:text-base leading-relaxed pt-1">
                 <p>
                   We plan every operation carefully, identify risks and follow safe working methods throughout the project.
                 </p>
@@ -97,22 +97,19 @@ export default function HSESection() {
                 </p>
               </div>
 
-              {/* 4 Feature Badges Grid (2x2) - Modern Watery Glass Tiles */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              {/* 4 Light Blue Feature Cards Grid (2x2) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                 {features.map((feat, idx) => {
                   const FeatIcon = feat.icon;
                   return (
                     <div
                       key={idx}
-                      className="group relative overflow-hidden bg-transparent backdrop-blur-md border border-white/15 hover:border-cyan-300/30 rounded-xl p-3 flex items-center gap-3.5 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:bg-cyan-500/5 transition-all duration-500 cursor-pointer"
+                      className="group relative overflow-hidden bg-[#f4f8fe] hover:bg-[#ebf3fe] border border-[#dbeafe] rounded-2xl p-3.5 flex items-center gap-3.5 shadow-xs transition-all duration-300"
                     >
-                      {/* Watery Shimmer Ambient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/10 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                      <div className="w-9 h-9 rounded-xl bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 group-hover:bg-cyan-400 group-hover:text-[#00173e] group-hover:shadow-[0_0_12px_rgba(34,211,238,0.6)] flex items-center justify-center shrink-0 shadow-xs transition-all duration-300 group-hover:scale-105 relative z-10">
-                        <FeatIcon className="w-4.5 h-4.5" />
+                      <div className="w-10 h-10 rounded-full bg-[#dbeafe] text-[#001742] group-hover:bg-[#001742] group-hover:text-white flex items-center justify-center shrink-0 transition-all duration-300">
+                        <FeatIcon className="w-4.5 h-4.5 stroke-[2]" />
                       </div>
-                      <span className="font-poppins font-semibold text-xs sm:text-[13px] text-white group-hover:text-cyan-300 transition-colors leading-snug whitespace-pre-line relative z-10">
+                      <span className="font-poppins font-bold text-xs sm:text-[13.5px] text-[#001742] leading-snug whitespace-pre-line">
                         {feat.title}
                       </span>
                     </div>
@@ -121,50 +118,50 @@ export default function HSESection() {
               </div>
             </div>
 
-            {/* CTA Button - High contrast brand-consistent white pill button */}
-            <div className="mt-auto min-h-[58px] flex items-center pt-2">
+            {/* CTA Button */}
+            <div className="pt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
+                className="inline-flex items-center gap-3 bg-[#001742] hover:bg-[#001e54] text-white pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg group cursor-pointer transform hover:scale-[1.02]"
               >
-                <span className="font-dm-sans font-semibold text-[14px] leading-[22px] tracking-normal text-[#002365] whitespace-nowrap">
+                <span className="font-dm-sans font-semibold text-sm leading-none text-white whitespace-nowrap">
                   View Our HSE Policy
                 </span>
-                <div className="w-[36px] h-[36px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+                <div className="w-8 h-8 rounded-full bg-white text-[#001742] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-xs">
                   <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                 </div>
               </Link>
             </div>
           </div>
 
-          {/* Right Column: Equalized Height Transparent Glass Container */}
+          {/* Right Column: Clean White Container with Soft Blue Border */}
           <div className="lg:col-span-5 h-full">
-            <div className="bg-transparent backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full shadow-2xl relative overflow-hidden">
+            <div className="bg-white border border-[#bae6fd] rounded-[28px] p-6 sm:p-8 flex flex-col justify-between h-full shadow-xl shadow-blue-500/5 relative overflow-hidden">
               {/* Card Header & Accent Bar */}
-              <div className="pb-2">
-                <h3 className="font-poppins font-bold text-xl sm:text-2xl lg:text-[25px] text-white tracking-tight">
+              <div className="pb-4">
+                <h3 className="font-poppins font-bold text-2xl sm:text-[26px] text-[#001742] tracking-tight">
                   Our Core HSE Pillars
                 </h3>
-                <div className="w-12 h-[3px] bg-cyan-400 mt-2.5 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                <div className="w-10 h-[3px] bg-[#001742] mt-2.5 rounded-full" />
               </div>
 
-              {/* 3 Pillar Rows (Clean Informational List) */}
-              <div className="space-y-3 sm:space-y-3.5 mt-2 sm:mt-3">
+              {/* 3 White Pillar Cards */}
+              <div className="space-y-4 my-2">
                 {pillars.map((pillar, idx) => {
                   const Icon = pillar.icon;
                   return (
                     <div
                       key={idx}
-                      className="flex items-start gap-4 p-2 sm:p-2.5 rounded-xl"
+                      className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-[#dbeafe] hover:border-[#bae6fd] shadow-xs hover:shadow-md transition-all duration-300"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-md">
-                        <Icon className="w-5 h-5" />
+                      <div className="w-12 h-12 rounded-2xl bg-[#e0f2fe] text-[#001742] flex items-center justify-center shrink-0 shadow-xs">
+                        <Icon className="w-6 h-6 stroke-[2]" />
                       </div>
                       <div className="space-y-1 flex-1">
-                        <h4 className="font-poppins font-bold text-sm sm:text-[15px] text-white leading-snug">
+                        <h4 className="font-poppins font-bold text-base sm:text-[17px] text-[#001742] leading-snug">
                           {pillar.title}
                         </h4>
-                        <p className="font-roboto text-white/85 text-xs sm:text-[12.5px] leading-relaxed">
+                        <p className="font-roboto text-slate-500 text-xs sm:text-sm leading-relaxed">
                           {pillar.desc}
                         </p>
                       </div>
@@ -173,16 +170,16 @@ export default function HSESection() {
                 })}
               </div>
 
-              {/* Bottom Shield Footer Row */}
-              <div className="pt-3 flex items-center gap-3.5 mt-2 sm:mt-3">
-                <div className="w-10 h-10 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-inner">
+              {/* Bottom Solid Dark Navy Pillar Banner */}
+              <div className="mt-4 p-4.5 sm:p-5 rounded-2xl bg-[#001742] flex items-center gap-4 text-white shadow-md">
+                <div className="w-11 h-11 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5 stroke-[2.2]" />
                 </div>
                 <div className="space-y-0.5">
-                  <p className="font-dm-sans font-bold text-xs tracking-wider text-cyan-400 uppercase">
+                  <p className="font-dm-sans font-bold text-xs tracking-wider text-cyan-300 uppercase">
                     SAFETY • HEALTH • ENVIRONMENT
                   </p>
-                  <p className="font-roboto text-[11px] sm:text-xs text-white/90 leading-snug">
+                  <p className="font-roboto text-xs sm:text-[13px] text-white font-medium leading-snug">
                     Integrity & Protection in Every Subsea Operation
                   </p>
                 </div>

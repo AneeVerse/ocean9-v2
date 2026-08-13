@@ -45,30 +45,30 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-6 sm:py-8 lg:py-10 bg-transparent relative text-white">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white relative z-40 text-slate-900">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-          {/* Left Column: Form Container (Ocean Transparent Glass Card) */}
-          <div className="lg:col-span-6 bg-transparent backdrop-blur-md border border-white/20 rounded-[24px] lg:rounded-[28px] p-6 sm:p-7 lg:p-8 text-white shadow-2xl flex flex-col justify-between">
-            <div className="space-y-2 mb-4 sm:mb-5">
-              <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[40px] leading-tight tracking-normal">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+          {/* Left Column: Form Container (Light Ice-Blue Card) */}
+          <div className="lg:col-span-6 bg-[#eaf4ff] border border-[#dbeafe] rounded-[28px] lg:rounded-[32px] p-7 sm:p-9 lg:p-11 text-[#001742] shadow-xs flex flex-col justify-between">
+            <div className="space-y-2 mb-6 sm:mb-8">
+              <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[44px] leading-tight tracking-tight">
                 Get in Touch
               </h2>
-              <p className="font-roboto text-white/95 text-xs sm:text-sm lg:text-[15px] leading-relaxed">
-                Have questions about our subsea services or commercial diving operations? Send us a message—we&apos;ll get back to you soon.
+              <p className="font-roboto text-slate-500 text-sm sm:text-base leading-relaxed">
+                Have questions about our courses or dives? Send us a message—we&apos;ll get back to you soon.
               </p>
             </div>
 
             {submitted ? (
-              <div className="bg-emerald-100 border border-emerald-300 text-emerald-900 p-6 rounded-[16px] text-center space-y-2 my-auto shadow-sm">
+              <div className="bg-emerald-500/15 border border-emerald-500/30 text-emerald-800 p-6 rounded-2xl text-center space-y-2 my-auto shadow-xs">
                 <h3 className="font-poppins font-bold text-lg">Thank You!</h3>
                 <p className="font-roboto text-sm">Your message has been sent successfully. Our team will contact you shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3.5">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="font-roboto font-semibold text-cyan-300 text-xs sm:text-sm block">
+                    <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
                       Name
                     </label>
                     <input
@@ -77,12 +77,12 @@ export default function ContactSection() {
                       placeholder="Your full name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 sm:py-3 bg-transparent border border-white/20 rounded-[12px] text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all placeholder:text-slate-400 backdrop-blur-md shadow-inner"
+                      className="w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-[#001742] text-sm focus:outline-none focus:border-[#1e66f5] focus:ring-2 focus:ring-[#1e66f5]/20 transition-all placeholder:text-slate-400 shadow-xs"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="font-roboto font-semibold text-cyan-300 text-xs sm:text-sm block">
+                    <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
                       Email
                     </label>
                     <input
@@ -91,39 +91,39 @@ export default function ContactSection() {
                       placeholder="Your email address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3.5 py-2.5 sm:py-3 bg-transparent border border-white/20 rounded-[12px] text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all placeholder:text-slate-400 backdrop-blur-md shadow-inner"
+                      className="w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-[#001742] text-sm focus:outline-none focus:border-[#1e66f5] focus:ring-2 focus:ring-[#1e66f5]/20 transition-all placeholder:text-slate-400 shadow-xs"
                     />
                   </div>
                 </div>
 
-                {/* Custom Transparent Glass Dropdown */}
+                {/* Custom Dropdown */}
                 <div className="space-y-1.5 relative">
-                  <label className="font-roboto font-semibold text-cyan-300 text-xs sm:text-sm block">
+                  <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
                     Subject
                   </label>
                   <div ref={dropdownRef} className="relative">
                     <button
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`w-full px-3.5 py-2.5 sm:py-3 bg-transparent border rounded-[12px] text-xs sm:text-sm text-left flex items-center justify-between backdrop-blur-md shadow-inner transition-all cursor-pointer ${
+                      className={`w-full px-4 py-3 bg-white border rounded-xl text-sm text-left flex items-center justify-between shadow-xs transition-all cursor-pointer ${
                         isDropdownOpen
-                          ? "border-cyan-400 ring-1 ring-cyan-400/50 text-white"
-                          : "border-white/20 text-white hover:border-white/40"
+                          ? "border-[#1e66f5] ring-2 ring-[#1e66f5]/20 text-[#001742]"
+                          : "border-[#e2e8f0] text-[#001742] hover:border-slate-300"
                       }`}
                     >
-                      <span className={formData.subject ? "text-white" : "text-slate-400"}>
+                      <span className={formData.subject ? "text-[#001742]" : "text-slate-400"}>
                         {formData.subject || "Select a subject"}
                       </span>
                       <ChevronDown
-                        className={`w-4 h-4 stroke-[2.5] text-cyan-300 transition-transform duration-200 ${
-                          isDropdownOpen ? "rotate-180 text-cyan-400" : ""
+                        className={`w-4 h-4 stroke-[2.5] text-[#001742] transition-transform duration-200 ${
+                          isDropdownOpen ? "rotate-180 text-[#1e66f5]" : ""
                         }`}
                       />
                     </button>
 
-                    {/* Glassmorphism Dropdown Menu Popover */}
+                    {/* Dropdown Menu Popover */}
                     {isDropdownOpen && (
-                      <div className="absolute top-full left-0 right-0 mt-2 bg-[#001438]/85 backdrop-blur-xl border border-white/20 rounded-[14px] shadow-[0_12px_35px_rgba(0,0,0,0.7)] z-50 overflow-hidden py-1.5">
+                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#e2e8f0] rounded-xl shadow-xl z-50 overflow-hidden py-1.5">
                         {subjects.map((sub) => (
                           <div
                             key={sub}
@@ -131,15 +131,15 @@ export default function ContactSection() {
                               setFormData({ ...formData, subject: sub });
                               setIsDropdownOpen(false);
                             }}
-                            className={`px-4 py-2.5 text-xs sm:text-sm font-medium transition-colors cursor-pointer flex items-center justify-between ${
+                            className={`px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer flex items-center justify-between ${
                               formData.subject === sub
-                                ? "bg-cyan-500/20 text-cyan-300 font-bold"
-                                : "text-white/90 hover:bg-cyan-500/15 hover:text-cyan-300"
+                                ? "bg-[#eaf4ff] text-[#1e66f5] font-bold"
+                                : "text-[#001742] hover:bg-slate-50"
                             }`}
                           >
                             <span>{sub}</span>
                             {formData.subject === sub && (
-                              <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                              <span className="w-2 h-2 rounded-full bg-[#1e66f5]" />
                             )}
                           </div>
                         ))}
@@ -149,23 +149,23 @@ export default function ContactSection() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-roboto font-semibold text-cyan-300 text-xs sm:text-sm block">
+                  <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
                     Message
                   </label>
                   <textarea
-                    rows={3}
+                    rows={4}
                     required
                     placeholder="Type your message here..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-3.5 py-2.5 sm:py-3 bg-transparent border border-white/20 rounded-[12px] text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/50 transition-all placeholder:text-slate-400 resize-none backdrop-blur-md shadow-inner"
+                    className="w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-[#001742] text-sm focus:outline-none focus:border-[#1e66f5] focus:ring-2 focus:ring-[#1e66f5]/20 transition-all placeholder:text-slate-400 resize-none shadow-xs min-h-[110px]"
                   />
                 </div>
 
-                <div className="pt-1">
+                <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-white hover:bg-slate-100 text-[#002365] font-dm-sans font-semibold text-xs sm:text-sm px-7 py-2.5 sm:py-3 rounded-[12px] transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] hover:scale-[1.02] cursor-pointer"
+                    className="bg-[#001742] hover:bg-[#001e54] text-white font-dm-sans font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] cursor-pointer"
                   >
                     Send Message
                   </button>
@@ -175,7 +175,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right Column: Diver Image Panel with Overlay Quote */}
-          <div className="lg:col-span-6 relative rounded-[24px] lg:rounded-[28px] overflow-hidden shadow-2xl min-h-[380px] lg:h-full w-full bg-slate-900">
+          <div className="lg:col-span-6 relative rounded-[28px] lg:rounded-[32px] overflow-hidden shadow-2xl min-h-[460px] lg:h-full w-full bg-slate-900 flex flex-col justify-end">
             <Image
               src="/assets/home-get-in-touch.png"
               alt="Get in Touch Diving Operations"
@@ -183,14 +183,14 @@ export default function ContactSection() {
               className="object-cover object-[center_18%]"
             />
             {/* Bottom Glassmorphism Overlay Card */}
-            <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 bg-white/5 backdrop-blur-sm backdrop-saturate-150 px-4 py-3.5 sm:py-4 rounded-[16px] shadow-2xl space-y-2">
-              <p className="font-roboto font-normal text-white text-[15px] sm:text-[17.5px] lg:text-[19px] leading-relaxed drop-shadow-md tracking-tight">
-                Delivering safe, precise, and reliable underwater engineering solutions for complex subsea and offshore operations.
+            <div className="relative z-10 m-5 sm:m-7 bg-[#001742]/65 backdrop-blur-md px-6 py-5 sm:py-6 rounded-2xl shadow-2xl space-y-2.5 border border-white/15">
+              <p className="font-poppins font-semibold text-white text-base sm:text-lg lg:text-[21px] leading-snug drop-shadow-md">
+                Dive beneath the surface and discover endless wonder, where treasures await at every turn.
               </p>
-              <div className="flex items-center gap-1.5 text-xs sm:text-sm">
-                <span className="font-roboto font-medium text-white drop-shadow-sm">Capt. Rajesh Sharma</span>
-                <span className="text-white/80 font-normal">•</span>
-                <span className="font-roboto text-white/90 font-normal drop-shadow-sm">Lead Subsea Operations Engineer</span>
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-cyan-300">
+                <span>John Smith</span>
+                <span>•</span>
+                <span>Dive Instructor</span>
               </div>
             </div>
           </div>
