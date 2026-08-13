@@ -65,13 +65,13 @@ export default function VideoGallerySection() {
   }, []);
 
   return (
-    <section id="video-gallery" className="py-12 sm:py-16 lg:py-20 bg-transparent text-white relative overflow-hidden">
+    <section id="video-gallery" className="py-12 sm:py-16 lg:py-20 bg-white relative z-40 text-slate-900 overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Layout */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6">
           <div className="space-y-3 max-w-3xl">
             {/* Tag / Badge */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#001742] text-white shadow-xs shrink-0 w-fit">
               <svg
                 width="16"
                 height="16"
@@ -82,18 +82,18 @@ export default function VideoGallerySection() {
               >
                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
               </svg>
-              <span className="font-roboto font-normal text-white text-[14px] tracking-normal">
+              <span className="font-roboto font-semibold text-white text-[14px] tracking-normal">
                 Video Gallery Preview
               </span>
             </div>
 
             {/* Main Heading - Single Line */}
-            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-normal whitespace-nowrap">
+            <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-tight whitespace-nowrap">
               Watch Our Operations
             </h2>
 
             {/* Subtitle - Below Title */}
-            <p className="font-roboto text-white/95 text-sm sm:text-base font-normal leading-relaxed max-w-xl">
+            <p className="font-roboto text-slate-500 text-sm sm:text-base font-normal leading-relaxed max-w-xl">
               See Ocean 9 teams working on underwater, onshore and offshore projects.
             </p>
           </div>
@@ -101,12 +101,12 @@ export default function VideoGallerySection() {
           <div className="shrink-0 pb-1">
             <Link
               href="/videos"
-              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
+              className="inline-flex items-center gap-3 bg-[#001742] hover:bg-[#001e54] text-white pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg group cursor-pointer transform hover:scale-[1.02]"
             >
-              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
+              <span className="font-dm-sans font-semibold text-sm leading-none text-white whitespace-nowrap">
                 View Video Gallery
               </span>
-              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+              <div className="w-8 h-8 rounded-full bg-white text-[#001742] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-xs">
                 <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
               </div>
             </Link>
@@ -119,7 +119,7 @@ export default function VideoGallerySection() {
             <div
               key={item.id}
               onClick={() => setSelectedVideo(item)}
-              className="group relative bg-transparent backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-[24px] overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] hover:border-cyan-300/40 hover:bg-cyan-500/5 transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1.5"
+              className="group relative bg-white border border-[#dbeafe] rounded-2xl sm:rounded-[24px] overflow-hidden shadow-md hover:shadow-xl hover:border-[#1e66f5]/40 transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1.5"
             >
               {/* Thumbnail Container */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 rounded-t-2xl sm:rounded-t-[24px]">
@@ -151,11 +151,11 @@ export default function VideoGallerySection() {
               </div>
 
               {/* Card Footer Text (Transparent Glass matching Services Provided) */}
-              <div className="p-4.5 sm:p-5 bg-transparent rounded-b-2xl sm:rounded-b-[24px] flex-1 flex flex-col justify-between space-y-2">
-                <h3 className="font-poppins font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-2">
+              <div className="p-4.5 sm:p-5 bg-white rounded-b-2xl sm:rounded-b-[24px] flex-1 flex flex-col justify-between space-y-2">
+                <h3 className="font-poppins font-bold text-sm sm:text-base text-[#001742] group-hover:text-[#1e66f5] transition-colors leading-snug line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="font-roboto text-xs sm:text-[13px] text-white/85 leading-relaxed line-clamp-2">
+                <p className="font-roboto text-xs sm:text-[13px] text-slate-500 leading-relaxed line-clamp-2">
                   {item.description}
                 </p>
               </div>

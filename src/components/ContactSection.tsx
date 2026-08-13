@@ -45,22 +45,22 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-white relative z-40 text-slate-900">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-transparent relative text-white">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          {/* Left Column: Form Container (Light Ice-Blue Card) */}
-          <div className="lg:col-span-6 bg-[#eaf4ff] border border-[#dbeafe] rounded-[28px] lg:rounded-[32px] p-7 sm:p-9 lg:p-11 text-[#001742] shadow-xs flex flex-col justify-between">
+          {/* Left Column: Form Container */}
+          <div className="lg:col-span-6 bg-transparent backdrop-blur-md border border-white/20 rounded-[28px] lg:rounded-[32px] p-7 sm:p-9 lg:p-11 text-white shadow-2xl flex flex-col justify-between">
             <div className="space-y-2 mb-6 sm:mb-8">
-              <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[44px] leading-tight tracking-tight">
+              <h2 className="font-poppins font-bold text-white text-3xl sm:text-4xl lg:text-[44px] leading-tight tracking-tight">
                 Get in Touch
               </h2>
-              <p className="font-roboto text-slate-500 text-sm sm:text-base leading-relaxed">
+              <p className="font-roboto text-white/90 text-sm sm:text-base leading-relaxed">
                 Have questions about our courses or dives? Send us a message—we&apos;ll get back to you soon.
               </p>
             </div>
 
             {submitted ? (
-              <div className="bg-emerald-500/15 border border-emerald-500/30 text-emerald-800 p-6 rounded-2xl text-center space-y-2 my-auto shadow-xs">
+              <div className="bg-emerald-500/15 border border-emerald-400/30 text-emerald-100 p-6 rounded-2xl text-center space-y-2 my-auto shadow-xs">
                 <h3 className="font-poppins font-bold text-lg">Thank You!</h3>
                 <p className="font-roboto text-sm">Your message has been sent successfully. Our team will contact you shortly.</p>
               </div>
@@ -68,7 +68,7 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
+                    <label className="font-poppins font-bold text-cyan-300 text-xs uppercase tracking-wider block">
                       Name
                     </label>
                     <input
@@ -77,12 +77,12 @@ export default function ContactSection() {
                       placeholder="Your full name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-[#001742] text-sm focus:outline-none focus:border-[#1e66f5] focus:ring-2 focus:ring-[#1e66f5]/20 transition-all placeholder:text-slate-400 shadow-xs"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all placeholder:text-slate-400 shadow-inner"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
+                    <label className="font-poppins font-bold text-cyan-300 text-xs uppercase tracking-wider block">
                       Email
                     </label>
                     <input
@@ -91,39 +91,38 @@ export default function ContactSection() {
                       placeholder="Your email address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-[#001742] text-sm focus:outline-none focus:border-[#1e66f5] focus:ring-2 focus:ring-[#1e66f5]/20 transition-all placeholder:text-slate-400 shadow-xs"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all placeholder:text-slate-400 shadow-inner"
                     />
                   </div>
                 </div>
 
                 {/* Custom Dropdown */}
                 <div className="space-y-1.5 relative">
-                  <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
+                  <label className="font-poppins font-bold text-cyan-300 text-xs uppercase tracking-wider block">
                     Subject
                   </label>
                   <div ref={dropdownRef} className="relative">
                     <button
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`w-full px-4 py-3 bg-white border rounded-xl text-sm text-left flex items-center justify-between shadow-xs transition-all cursor-pointer ${
+                      className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-sm text-left flex items-center justify-between shadow-inner transition-all cursor-pointer ${
                         isDropdownOpen
-                          ? "border-[#1e66f5] ring-2 ring-[#1e66f5]/20 text-[#001742]"
-                          : "border-[#e2e8f0] text-[#001742] hover:border-slate-300"
+                          ? "border-cyan-400 ring-2 ring-cyan-400/20 text-white"
+                          : "border-white/20 text-white hover:border-white/40"
                       }`}
                     >
-                      <span className={formData.subject ? "text-[#001742]" : "text-slate-400"}>
+                      <span className={formData.subject ? "text-white" : "text-slate-400"}>
                         {formData.subject || "Select a subject"}
                       </span>
                       <ChevronDown
-                        className={`w-4 h-4 stroke-[2.5] text-[#001742] transition-transform duration-200 ${
-                          isDropdownOpen ? "rotate-180 text-[#1e66f5]" : ""
+                        className={`w-4 h-4 stroke-[2.5] text-cyan-300 transition-transform duration-200 ${
+                          isDropdownOpen ? "rotate-180 text-cyan-400" : ""
                         }`}
                       />
                     </button>
 
-                    {/* Dropdown Menu Popover */}
                     {isDropdownOpen && (
-                      <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#e2e8f0] rounded-xl shadow-xl z-50 overflow-hidden py-1.5">
+                      <div className="absolute top-full left-0 right-0 mt-2 bg-[#001438]/90 backdrop-blur-xl border border-white/20 rounded-xl shadow-xl z-50 overflow-hidden py-1.5">
                         {subjects.map((sub) => (
                           <div
                             key={sub}
@@ -133,13 +132,13 @@ export default function ContactSection() {
                             }}
                             className={`px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer flex items-center justify-between ${
                               formData.subject === sub
-                                ? "bg-[#eaf4ff] text-[#1e66f5] font-bold"
-                                : "text-[#001742] hover:bg-slate-50"
+                                ? "bg-cyan-500/20 text-cyan-300 font-bold"
+                                : "text-white/90 hover:bg-cyan-500/15 hover:text-cyan-300"
                             }`}
                           >
                             <span>{sub}</span>
                             {formData.subject === sub && (
-                              <span className="w-2 h-2 rounded-full bg-[#1e66f5]" />
+                              <span className="w-2 h-2 rounded-full bg-cyan-400" />
                             )}
                           </div>
                         ))}
@@ -149,7 +148,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="font-poppins font-bold text-[#001742] text-xs uppercase tracking-wider block">
+                  <label className="font-poppins font-bold text-cyan-300 text-xs uppercase tracking-wider block">
                     Message
                   </label>
                   <textarea
@@ -158,14 +157,14 @@ export default function ContactSection() {
                     placeholder="Type your message here..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-white border border-[#e2e8f0] rounded-xl text-[#001742] text-sm focus:outline-none focus:border-[#1e66f5] focus:ring-2 focus:ring-[#1e66f5]/20 transition-all placeholder:text-slate-400 resize-none shadow-xs min-h-[110px]"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white text-sm focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all placeholder:text-slate-400 resize-none shadow-inner min-h-[110px]"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-[#001742] hover:bg-[#001e54] text-white font-dm-sans font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] cursor-pointer"
+                    className="bg-white hover:bg-slate-100 text-[#001742] font-dm-sans font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] cursor-pointer"
                   >
                     Send Message
                   </button>

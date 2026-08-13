@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Play, Sparkles, X } from "lucide-react";
+import { ArrowRight, Play, X } from "lucide-react";
 
 export default function AboutSection() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -42,23 +42,19 @@ export default function AboutSection() {
               <span className="font-roboto font-normal text-white text-[14px] tracking-normal">About Ocean 9</span>
             </div>
 
-            {/* Heading: Exactly 2 lines */}
             <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
               Your Partner for Underwater <br className="hidden sm:inline" />
               Operations
             </h2>
 
-            {/* Paragraph 1 */}
             <p className="font-roboto font-normal text-white text-xs sm:text-sm lg:text-[14px] xl:text-[15px] leading-relaxed tracking-normal max-w-none lg:whitespace-nowrap">
               Ocean 9 Offshore Services Pvt. Ltd. provides underwater diving, marine and subsea engineering services.
             </p>
 
-            {/* Paragraph 2 */}
             <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
               We support offshore and onshore projects with trained teams, diving equipment and marine support. Our focus is simple: complete every job safely, properly and on time.
             </p>
 
-            {/* Company Profile Description */}
             <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
               Ocean 9’s company profile describes the business as an underwater diving and subsea engineering service provider with diving personnel, equipment and vessel support.
             </p>

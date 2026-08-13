@@ -40,13 +40,13 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden text-white">
+    <section id="faq" className="py-12 sm:py-16 lg:py-20 bg-white relative z-40 overflow-hidden text-slate-900">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
           {/* Left Column: Badge + Image with Call Us Box */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             {/* Tag / Badge: Matching About Us exact badge styling */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 self-start">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#001742] text-white shadow-xs shrink-0 self-start">
               <svg
                 width="16"
                 height="16"
@@ -57,7 +57,7 @@ export default function FAQSection() {
               >
                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
               </svg>
-              <span className="font-roboto font-normal text-white text-[14px] tracking-normal">
+              <span className="font-roboto font-semibold text-white text-[14px] tracking-normal">
                 FAQs
               </span>
             </div>
@@ -91,13 +91,13 @@ export default function FAQSection() {
 
           {/* Right Column: Heading + Accordion List */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
-            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
+            <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight tracking-tight">
               Frequently Asked <br className="hidden sm:inline" />
               Questions
             </h2>
 
             {/* Accordion List with Border Dividers */}
-            <div className="divide-y divide-[#205b9e]/30 pt-2 border-t border-[#205b9e]/30 flex-1 flex flex-col justify-between">
+            <div className="divide-y divide-slate-200 pt-2 border-t border-slate-200 flex-1 flex flex-col justify-between">
               {faqs.map((faq, idx) => {
                 const isOpen = openIndex === idx;
                 return (
@@ -106,16 +106,16 @@ export default function FAQSection() {
                       onClick={() => toggleFAQ(idx)}
                       className="w-full text-left flex items-center gap-4 group cursor-pointer focus:outline-none"
                     >
-                      <span className="text-[#20c9d2] text-xl font-light w-5 shrink-0 text-center select-none">
+                      <span className="text-[#1e66f5] text-xl font-light w-5 shrink-0 text-center select-none">
                         {isOpen ? "—" : "+"}
                       </span>
-                      <span className="font-roboto text-base sm:text-lg text-white group-hover:text-[#20c9d2] transition-colors leading-snug">
+                      <span className="font-roboto text-base sm:text-lg text-[#001742] group-hover:text-[#1e66f5] transition-colors leading-snug">
                         {faq.question}
                       </span>
                     </button>
 
                     {isOpen && (
-                      <div className="pl-9 pt-3 text-white/90 text-xs sm:text-sm font-roboto leading-relaxed max-w-xl">
+                      <div className="pl-9 pt-3 text-slate-500 text-xs sm:text-sm font-roboto leading-relaxed max-w-xl">
                         {faq.answer}
                       </div>
                     )}

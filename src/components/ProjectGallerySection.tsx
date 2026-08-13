@@ -83,14 +83,14 @@ export default function ProjectGallerySection() {
       : galleryItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="project-gallery" className="py-12 sm:py-16 lg:py-20 bg-transparent text-white relative overflow-hidden">
+    <section id="project-gallery" className="py-12 sm:py-16 lg:py-20 bg-white relative z-40 text-slate-900 overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Layout (Matches Video Gallery layout) */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-6 lg:gap-8">
           {/* Left Column: Badge + Title + Subtitle + Filters */}
           <div className="space-y-3 max-w-3xl">
             {/* Tag / Badge */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#001742] text-white shadow-xs shrink-0 w-fit">
               <svg
                 width="16"
                 height="16"
@@ -101,18 +101,18 @@ export default function ProjectGallerySection() {
               >
                 <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
               </svg>
-              <span className="font-roboto font-normal text-white text-[14px] tracking-normal">
+              <span className="font-roboto font-semibold text-white text-[14px] tracking-normal">
                 Project Gallery Preview
               </span>
             </div>
 
             {/* Main Heading - Single Line */}
-            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-normal whitespace-nowrap">
+            <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-tight whitespace-nowrap">
               See Our Team at Work
             </h2>
 
             {/* Subtitle Text on Left */}
-            <p className="font-roboto font-normal text-white/95 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-xl">
+            <p className="font-roboto font-normal text-slate-500 text-xs sm:text-sm lg:text-[15px] leading-relaxed max-w-xl">
               Explore projects from our diving, salvage, inspection, repair and marine operations.
             </p>
 
@@ -124,8 +124,8 @@ export default function ProjectGallerySection() {
                   onClick={() => setActiveCategory(cat)}
                   className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-poppins font-medium transition-all duration-200 whitespace-nowrap cursor-pointer ${
                     activeCategory === cat
-                      ? "bg-[#20c9d2] text-[#00173e] font-bold shadow-md shadow-cyan-500/20"
-                      : "bg-[#002365]/60 border border-white/10 text-white/90 hover:border-cyan-400/50 hover:text-white"
+                      ? "bg-[#001742] text-white font-bold shadow-md"
+                      : "bg-[#f4f8fe] border border-[#dbeafe] text-[#001742] hover:border-[#1e66f5]/50 hover:bg-[#eaf4ff]"
                   }`}
                 >
                   {cat}
@@ -138,12 +138,12 @@ export default function ProjectGallerySection() {
           <div className="shrink-0 pb-1">
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
+              className="inline-flex items-center gap-3 bg-[#001742] hover:bg-[#001e54] text-white pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg group cursor-pointer transform hover:scale-[1.02]"
             >
-              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
+              <span className="font-dm-sans font-semibold text-sm leading-none text-white whitespace-nowrap">
                 View Project Gallery
               </span>
-              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
+              <div className="w-8 h-8 rounded-full bg-white text-[#001742] flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-xs">
                 <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
               </div>
             </Link>
@@ -156,7 +156,7 @@ export default function ProjectGallerySection() {
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="group relative bg-[#002365]/40 border border-white/10 rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer shadow-lg hover:shadow-2xl hover:border-cyan-400/50 transition-all duration-300"
+              className="group relative bg-white border border-[#dbeafe] rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer shadow-md hover:shadow-xl hover:border-[#1e66f5]/40 transition-all duration-300"
             >
               <Image
                 src={item.image}

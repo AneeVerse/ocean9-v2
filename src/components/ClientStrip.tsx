@@ -55,15 +55,13 @@ export default function ClientStrip() {
         </svg>
       </div>
 
-      {/* Main White Banner with Auto Infinite Marquee Scrolling */}
+      {/* White client logo strip */}
       <section className="bg-white py-0.5 sm:py-1 overflow-hidden relative isolate transform-gpu">
         <div className="w-full flex overflow-hidden isolate">
-          {/* Unified 60fps Marquee Wrapper with Optimal 30s Speed */}
           <div
             className="animate-marquee flex items-center shrink-0 [will-change:transform] [transform:translateZ(0)] hover:[animation-play-state:paused]"
             style={{ animationDuration: "30s" }}
           >
-            {/* Track Set 1 */}
             <div className="flex items-center shrink-0">
               {trackClients.map((client, index) => (
                 <div
@@ -81,7 +79,6 @@ export default function ClientStrip() {
               ))}
             </div>
 
-            {/* Track Set 2 (Identical Duplicate for Seamless 60fps Loop) */}
             <div className="flex items-center shrink-0" aria-hidden="true">
               {trackClients.map((client, index) => (
                 <div
