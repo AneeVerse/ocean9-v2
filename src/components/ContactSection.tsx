@@ -52,10 +52,11 @@ export default function ContactSection() {
           <div className="lg:col-span-6 bg-transparent backdrop-blur-md border border-white/20 rounded-[28px] lg:rounded-[32px] p-7 sm:p-9 lg:p-11 text-white shadow-2xl flex flex-col justify-between">
             <div className="space-y-2 mb-6 sm:mb-8">
               <h2 className="font-poppins font-bold text-white text-3xl sm:text-4xl lg:text-[44px] leading-tight tracking-tight">
-                Get in Touch
+                Share Your Requirement
               </h2>
               <p className="font-roboto text-white/90 text-sm sm:text-base leading-relaxed">
-                Have questions about our courses or dives? Send us a message—we&apos;ll get back to you soon.
+                Share your project details with us. <br className="hidden sm:inline" />
+                We will understand your needs and suggest the right solution.
               </p>
             </div>
 
@@ -166,7 +167,7 @@ export default function ContactSection() {
                     type="submit"
                     className="bg-white hover:bg-slate-100 text-[#001742] font-dm-sans font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] cursor-pointer"
                   >
-                    Send Message
+                    Contact us
                   </button>
                 </div>
               </form>
@@ -181,8 +182,8 @@ export default function ContactSection() {
               fill
               className="object-cover object-[center_18%]"
             />
-            {/* Bottom Glassmorphism Overlay Card */}
-            <div className="relative z-10 m-5 sm:m-7 bg-[#001742]/65 backdrop-blur-md px-6 py-5 sm:py-6 rounded-2xl shadow-2xl space-y-2.5 border border-white/15">
+            {/* Bottom Glassmorphism Overlay Card (Hidden) */}
+            {/* <div className="relative z-10 m-5 sm:m-7 bg-[#001742]/65 backdrop-blur-md px-6 py-5 sm:py-6 rounded-2xl shadow-2xl space-y-2.5 border border-white/15">
               <p className="font-poppins font-semibold text-white text-base sm:text-lg lg:text-[21px] leading-snug drop-shadow-md">
                 Dive beneath the surface and discover endless wonder, where treasures await at every turn.
               </p>
@@ -191,7 +192,7 @@ export default function ContactSection() {
                 <span>•</span>
                 <span>Dive Instructor</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

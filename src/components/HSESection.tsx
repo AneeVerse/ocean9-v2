@@ -63,14 +63,6 @@ export default function HSESection() {
                 </span>
               </div>
 
-              {/* Subhead Kicker */}
-              <div className="flex items-center gap-2 pt-1">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
-                <span className="font-dm-sans font-bold text-xs uppercase tracking-widest text-cyan-400">
-                  SAFETY COMES FIRST
-                </span>
-              </div>
-
               {/* Main Heading */}
               <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[44px] text-white leading-[1.15] tracking-tight">
                 Safe Work.<br />
@@ -168,8 +160,8 @@ export default function HSESection() {
                 })}
               </div>
 
-              <div className="mt-4 p-4.5 sm:p-5 rounded-2xl bg-[#001742]/80 border border-white/10 flex items-center gap-4 text-white shadow-md">
-                <div className="w-11 h-11 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 flex items-center justify-center shrink-0">
+              <div className="mt-4 p-4.5 sm:p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 flex items-center gap-4 text-white shadow-md">
+                <div className="w-11 h-11 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-xs">
                   <ShieldCheck className="w-5 h-5 stroke-[2.2]" />
                 </div>
                 <div className="space-y-0.5">

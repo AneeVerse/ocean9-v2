@@ -27,7 +27,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-white/90 text-sm sm:text-[15px] leading-relaxed max-w-sm drop-shadow-md font-medium">
-              Ocean 9 Offshore Services Pvt. Ltd. provides underwater diving, marine and subsea engineering services for offshore and onshore projects.
+              Ocean 9 Offshore Services Pvt. Ltd. provides safe and practical solutions for diving, subsea, marine and underwater projects.
             </p>
 
             <div className="space-y-2.5 pt-1 text-xs sm:text-sm font-semibold text-white drop-shadow-sm">
@@ -47,7 +47,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 hover:text-cyan-300 transition-colors">
                 <Smartphone className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Mobile: +91 9320168056</span>
+                <span>Mobile: +91 9320168056 / 9022433033</span>
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function Footer() {
           </div>
 
           {/* Right: Aneeverse Branding & Logo */}
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-1.5 shrink-0 pr-0 sm:pr-16 md:pr-20">
             <span>Designed & Managed by Aneeverse</span>
             <img
               src="/assets/aneeverse-logo.png"

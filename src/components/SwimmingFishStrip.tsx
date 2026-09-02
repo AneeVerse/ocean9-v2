@@ -5,34 +5,39 @@ import Image from "next/image";
 
 export default function SwimmingFishStrip() {
   return (
-    <div className="w-full relative min-h-[200px] sm:min-h-[250px] flex items-center justify-center my-4 z-20 pointer-events-none select-none">
-      {/* Center Dashed Ocean Current Line - Commented out for cleaner look */}
-      {/* <div className="w-full border-b-2 border-dashed border-cyan-400/40 relative z-0" /> */}
-
-      {/* UPPER SWIM LANE: Single Fish 1 Swimming Left to Right (Sweet spot above line) */}
-      <div className="absolute top-1/2 -translate-y-[82%] w-full left-0 pointer-events-none z-10">
+    <div className="w-full relative min-h-[240px] sm:min-h-[280px] lg:min-h-[320px] flex items-center justify-center my-4 z-20 pointer-events-none select-none overflow-hidden">
+      {/* UPPER SWIM LANE: Diver 1 (Thumbs Up) Swimming Left to Right */}
+      <div className="absolute top-2 sm:top-4 lg:top-6 w-full left-0 pointer-events-none z-10">
         <div className="animate-swim-right flex items-center">
-          <div id="swimming-fish-1" className="relative w-32 h-32 sm:w-44 sm:h-44 lg:w-50 lg:h-50 animate-fin-wobble shrink-0">
+          <div
+            id="swimming-fish-1"
+            className="relative w-32 h-20 sm:w-44 sm:h-26 lg:w-52 lg:h-32 animate-fin-wobble shrink-0"
+          >
             <Image
-              src="/assets/swimming-fish-1.png"
-              alt="Swimming Ocean Fish 1"
+              src="/assets/swimming-diver-thumbsup.png"
+              alt="Commercial Diver with Thumbs Up"
               fill
               className="object-contain p-1"
+              priority
               unoptimized
             />
           </div>
         </div>
       </div>
 
-      {/* LOWER SWIM LANE: Single Fish 2 Swimming Right to Left (Sweet spot below line) */}
-      <div className="absolute top-1/2 -translate-y-[18%] w-full left-0 pointer-events-none z-10">
+      {/* LOWER SWIM LANE: Diver 2 (Victory Sign) Swimming Right to Left */}
+      <div className="absolute bottom-2 sm:bottom-4 lg:bottom-6 w-full left-0 pointer-events-none z-10">
         <div className="animate-swim-left flex items-center">
-          <div id="swimming-fish-2" className="relative w-32 h-32 sm:w-44 sm:h-44 lg:w-50 lg:h-50 animate-fin-wobble-reverse shrink-0">
+          <div
+            id="swimming-fish-2"
+            className="relative w-32 h-20 sm:w-44 sm:h-26 lg:w-52 lg:h-32 animate-fin-wobble-reverse shrink-0"
+          >
             <Image
-              src="/assets/swimming-fish-2.png"
-              alt="Swimming Ocean Fish 2"
+              src="/assets/swimming-diver-victory.png"
+              alt="Commercial Diver with Victory Sign"
               fill
               className="object-contain p-1"
+              priority
               unoptimized
             />
           </div>

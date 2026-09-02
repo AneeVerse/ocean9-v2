@@ -26,6 +26,7 @@ import Footer from "@/components/Footer";
 import SwimmingFishStrip from "@/components/SwimmingFishStrip";
 import UnderConstruction from "@/components/UnderConstruction";
 import OceanBubbles from "@/components/OceanBubbles";
+import FloatingActionButton from "@/components/FloatingActionButton";
 
 // Set to true to show Under Construction page by default, or false to show full website
 const SHOW_UNDER_CONSTRUCTION_BY_DEFAULT = true;
@@ -168,6 +169,9 @@ function HomeContent() {
           </div>
         </div>
       </div>
+
+      {/* Floating Speed-Dial Action Button */}
+      <FloatingActionButton />
     </main>
   );
 }

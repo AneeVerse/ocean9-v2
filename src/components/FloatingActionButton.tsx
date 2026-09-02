@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MessageCircle, Phone, Mail, X } from "lucide-react";
 
 const WHATSAPP = "+919320168056";
@@ -9,11 +9,32 @@ const PHONE = "+919320168056";
 
 export default function FloatingActionButton() {
   const [open, setOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide button while in the Hero section (top viewport)
+      const heroThreshold = window.innerHeight * 0.65;
+      if (window.scrollY > heroThreshold) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+        setOpen(false); // Close speed-dial if scrolled back to hero
+      }
+    };
+
+    // Check initial position and listen for scrolls
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] flex flex-col items-end gap-3 transition-all duration-500 animate-in fade-in slide-in-from-bottom-5">
       {open && (
-        <div className="flex flex-col items-end gap-3 mb-1">
+        <div className="flex flex-col items-end gap-3 mb-1 animate-in fade-in zoom-in-95 duration-200">
           <a
             href={`https://wa.me/${WHATSAPP}`}
             target="_blank"

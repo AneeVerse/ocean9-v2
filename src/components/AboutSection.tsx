@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Play, X } from "lucide-react";
+import { ArrowRight, Play, X, Handshake } from "lucide-react";
 
 export default function AboutSection() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -44,7 +44,16 @@ export default function AboutSection() {
 
             <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
               Your Partner for Underwater <br className="hidden sm:inline" />
-              Operations
+              <span className="inline-flex items-center gap-2.5 sm:gap-3.5 align-middle">
+                <span>Operations</span>
+                <Image
+                  src="/assets/logos/shaking-hand-bold.png"
+                  alt="Partnership Handshake"
+                  width={80}
+                  height={40}
+                  className="w-11 h-auto sm:w-13 lg:w-16 shrink-0 inline-block object-contain"
+                />
+              </span>
             </h2>
 
             <p className="font-roboto font-normal text-white text-xs sm:text-sm lg:text-[14px] xl:text-[15px] leading-relaxed tracking-normal max-w-none lg:whitespace-nowrap">
