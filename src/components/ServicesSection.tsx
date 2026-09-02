@@ -6,50 +6,34 @@ export default function ServicesSection() {
   const baseServices = [
     {
       title: "Air Diving",
-      description:
-        "Safe and reliable diving support for inspection, repair, maintenance and construction work.",
       image: "/assets/home-air-diving-card.png",
     },
     {
       title: "Mixed Gas Diving",
-      description:
-        "Special diving support for deeper and more demanding underwater operations.",
       image: "/assets/home-mixed-gas-diving-card.png",
     },
     {
       title: "Saturation Diving",
-      description:
-        "Long-duration diving support for deep-water offshore and subsea projects.",
       image: "/assets/home-saturation-diving-card.png",
     },
     {
       title: "Offshore Operations",
-      description:
-        "Inspection, installation, repair and maintenance support for offshore structures and pipelines.",
       image: "/assets/home-offshore-operations-card.png",
     },
     {
       title: "Onshore Operations",
-      description:
-        "Underwater services for ports, docks, dams, intake wells, rivers and inland projects.",
       image: "/assets/home-onshore-operations-card.png",
     },
     {
       title: "Marine Survey and Inspection",
-      description:
-        "Survey, inspection, underwater video and data support for vessels, pipelines and structures.",
       image: "/assets/home-cable-repair-and-protection.jpg",
     },
     {
       title: "Underwater Cutting, Welding and Salvage",
-      description:
-        "Cutting, welding, recovery and salvage services for underwater structures and equipment.",
       image: "/assets/home-under-water-savage.jpg",
     },
     {
       title: "Marine Crew and Manning",
-      description:
-        "Qualified diving personnel and marine crew for offshore and onshore projects.",
       image: "/assets/home-dock-and-gate-operation.jpg",
     },
   ];
@@ -83,7 +67,7 @@ export default function ServicesSection() {
             Services We Provide
           </h2>
           <p className="font-roboto font-normal text-white text-sm sm:text-base lg:text-[17px] max-w-2xl mx-auto">
-            Complete support for underwater, offshore and marine projects.
+            Complete support for underwater, Onshore, Offshore and Marine projects.
           </p>
 
           {/* Top Right "View All Services" Button */}
@@ -124,33 +108,15 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Card Bottom Transparent Glass Content Box */}
-                <div className="bg-transparent p-4 sm:p-5 rounded-b-[20px] sm:rounded-b-[24px] text-center flex-1 flex flex-col justify-between space-y-3">
-                  <div>
-                    <h3 className="font-poppins font-bold text-base sm:text-lg text-white group-hover:text-cyan-300 transition-colors duration-300 mb-2 leading-snug">
-                      {service.title}
-                    </h3>
-                    <p className="font-roboto font-normal text-white/85 text-xs sm:text-[13px] leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-2">
-                    <span className="inline-block font-dm-sans font-bold text-xs sm:text-sm text-cyan-400 group-hover:text-cyan-300 transition-colors">
-                      Read More
-                    </span>
-                  </div>
+                <div className="bg-transparent py-4 px-4 sm:px-5 rounded-b-[20px] sm:rounded-b-[24px] text-center flex-1 flex items-center justify-center min-h-[68px]">
+                  <h3 className="font-poppins font-bold text-base sm:text-lg text-white group-hover:text-cyan-300 transition-colors duration-300 leading-snug">
+                    {service.title}
+                  </h3>
                 </div>
               </Link>
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Footnote Scope Notice */}
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-        <p className="font-roboto text-xs sm:text-sm text-white text-center max-w-none lg:whitespace-nowrap mx-auto italic font-normal">
-          These services are supported by Ocean 9’s profile, old Dive Safe catalogue and approved website scope.
-        </p>
       </div>
     </section>
   );

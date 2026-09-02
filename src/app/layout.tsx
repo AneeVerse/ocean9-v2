@@ -34,7 +34,7 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: "Ocean 9 - Reliable Underwater Diving, Marine & Offshore Services",
+  title: "Ocean 9 - Trustworthy Diving Contractor for Underwater Diving, Marine & Offshore Services",
   description:
     "Ocean 9 provides safe and practical solutions for diving, subsea, marine and underwater projects.",
   keywords: [

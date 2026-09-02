@@ -89,7 +89,7 @@ function HomeContent() {
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
           <div className="relative z-30">
             <WhyChooseUs />
-            <CapabilitiesSection />
+            {/* <CapabilitiesSection /> */}
             {/* <Testimonials /> */}
           </div>
         </div>
@@ -113,9 +113,9 @@ function HomeContent() {
             {/* <ProjectExperience /> */}
             <ProjectGallerySection />
             <WorkHistory />
-            <ReviewsSection />
-            <BlogSection />
-            <FAQSection />
+            {/* <ReviewsSection /> */}
+            {/* <BlogSection /> */}
+            {/* <FAQSection /> */}
           </div>
           {/* Dark Feather Gradient Blend at Bottom of Group 3 */}
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#000b20] via-[#000b20]/40 to-transparent pointer-events-none z-[5]" />
@@ -140,7 +140,7 @@ function HomeContent() {
           <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#000b20] via-[#000b20]/60 to-transparent pointer-events-none z-[5]" />
           <div className="relative z-30">
             <HSESection />
-            <VideoGallerySection />
+            {/* <VideoGallerySection /> */}
             <ContactSection />
             {/* <CareersSection /> */}
           </div>

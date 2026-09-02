@@ -95,17 +95,17 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Bottom Stats Grid: Poppins Regular, numbers 73.6px, symbols (+) & (T) 65.6px */}
-        <div className="mt-10 sm:mt-14 pt-0 grid grid-cols-2 md:grid-cols-4 gap-[20px] text-center">
+        {/* Bottom Stats Grid: 3 columns centered */}
+        <div className="mt-10 sm:mt-14 pt-0 grid grid-cols-1 sm:grid-cols-3 max-w-[1000px] mx-auto gap-8 sm:gap-6 text-center">
           <div className="space-y-1">
             <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
-              38<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">+</span>
+              38
             </p>
             <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Project Assignments</p>
           </div>
           <div className="space-y-1">
             <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
-              14<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">+</span>
+              18
             </p>
             <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Clients Served</p>
           </div>
@@ -114,12 +114,6 @@ export default function AboutSection() {
               6<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">+</span>
             </p>
             <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Years of Experience</p>
-          </div>
-          <div className="space-y-1">
-            <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
-              247<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">T</span>
-            </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Caisson Gate Salvaged</p>
           </div>
         </div>
       </div>

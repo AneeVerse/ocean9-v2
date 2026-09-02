@@ -6,13 +6,13 @@ export default function WhyChooseUs() {
       number: "1",
       title: "Experienced Team",
       description:
-        "Skilled divers, marine crew and project professionals.",
+        "Professional Divers Team, Marine Crew & Project Professionals.",
     },
     {
       number: "2",
       title: "Complete Support",
       description:
-        "Personnel, equipment and marine support from one team.",
+        "Personnel, Equipment And Marine Speeds Support From One Team.",
     },
     {
       number: "3",
@@ -28,9 +28,9 @@ export default function WhyChooseUs() {
     },
     {
       number: "5",
-      title: "Reliable Execution",
+      title: "Cost Implementation",
       description:
-        "We focus on quality work, clear communication and timely completion.",
+        "We focus on cost-conscious planning, efficient execution, and outcomes that maximize value for every effort.",
     },
   ];
 
@@ -50,15 +50,10 @@ export default function WhyChooseUs() {
               />
             </div>
 
-            {/* Bottom Copy: Subheader, Main Heading, Paragraph */}
-            <div className="space-y-3 pt-2 sm:pt-4">
-              <span className="font-dm-sans font-bold text-xs sm:text-[13px] text-[#1e66f5] tracking-widest uppercase block">
+            {/* Bottom Copy: Main Heading, Paragraph */}
+            <div className="space-y-4 pt-2 sm:pt-4">
+              <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[42px] text-[#001742] leading-tight tracking-tight uppercase">
                 WHY CHOOSE OCEAN 9
-              </span>
-
-              <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#001742] leading-[1.15] tracking-tight">
-                Why Work <br className="hidden sm:inline" />
-                With Us
               </h2>
 
               <p className="font-roboto text-slate-600 text-sm sm:text-[15px] leading-relaxed max-w-lg">

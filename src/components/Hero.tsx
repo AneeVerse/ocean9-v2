@@ -32,10 +32,9 @@ export default function Hero() {
             From Seabed to Surface
           </div>
 
-          {/* Headline strictly in 2 lines breaking after Diving, */}
-          <h1 className="text-[32px] sm:text-[46px] lg:text-[60px] leading-[40px] sm:leading-[54px] lg:leading-[70px] font-semibold text-white tracking-normal mb-5 max-w-[950px]">
-            Reliable Underwater Diving,<br className="hidden sm:inline" />
-            Marine and Offshore Services
+          {/* Main Headline */}
+          <h1 className="text-[28px] sm:text-[40px] lg:text-[52px] leading-[36px] sm:leading-[48px] lg:leading-[62px] font-bold text-white tracking-normal mb-5 max-w-[980px]">
+            TRUSTWORTHY DIVING CONTRACTOR FOR UNDERWATER DIVING,<br className="hidden md:inline" /> MARINE &amp; OFFSHORE SERVICES
           </h1>
 
           {/* Description formatted in 2 lines */}
