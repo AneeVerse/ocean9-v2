@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Poppins, Roboto, Oswald, Cinzel } from "next/font/google";
 import "./globals.css";
+import FloatingActionButton from "@/components/FloatingActionButton";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en" className={`${dmSans.variable} ${poppins.variable} ${roboto.variable} ${oswald.variable} ${cinzel.variable} font-sans scroll-smooth`}>
       <body className="bg-[#030A16] text-white antialiased font-sans overflow-x-hidden selection:bg-cyan-500 selection:text-white">
         {children}
+        <FloatingActionButton />
       </body>
     </html>
   );

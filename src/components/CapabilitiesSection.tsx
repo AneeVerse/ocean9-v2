@@ -115,7 +115,8 @@ export default function CapabilitiesSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-6">
+        <div className="max-md:overflow-x-auto max-md:scrollbar-none max-md:-mx-4 max-md:px-4">
+          <div className="grid gap-4 sm:gap-5 lg:gap-6 max-md:grid-rows-2 max-md:grid-flow-col max-md:auto-cols-[minmax(240px,72vw)] max-md:w-max md:grid-cols-3 lg:grid-cols-5">
           {capabilities.map((item) => {
             const Icon = item.icon;
             return (
@@ -146,6 +147,7 @@ export default function CapabilitiesSection() {
               </div>
             );
           })}
+          </div>
         </div>
       </div>
     </section>

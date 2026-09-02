@@ -88,7 +88,7 @@ export default function VideoGallerySection() {
             </div>
 
             {/* Main Heading - Single Line */}
-            <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-tight whitespace-nowrap">
+            <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-tight lg:whitespace-nowrap">
               Watch Our Operations
             </h2>
 
@@ -98,7 +98,7 @@ export default function VideoGallerySection() {
             </p>
           </div>
 
-          <div className="shrink-0 pb-1">
+          <div className="shrink-0 pb-1 w-full lg:w-auto flex justify-start lg:justify-end">
             <Link
               href="/videos"
               className="inline-flex items-center gap-3 bg-[#001742] hover:bg-[#001e54] text-white pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg group cursor-pointer transform hover:scale-[1.02]"
@@ -113,13 +113,14 @@ export default function VideoGallerySection() {
           </div>
         </div>
 
-        {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Video Grid / Mobile horizontal scroll */}
+        <div className="max-sm:overflow-x-auto max-sm:scrollbar-none max-sm:-mx-4 max-sm:px-4">
+          <div className="max-sm:flex max-sm:w-max max-sm:gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
           {videoItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedVideo(item)}
-              className="group relative bg-white border border-[#dbeafe] rounded-2xl sm:rounded-[24px] overflow-hidden shadow-md hover:shadow-xl hover:border-[#1e66f5]/40 transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1.5"
+              className="group relative bg-white border border-[#dbeafe] rounded-2xl sm:rounded-[24px] overflow-hidden shadow-md hover:shadow-xl hover:border-[#1e66f5]/40 transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1.5 max-sm:w-[80vw] max-sm:shrink-0"
             >
               {/* Thumbnail Container */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900 rounded-t-2xl sm:rounded-t-[24px]">
@@ -161,6 +162,7 @@ export default function VideoGallerySection() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
 

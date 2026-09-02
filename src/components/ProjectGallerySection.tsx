@@ -107,7 +107,7 @@ export default function ProjectGallerySection() {
             </div>
 
             {/* Main Heading - Single Line */}
-            <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-tight whitespace-nowrap">
+            <h2 className="font-poppins font-bold text-[#001742] text-3xl sm:text-4xl lg:text-[40px] xl:text-[46px] leading-tight tracking-tight lg:whitespace-nowrap">
               See Our Team at Work
             </h2>
 
@@ -135,7 +135,7 @@ export default function ProjectGallerySection() {
           </div>
 
           {/* Right Side: CTA Button */}
-          <div className="shrink-0 pb-1">
+          <div className="shrink-0 pb-1 w-full lg:w-auto flex justify-start lg:justify-end">
             <Link
               href="/gallery"
               className="inline-flex items-center gap-3 bg-[#001742] hover:bg-[#001e54] text-white pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg group cursor-pointer transform hover:scale-[1.02]"
@@ -150,13 +150,14 @@ export default function ProjectGallerySection() {
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Gallery Grid / Mobile horizontal scroll */}
+        <div className="max-md:overflow-x-auto max-md:scrollbar-none max-md:-mx-4 max-md:px-4">
+          <div className="max-md:flex max-md:w-max max-md:gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
           {filteredItems.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedImage(item)}
-              className="group relative bg-white border border-[#dbeafe] rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer shadow-md hover:shadow-xl hover:border-[#1e66f5]/40 transition-all duration-300"
+              className="group relative bg-white border border-[#dbeafe] rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer shadow-md hover:shadow-xl hover:border-[#1e66f5]/40 transition-all duration-300 max-md:w-[80vw] max-md:shrink-0"
             >
               <Image
                 src={item.image}
@@ -194,6 +195,7 @@ export default function ProjectGallerySection() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
 

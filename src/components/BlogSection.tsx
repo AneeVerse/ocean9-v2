@@ -64,12 +64,13 @@ export default function BlogSection() {
           </p>
         </div>
 
-        {/* Blog Cards Grid with Ocean Watery Hover Effects */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        {/* Blog Cards / Mobile horizontal scroll */}
+        <div className="max-md:overflow-x-auto max-md:scrollbar-none max-md:-mx-4 max-md:px-4">
+          <div className="max-md:flex max-md:w-max max-md:gap-4 md:grid md:grid-cols-3 md:gap-6">
           {posts.map((post, idx) => (
             <article
               key={idx}
-              className="bg-transparent backdrop-blur-md rounded-[20px] border border-white/20 p-3 sm:p-3.5 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-cyan-300/40 hover:shadow-[0_0_25px_rgba(34,211,238,0.2)] hover:bg-cyan-500/5 group flex flex-col justify-between cursor-pointer relative overflow-hidden"
+              className="bg-transparent backdrop-blur-md rounded-[20px] border border-white/20 p-3 sm:p-3.5 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-cyan-300/40 hover:shadow-[0_0_25px_rgba(34,211,238,0.2)] hover:bg-cyan-500/5 group flex flex-col justify-between cursor-pointer relative overflow-hidden max-md:w-[80vw] max-md:shrink-0"
             >
               <div className="space-y-2.5 relative z-10">
                 {/* Image Container with Ocean Wave Shimmer Sweep */}
@@ -129,10 +130,11 @@ export default function BlogSection() {
               </div>
             </article>
           ))}
+          </div>
         </div>
 
         {/* View All Articles CTA Button */}
-        <div className="mt-6 sm:mt-8 flex justify-center">
+        <div className="mt-6 sm:mt-8 flex justify-start md:justify-center">
           <Link
             href="#blog"
             className="inline-flex items-center gap-3.5 bg-white hover:bg-slate-100 text-[#002365] pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
