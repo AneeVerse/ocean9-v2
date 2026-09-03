@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Play, X, ZoomIn, Film, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, Play, X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface GalleryItem {
   id: number;
@@ -455,21 +455,8 @@ export default function ProjectGallerySection() {
                 </div>
               )}
 
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000f28]/95 via-[#00173e]/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
-
-              {/* Top Category Badge */}
-              <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-[#00173e]/90 backdrop-blur-md border border-cyan-400/30 text-[#20c9d2] text-[11px] font-poppins font-semibold">
-                  {item.category}
-                </span>
-                {item.type === "video" && (
-                  <span className="px-2.5 py-1 rounded-full bg-red-600/90 text-white text-[10px] font-poppins font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                    <Film className="w-3 h-3" />
-                    Video
-                  </span>
-                )}
-              </div>
+              {/* Subtle Hover Overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
               {/* Zoom / Play Indicator on Top Right */}
               <div className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#00173e]/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-[#00173e] transition-all duration-300 shadow-md">
@@ -479,30 +466,6 @@ export default function ProjectGallerySection() {
                   <ZoomIn className="w-4 h-4" />
                 )}
               </div>
-
-              {/* Bottom Content Info (Rendered only if title/location is available) */}
-              {item.title ? (
-                <div className="absolute bottom-0 left-0 right-0 p-5 z-10 space-y-1 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                  {item.location && (
-                    <p className="text-[11px] font-dm-sans font-medium text-cyan-300 tracking-wide uppercase">
-                      {item.location}
-                    </p>
-                  )}
-                  <h3 className="font-poppins font-bold text-base sm:text-lg text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-1">
-                    {item.title}
-                  </h3>
-                  {item.description && (
-                    <p className="font-roboto text-xs text-slate-300 line-clamp-2 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {item.description}
-                    </p>
-                  )}
-                </div>
-              ) : (
-                <div className="absolute bottom-0 left-0 right-0 p-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-between text-xs text-cyan-300 font-poppins font-medium">
-                  <span>Click to view {item.type === "video" ? "video" : "photo"}</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </div>
-              )}
             </div>
           ))}
         </div>
