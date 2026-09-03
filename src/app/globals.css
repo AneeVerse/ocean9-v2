@@ -65,7 +65,7 @@ body {
   scrollbar-width: none;
 }
 
-/* Synchronized Infinite Loop Swimming Divers */
+/* Synchronized Infinite Loop Swimming Divers (Desktop default) */
 @keyframes swim-right {
   0% {
     transform: translate3d(-350px, 0, 0);
@@ -90,6 +90,57 @@ body {
   }
 }
 
+/* Synchronized Infinite Loop Swimming Divers (Mobile < 640px) */
+/* Symmetrically offsets divers so both enter at the same instant, cross at center (50vw), and exit together */
+@keyframes swim-right-mobile {
+  0% {
+    transform: translate3d(-140px, 0, 0);
+  }
+  50% {
+    transform: translate3d(calc(50vw - 64px), -6px, 0);
+  }
+  100% {
+    transform: translate3d(calc(100vw + 14px), 0, 0);
+  }
+}
+
+@keyframes swim-left-mobile {
+  0% {
+    transform: translate3d(calc(100vw + 14px), 0, 0);
+  }
+  50% {
+    transform: translate3d(calc(50vw - 64px), 6px, 0);
+  }
+  100% {
+    transform: translate3d(-140px, 0, 0);
+  }
+}
+
+/* Synchronized Infinite Loop Swimming Divers (Tablet 640px - 767px) */
+@keyframes swim-right-tablet {
+  0% {
+    transform: translate3d(-190px, 0, 0);
+  }
+  50% {
+    transform: translate3d(calc(50vw - 88px), -7px, 0);
+  }
+  100% {
+    transform: translate3d(calc(100vw + 16px), 0, 0);
+  }
+}
+
+@keyframes swim-left-tablet {
+  0% {
+    transform: translate3d(calc(100vw + 16px), 0, 0);
+  }
+  50% {
+    transform: translate3d(calc(50vw - 88px), 7px, 0);
+  }
+  100% {
+    transform: translate3d(-190px, 0, 0);
+  }
+}
+
 @keyframes fin-wobble {
   0%, 100% {
     transform: rotate(0deg) translateY(0);
@@ -107,6 +158,25 @@ body {
 .animate-swim-left {
   animation: swim-left 18s linear infinite;
   will-change: transform;
+}
+
+/* Mobile & Tablet: Synchronized timing so neither diver is delayed or early */
+@media (max-width: 639px) {
+  .animate-swim-right {
+    animation: swim-right-mobile 12s linear infinite;
+  }
+  .animate-swim-left {
+    animation: swim-left-mobile 12s linear infinite;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .animate-swim-right {
+    animation: swim-right-tablet 18s linear infinite;
+  }
+  .animate-swim-left {
+    animation: swim-left-tablet 18s linear infinite;
+  }
 }
 
 .animate-fin-wobble {

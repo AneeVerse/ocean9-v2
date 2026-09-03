@@ -104,25 +104,25 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Bottom Stats Grid: 3 columns centered */}
-        <div className="mt-10 sm:mt-14 pt-0 grid grid-cols-1 sm:grid-cols-3 max-w-[1000px] mx-auto gap-8 sm:gap-6 text-center">
+        {/* Bottom Stats Grid: 3 columns horizontal on all screens including mobile */}
+        <div className="mt-8 sm:mt-14 pt-0 grid grid-cols-3 max-w-[1000px] mx-auto gap-2 sm:gap-6 text-center px-1 sm:px-0">
           <div className="space-y-1">
-            <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
+            <p className="font-poppins font-normal text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
               38
             </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Project Assignments</p>
+            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/90 leading-tight">Project Assignments</p>
           </div>
           <div className="space-y-1">
-            <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
+            <p className="font-poppins font-normal text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
               18
             </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Clients Served</p>
+            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/90 leading-tight">Clients Served</p>
           </div>
           <div className="space-y-1">
-            <p className="font-poppins font-normal text-white text-4xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
-              6<span className="font-poppins font-normal text-[#0088ff] text-3xl sm:text-4xl lg:text-[65.6px] leading-[85.28px] tracking-normal">+</span>
+            <p className="font-poppins font-normal text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
+              6<span className="font-poppins font-normal text-[#0088ff] text-2xl sm:text-4xl lg:text-[65.6px] leading-none tracking-normal">+</span>
             </p>
-            <p className="font-roboto font-normal text-xs sm:text-sm text-white/90">Years of Experience</p>
+            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/90 leading-tight">Years of Experience</p>
           </div>
         </div>
       </div>

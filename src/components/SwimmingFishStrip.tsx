@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function SwimmingFishStrip() {
   return (
-    <div className="w-full relative min-h-[240px] sm:min-h-[280px] lg:min-h-[320px] flex items-center justify-center my-4 z-20 pointer-events-none select-none overflow-hidden">
+    <div className="w-full relative min-h-[195px] sm:min-h-[280px] lg:min-h-[320px] flex items-center justify-center my-4 z-20 pointer-events-none select-none overflow-hidden">
       {/* UPPER SWIM LANE: Diver 1 (Thumbs Up) Swimming Left to Right */}
       <div className="absolute top-2 sm:top-4 lg:top-6 w-full left-0 pointer-events-none z-10">
         <div className="animate-swim-right flex items-center">

@@ -8,9 +8,9 @@ export default function Footer() {
   return (
     <footer className="bg-transparent text-white pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/15">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-y-10 gap-x-5 sm:gap-x-8 lg:gap-8 pb-14 border-b border-white/15">
           {/* Brand Info & Contact Details */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="col-span-2 md:col-span-1 lg:col-span-4 space-y-5">
             <Link href="/" className="inline-flex items-center gap-1 sm:gap-1.5 group mb-2">
               <div className="relative w-10 sm:w-14 h-10 sm:h-14 shrink-0">
                 <Image
@@ -52,9 +52,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-poppins text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-md">
+          {/* Quick Links - Column 1 on mobile */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-2 space-y-4">
+            <h4 className="font-poppins text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight drop-shadow-md">
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-white/95 font-semibold drop-shadow-sm">
@@ -101,9 +101,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Main Services */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-poppins text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-md">
+          {/* Main Services - Column 2 on mobile */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-3 space-y-4">
+            <h4 className="font-poppins text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight drop-shadow-md">
               Main Services
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-white/95 font-semibold drop-shadow-sm">
@@ -140,8 +140,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="lg:col-span-3 space-y-5">
+          {/* Newsletter - Full width on mobile */}
+          <div className="col-span-2 md:col-span-1 lg:col-span-3 space-y-5">
             <h4 className="font-poppins text-lg sm:text-xl font-bold text-white tracking-tight drop-shadow-md">
               Newsletter
             </h4>
