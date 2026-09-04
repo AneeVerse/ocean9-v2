@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Play, X, ZoomIn, Film, ChevronLeft, ChevronRight, Filter } from "lucide-react";
+import { ArrowLeft, Play, X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingActionButton from "@/components/FloatingActionButton";
@@ -152,21 +152,8 @@ export default function GalleryPage() {
                   </div>
                 )}
 
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#000b20]/95 via-[#00173e]/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
-
-                {/* Top Category Badge */}
-                <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#00173e]/90 backdrop-blur-md border border-cyan-400/30 text-[#20c9d2] text-[10px] sm:text-[11px] font-poppins font-semibold">
-                    {item.category}
-                  </span>
-                  {item.type === "video" && (
-                    <span className="px-2 py-0.5 rounded-full bg-red-600/90 text-white text-[9px] sm:text-[10px] font-poppins font-bold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                      <Film className="w-2.5 h-2.5" />
-                      Video
-                    </span>
-                  )}
-                </div>
+                {/* Subtle Hover Overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
                 {/* Zoom / Play Indicator on Top Right */}
                 <div className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-[#00173e]/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-[#00173e] transition-all duration-300 shadow-md">
@@ -176,30 +163,6 @@ export default function GalleryPage() {
                     <ZoomIn className="w-3.5 h-3.5" />
                   )}
                 </div>
-
-                {/* Bottom Content Info */}
-                {item.title ? (
-                  <div className="absolute bottom-0 left-0 right-0 p-4 z-10 space-y-1 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                    {item.location && (
-                      <p className="text-[10px] font-dm-sans font-medium text-cyan-300 tracking-wide uppercase">
-                        {item.location}
-                      </p>
-                    )}
-                    <h3 className="font-poppins font-bold text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors leading-snug line-clamp-1">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="font-roboto text-[11px] text-slate-300 line-clamp-2 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <div className="absolute bottom-0 left-0 right-0 p-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-between text-[11px] text-cyan-300 font-poppins font-medium">
-                    <span>View {item.type === "video" ? "video" : "photo"}</span>
-                    <ZoomIn className="w-3.5 h-3.5" />
-                  </div>
-                )}
               </div>
             ))}
           </div>
