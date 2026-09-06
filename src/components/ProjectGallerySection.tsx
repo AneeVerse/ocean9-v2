@@ -367,7 +367,7 @@ export default function ProjectGallerySection() {
           {/* Right Side: CTA Button */}
           <div className="shrink-0 pb-1 w-full lg:w-auto flex justify-start lg:justify-end">
             <Link
-              href="/gallery"
+              href="/gallery?preview=true"
               className="inline-flex items-center gap-3 bg-[#001742] hover:bg-[#001e54] text-white pl-5 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg group cursor-pointer transform hover:scale-[1.02]"
             >
               <span className="font-dm-sans font-semibold text-sm leading-none text-white whitespace-nowrap">

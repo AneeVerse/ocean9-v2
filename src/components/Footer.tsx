@@ -2,16 +2,60 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin, Smartphone, ArrowRight } from "lucide-react";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (pathname === "/" || pathname === "") {
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", `/?preview=true#${targetId}`);
+      }
+    }
+  };
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/" || pathname === "") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", "/?preview=true");
+    }
+  };
+
+  const handleServiceClick = (e: React.MouseEvent<HTMLAnchorElement>, serviceTitle: string) => {
+    if (pathname === "/" || pathname === "") {
+      e.preventDefault();
+      // Dispatch custom event to select service in form
+      window.dispatchEvent(new CustomEvent("select-service", { detail: serviceTitle }));
+      // Smooth scroll down to contact form
+      const contactEl = document.getElementById("contact");
+      if (contactEl) {
+        contactEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", "/?preview=true#contact");
+      }
+    } else {
+      try {
+        sessionStorage.setItem("selected_service", serviceTitle);
+      } catch (err) {}
+    }
+  };
+
   return (
     <footer className="bg-transparent text-white pt-16 sm:pt-20 pb-12 sm:pb-16 relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-y-10 gap-x-5 sm:gap-x-8 lg:gap-8 pb-14 border-b border-white/15">
           {/* Brand Info & Contact Details */}
           <div className="col-span-2 md:col-span-1 lg:col-span-4 space-y-5">
-            <Link href="/" className="inline-flex items-center gap-1 sm:gap-1.5 group mb-2">
+            <Link
+              href="/?preview=true"
+              onClick={handleHomeClick}
+              className="inline-flex items-center gap-1 sm:gap-1.5 group mb-2"
+            >
               <div className="relative w-10 sm:w-14 h-10 sm:h-14 shrink-0">
                 <Image
                   src="/assets/ocean9-logo.png"
@@ -59,42 +103,72 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-white/95 font-semibold drop-shadow-sm">
               <li>
-                <Link href="#" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true"
+                  onClick={handleHomeClick}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#about"
+                  onClick={(e) => handleNavClick(e, "about")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#services"
+                  onClick={(e) => handleNavClick(e, "services")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="#projects" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#projects"
+                  onClick={(e) => handleNavClick(e, "projects")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Projects
                 </Link>
               </li>
               <li>
-                <Link href="#blog" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/gallery?preview=true"
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="#faq" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#hse"
+                  onClick={(e) => handleNavClick(e, "hse")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   HSE
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-cyan-300 transition-colors">
-                  Careers
+                <Link
+                  href="/equipment?preview=true"
+                  className="hover:text-cyan-300 transition-colors"
+                >
+                  Equipment
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#contact"
+                  onClick={(e) => handleNavClick(e, "contact")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Contact Us
                 </Link>
               </li>
@@ -108,32 +182,56 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-white/95 font-semibold drop-shadow-sm">
               <li>
-                <Link href="#services" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#contact"
+                  onClick={(e) => handleServiceClick(e, "Air Diving")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Air Diving
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#contact"
+                  onClick={(e) => handleServiceClick(e, "Mixed Gas Diving")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Mixed Gas Diving
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#contact"
+                  onClick={(e) => handleServiceClick(e, "Saturation Diving")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Saturation Diving
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#contact"
+                  onClick={(e) => handleServiceClick(e, "Offshore Operations")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Offshore Operations
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#contact"
+                  onClick={(e) => handleServiceClick(e, "Marine Survey and Inspection")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Marine Survey
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-cyan-300 transition-colors">
+                <Link
+                  href="/?preview=true#contact"
+                  onClick={(e) => handleServiceClick(e, "Underwater Cutting, Welding and Salvage")}
+                  className="hover:text-cyan-300 transition-colors"
+                >
                   Underwater Cutting and Welding
                 </Link>
               </li>

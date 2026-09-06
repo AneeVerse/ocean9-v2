@@ -284,7 +284,7 @@ export default function AirDivingPage() {
               </button>
 
               <Link
-                href="/#contact"
+                href="/?preview=true#contact"
                 className="inline-flex items-center gap-3.5 bg-transparent hover:bg-white/5 border border-white/80 hover:border-white text-white font-poppins font-semibold text-sm sm:text-[15px] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 cursor-pointer transform hover:scale-[1.02]"
               >
                 <span>Contact Us</span>
@@ -749,7 +749,7 @@ export default function AirDivingPage() {
 
             <div>
               <Link
-                href="/#projects"
+                href="/?preview=true#projects"
                 className="inline-flex items-center gap-3 bg-[#0055ff] hover:bg-[#0042cb] text-white font-dm-sans font-bold text-sm px-7 py-3.5 rounded-full transition-all shadow-md cursor-pointer"
               >
                 <span>View Our Projects</span>

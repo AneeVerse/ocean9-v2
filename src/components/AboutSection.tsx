@@ -28,7 +28,7 @@ export default function AboutSection() {
           {/* Right Column: Copy & Video / Contact CTA */}
           <div className="lg:col-span-7 space-y-6">
             {/* Tag / Badge: About Ocean 9 */}
-            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0">
+            <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#001742]/85 border border-white/30 shadow-md backdrop-blur-md shrink-0">
               <svg
                 width="16"
                 height="16"
@@ -42,7 +42,7 @@ export default function AboutSection() {
               <span className="font-roboto font-normal text-white text-[14px] tracking-normal">About Ocean 9</span>
             </div>
 
-            <h2 className="font-poppins font-normal text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-normal">
+            <h2 className="font-poppins font-normal sm:font-medium text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] leading-tight lg:leading-[1.25] tracking-tight text-contrast-shadow">
               Your Partner for Underwater <br className="hidden sm:inline" />
               <span className="inline-flex items-center gap-2.5 sm:gap-3.5 align-middle">
                 <span>Operations</span>
@@ -56,15 +56,15 @@ export default function AboutSection() {
               </span>
             </h2>
 
-            <p className="font-roboto font-normal text-white text-xs sm:text-sm lg:text-[14px] xl:text-[15px] leading-relaxed tracking-normal max-w-none lg:whitespace-nowrap">
+            <p className="font-roboto font-medium text-white text-sm sm:text-base lg:text-[15.5px] leading-relaxed tracking-normal max-w-none text-contrast-subtle">
               Ocean 9 Offshore Services Pvt. Ltd. provides underwater diving, marine and subsea engineering services.
             </p>
 
-            <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
+            <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl text-contrast-subtle">
               We support offshore and onshore projects with trained teams, diving equipment and marine support. Our focus is simple: complete every job safely, properly and on time.
             </p>
 
-            <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl">
+            <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl text-contrast-subtle">
               Ocean 9’s company profile describes the business as an underwater diving and subsea engineering service provider with diving personnel, equipment and vessel support.
             </p>
 
@@ -107,22 +107,22 @@ export default function AboutSection() {
         {/* Bottom Stats Grid: 3 columns horizontal on all screens including mobile */}
         <div className="mt-8 sm:mt-14 pt-0 grid grid-cols-3 max-w-[1000px] mx-auto gap-2 sm:gap-6 text-center px-1 sm:px-0">
           <div className="space-y-1">
-            <p className="font-poppins font-normal text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
+            <p className="font-poppins font-normal sm:font-medium text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal text-contrast-shadow">
               38
             </p>
-            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/90 leading-tight">Project Assignments</p>
+            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/95 leading-tight text-contrast-subtle">Project Assignments</p>
           </div>
           <div className="space-y-1">
-            <p className="font-poppins font-normal text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
+            <p className="font-poppins font-normal sm:font-medium text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal text-contrast-shadow">
               18
             </p>
-            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/90 leading-tight">Clients Served</p>
+            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/95 leading-tight text-contrast-subtle">Clients Served</p>
           </div>
           <div className="space-y-1">
-            <p className="font-poppins font-normal text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal">
-              6<span className="font-poppins font-normal text-[#0088ff] text-2xl sm:text-4xl lg:text-[65.6px] leading-none tracking-normal">+</span>
+            <p className="font-poppins font-normal sm:font-medium text-white text-3xl sm:text-5xl lg:text-[73.6px] leading-tight tracking-normal text-contrast-shadow">
+              6<span className="font-poppins font-normal text-[#00d2ff] text-2xl sm:text-4xl lg:text-[65.6px] leading-none tracking-normal text-contrast-shadow">+</span>
             </p>
-            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/90 leading-tight">Years of Experience</p>
+            <p className="font-roboto font-normal text-[11px] sm:text-sm text-white/95 leading-tight text-contrast-subtle">Years of Experience</p>
           </div>
         </div>
       </div>

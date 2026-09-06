@@ -66,7 +66,7 @@ export default function GalleryPage() {
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Back to Home button */}
           <Link
-            href="/"
+            href="/?preview=true"
             className="inline-flex items-center gap-2 text-cyan-300 hover:text-white text-sm font-poppins font-medium mb-6 transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
