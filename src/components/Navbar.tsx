@@ -31,7 +31,7 @@ export default function Navbar() {
       if (targetEl) {
         e.preventDefault();
         targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        window.history.pushState(null, "", `/?preview=true#${targetId}`);
+        window.history.pushState(null, "", `/#${targetId}`);
       }
     }
     setMobileMenuOpen(false);
@@ -41,7 +41,7 @@ export default function Navbar() {
     if (pathname === "/" || pathname === "") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", "/?preview=true");
+      window.history.pushState(null, "", "/");
     }
     setMobileMenuOpen(false);
   };
@@ -61,7 +61,7 @@ export default function Navbar() {
       >
         {/* Ocean 9 Logo */}
         <Link
-          href="/?preview=true"
+          href="/"
           onClick={handleHomeClick}
           className="flex items-center gap-1 sm:gap-1.5 group"
         >
@@ -93,50 +93,51 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-[34px]">
+        <nav className="hidden md:flex items-center gap-[20px] lg:gap-[28px] xl:gap-[34px]">
           <Link
-            href="/?preview=true"
+            href="/"
             onClick={handleHomeClick}
             className="font-semibold text-[16px] leading-[22px] tracking-normal text-white hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
           >
             Home
           </Link>
           <Link
-            href="/?preview=true#about"
+            href="/#about"
             onClick={(e) => handleNavClick(e, "about")}
             className="font-semibold text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
           >
             About Us
           </Link>
           <Link
-            href="/?preview=true#services"
+            href="/#services"
             onClick={(e) => handleNavClick(e, "services")}
             className="font-semibold text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
           >
             Service
           </Link>
           <Link
-            href="/?preview=true#projects"
+            href="/#projects"
             onClick={(e) => handleNavClick(e, "projects")}
             className="font-semibold text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
           >
             Projects
           </Link>
           <Link
-            href="/gallery?preview=true"
+            href="/gallery"
             className="font-semibold text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
           >
             Gallery
           </Link>
           <Link
-            href="/?preview=true#hse"
-            onClick={(e) => handleNavClick(e, "hse")}
-            className="font-semibold text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
+            href="/hse"
+            className={`font-semibold text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md ${
+              pathname === "/hse" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
+            }`}
           >
             HSE
           </Link>
           <Link
-            href="/equipment?preview=true"
+            href="/equipment"
             className={`font-semibold text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md ${
               pathname === "/equipment" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
             }`}
@@ -148,7 +149,7 @@ export default function Navbar() {
         {/* Contact Us Navbar Button */}
         <div className="hidden md:flex items-center">
           <Link
-            href="/?preview=true#contact"
+            href="/#contact"
             onClick={(e) => handleNavClick(e, "contact")}
             className="inline-flex items-center justify-center h-[44px] px-6 bg-[#003D82] hover:bg-[#0055ff] text-white font-bold text-xs tracking-wider uppercase rounded-full shadow-md transition-all duration-300 transform hover:scale-[1.02]"
           >
@@ -170,49 +171,51 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden mx-4 my-2 p-6 space-y-4 rounded-[20px] bg-[#00173e]/40 backdrop-blur-xl border border-white/15 shadow-2xl text-white">
           <Link
-            href="/?preview=true"
+            href="/"
             onClick={handleHomeClick}
             className="block font-semibold text-[16px] py-1.5 text-cyan-300"
           >
             Home
           </Link>
           <Link
-            href="/?preview=true#about"
+            href="/#about"
             onClick={(e) => handleNavClick(e, "about")}
             className="block text-[16px] py-1.5 text-white/90 hover:text-cyan-300"
           >
             About Us
           </Link>
           <Link
-            href="/?preview=true#services"
+            href="/#services"
             onClick={(e) => handleNavClick(e, "services")}
             className="block text-[16px] py-1.5 text-white/90 hover:text-cyan-300"
           >
             Service
           </Link>
           <Link
-            href="/?preview=true#projects"
+            href="/#projects"
             onClick={(e) => handleNavClick(e, "projects")}
             className="block text-[16px] py-1.5 text-white/90 hover:text-cyan-300"
           >
             Projects
           </Link>
           <Link
-            href="/gallery?preview=true"
+            href="/gallery"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-[16px] py-1.5 text-white/90 hover:text-cyan-300"
           >
             Gallery
           </Link>
           <Link
-            href="/?preview=true#hse"
-            onClick={(e) => handleNavClick(e, "hse")}
-            className="block text-[16px] py-1.5 text-white/90 hover:text-cyan-300"
+            href="/hse"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`block text-[16px] py-1.5 transition-colors ${
+              pathname === "/hse" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
+            }`}
           >
             HSE
           </Link>
           <Link
-            href="/equipment?preview=true"
+            href="/equipment"
             onClick={() => setMobileMenuOpen(false)}
             className={`block text-[16px] py-1.5 transition-colors ${
               pathname === "/equipment" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
@@ -222,7 +225,7 @@ export default function Navbar() {
           </Link>
           <div className="pt-2">
             <Link
-              href="/?preview=true#contact"
+              href="/#contact"
               onClick={(e) => handleNavClick(e, "contact")}
               className="inline-flex items-center justify-center w-full h-[44px] bg-[#003D82] hover:bg-[#0055ff] text-white font-bold text-xs tracking-wider uppercase px-6 rounded-full shadow-md transition-all duration-300"
             >

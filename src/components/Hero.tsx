@@ -48,13 +48,13 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-4">
             {/* Primary Button */}
             <Link
-              href="/?preview=true#services"
+              href="/#services"
               onClick={(e) => {
                 const targetEl = document.getElementById("services");
                 if (targetEl) {
                   e.preventDefault();
                   targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                  window.history.pushState(null, "", "/?preview=true#services");
+                  window.history.pushState(null, "", "/#services");
                 }
               }}
               className="inline-flex items-center justify-between gap-3.5 h-[52px] bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 rounded-full font-semibold text-sm sm:text-[15px] transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group transform hover:scale-[1.02] cursor-pointer"
@@ -67,13 +67,13 @@ export default function Hero() {
 
             {/* Secondary Button */}
             <Link
-              href="/?preview=true#contact"
+              href="/#contact"
               onClick={(e) => {
                 const targetEl = document.getElementById("contact");
                 if (targetEl) {
                   e.preventDefault();
                   targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                  window.history.pushState(null, "", "/?preview=true#contact");
+                  window.history.pushState(null, "", "/#contact");
                 }
               }}
               className="inline-flex items-center justify-center h-[52px] bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white/60 text-white backdrop-blur-md px-7 rounded-full font-semibold text-sm sm:text-[15px] transition-all duration-300 shadow-lg transform hover:scale-[1.02] cursor-pointer"

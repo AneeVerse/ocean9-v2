@@ -1,7 +1,5 @@
 "use client";
 
-import { Suspense, useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -24,45 +22,9 @@ import ContactSection from "@/components/ContactSection";
 import ReadyToDive from "@/components/ReadyToDive";
 import Footer from "@/components/Footer";
 import SwimmingFishStrip from "@/components/SwimmingFishStrip";
-import UnderConstruction from "@/components/UnderConstruction";
 import OceanBubbles from "@/components/OceanBubbles";
 
-// Set to true to show Under Construction page by default, or false to show full website
-const SHOW_UNDER_CONSTRUCTION_BY_DEFAULT = true;
-
-function HomeContent() {
-  const searchParams = useSearchParams();
-  const [isPreviewActive, setIsPreviewActive] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        return (
-          localStorage.getItem("ocean9_preview") === "true" ||
-          document.cookie.includes("ocean9_preview=true")
-        );
-      } catch (e) {
-        return false;
-      }
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    if (searchParams.get("preview") === "true") {
-      setIsPreviewActive(true);
-      try {
-        localStorage.setItem("ocean9_preview", "true");
-        document.cookie = "ocean9_preview=true; path=/; max-age=86400";
-      } catch (e) {}
-    }
-  }, [searchParams]);
-
-  const isPreview = searchParams.get("preview") === "true" || isPreviewActive;
-
-  // Show Under Construction page by default unless preview mode is active
-  if (SHOW_UNDER_CONSTRUCTION_BY_DEFAULT && !isPreview) {
-    return <UnderConstruction />;
-  }
-
+export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#002365] text-[#081935] flex flex-col font-sans">
       <Navbar />
@@ -159,14 +121,5 @@ function HomeContent() {
       </div>
 
     </main>
-  );
-}
-
-
-export default function Home() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-[#002365]" />}>
-      <HomeContent />
-    </Suspense>
   );
 }

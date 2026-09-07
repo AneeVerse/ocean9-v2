@@ -14,7 +14,7 @@ export default function Footer() {
       if (targetEl) {
         e.preventDefault();
         targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        window.history.pushState(null, "", `/?preview=true#${targetId}`);
+        window.history.pushState(null, "", `/#${targetId}`);
       }
     }
   };
@@ -23,7 +23,7 @@ export default function Footer() {
     if (pathname === "/" || pathname === "") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.pushState(null, "", "/?preview=true");
+      window.history.pushState(null, "", "/");
     }
   };
 
@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Brand Info & Contact Details */}
           <div className="col-span-2 md:col-span-1 lg:col-span-5 space-y-5">
             <Link
-              href="/?preview=true"
+              href="/"
               onClick={handleHomeClick}
               className="inline-flex items-center gap-1 sm:gap-1.5 group mb-2"
             >
@@ -86,7 +86,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-white/95 font-semibold drop-shadow-sm">
               <li>
                 <Link
-                  href="/?preview=true"
+                  href="/"
                   onClick={handleHomeClick}
                   className="hover:text-cyan-300 transition-colors"
                 >
@@ -95,7 +95,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/?preview=true#about"
+                  href="/#about"
                   onClick={(e) => handleNavClick(e, "about")}
                   className="hover:text-cyan-300 transition-colors"
                 >
@@ -104,7 +104,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/?preview=true#services"
+                  href="/#services"
                   onClick={(e) => handleNavClick(e, "services")}
                   className="hover:text-cyan-300 transition-colors"
                 >
@@ -113,7 +113,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/?preview=true#projects"
+                  href="/#projects"
                   onClick={(e) => handleNavClick(e, "projects")}
                   className="hover:text-cyan-300 transition-colors"
                 >
@@ -131,7 +131,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-white/95 font-semibold drop-shadow-sm">
               <li>
                 <Link
-                  href="/gallery?preview=true"
+                  href="/gallery"
                   className="hover:text-cyan-300 transition-colors"
                 >
                   Gallery
@@ -139,16 +139,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/?preview=true#hse"
-                  onClick={(e) => handleNavClick(e, "hse")}
-                  className="hover:text-cyan-300 transition-colors"
-                >
-                  HSE
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/equipment?preview=true"
+                  href="/equipment"
                   className="hover:text-cyan-300 transition-colors"
                 >
                   Equipment
@@ -156,7 +147,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/?preview=true#contact"
+                  href="/#contact"
                   onClick={(e) => handleNavClick(e, "contact")}
                   className="hover:text-cyan-300 transition-colors"
                 >
@@ -174,6 +165,15 @@ export default function Footer() {
             © 2026 Ocean 9 Offshore Services Pvt. Ltd. All rights reserved.
           </div>
 
+          {/* Middle: HSE & ISO Certificate */}
+          <div className="flex items-center gap-6">
+            <Link href="/hse" className="hover:text-cyan-300 transition-colors">
+              HSE
+            </Link>
+            <Link href="/iso" className="hover:text-cyan-300 transition-colors">
+              ISO Certificate
+            </Link>
+          </div>
 
           {/* Right: Aneeverse Branding & Logo */}
           <a
