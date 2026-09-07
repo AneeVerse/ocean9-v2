@@ -45,6 +45,15 @@ export const metadata: Metadata = {
     "Saturation Diving",
     "Ocean 9",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "any", type: "image/png" },
+      { url: "/assets/ocean9-logo.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
