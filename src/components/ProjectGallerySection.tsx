@@ -259,7 +259,7 @@ export const galleryItems: GalleryItem[] = [
   },
 ];
 
-const categories = ["All", "Photos", "Videos", "Diving", "Salvage", "Inspection", "Repair", "Offshore"];
+const categories = ["All", "Photos", "Videos"];
 
 export default function ProjectGallerySection() {
   const [activeCategory, setActiveCategory] = useState("All");

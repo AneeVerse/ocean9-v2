@@ -1,13 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Play, X, Handshake } from "lucide-react";
 
 export default function AboutSection() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
   return (
     <section id="about" className="py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -25,7 +18,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right Column: Copy & Video / Contact CTA */}
+          {/* Right Column: Copy & Content */}
           <div className="lg:col-span-7 space-y-6">
             {/* Tag / Badge: About Ocean 9 */}
             <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#001742]/85 border border-white/30 shadow-md backdrop-blur-md shrink-0">
@@ -67,40 +60,6 @@ export default function AboutSection() {
             <p className="font-roboto font-normal text-white/95 text-sm sm:text-base leading-relaxed tracking-normal max-w-2xl text-contrast-subtle">
               Ocean 9’s company profile describes the business as an underwater diving and subsea engineering service provider with diving personnel, equipment and vessel support.
             </p>
-
-            {/* Video Thumbnail + About Ocean 9 Button Row */}
-            <div className="flex flex-wrap sm:flex-nowrap items-center justify-start gap-6 sm:gap-8 pt-3">
-              {/* Video Thumbnail Card */}
-              <button
-                onClick={() => setIsVideoModalOpen(true)}
-                type="button"
-                className="relative w-full sm:w-[405px] max-w-[405px] h-[120px] sm:h-[136px] lg:h-[146px] rounded-2xl overflow-hidden group shadow-lg shrink-0 text-left cursor-pointer focus:outline-none"
-              >
-                <Image
-                  src="/images/home-commerical-air-diving-operations.png"
-                  alt="About Ocean 9 Video Preview"
-                  fill
-                  className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-white/30 backdrop-blur-md border border-white/40 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <Play className="w-4 h-4 text-white fill-white ml-0.5" />
-                  </div>
-                </div>
-              </button>
-
-              {/* About Ocean 9 Button */}
-              <Link
-                href="#about"
-                className="inline-flex items-center justify-between gap-4 min-w-[200px] h-[55px] bg-white hover:bg-slate-100 pl-6 pr-1.5 rounded-full transition-all duration-300 shadow-xl group transform hover:scale-[1.02] cursor-pointer shrink-0"
-              >
-                <span className="font-dm-sans font-medium text-[#002365] text-[15px] leading-[30px] tracking-normal whitespace-nowrap">About Ocean 9</span>
-                <div className="w-[43px] h-[43px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:translate-x-0.5 transition-transform shrink-0">
-                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-                </div>
-              </Link>
-            </div>
           </div>
         </div>
 
@@ -126,40 +85,6 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
-
-      {/* Video Modal Popup */}
-      {isVideoModalOpen && (
-        <div
-          onClick={() => setIsVideoModalOpen(false)}
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-lg bg-[#001947] rounded-2xl overflow-hidden border border-cyan-500/30 p-8 sm:p-12 text-center shadow-2xl space-y-4"
-          >
-            <button
-              onClick={() => setIsVideoModalOpen(false)}
-              type="button"
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-cyan-500 transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-500/20 mx-auto flex items-center justify-center text-cyan-400">
-              <Play className="w-7 h-7 ml-0.5 opacity-50" />
-            </div>
-
-            <div className="space-y-1">
-              <h3 className="font-poppins font-semibold text-white text-xl sm:text-2xl">
-                No Video
-              </h3>
-              <p className="font-roboto text-slate-300 text-sm">
-                Video preview is currently unavailable.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

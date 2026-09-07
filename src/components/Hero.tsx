@@ -11,10 +11,11 @@ export default function Hero() {
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           className="w-full h-full object-cover object-center transform-gpu"
         >
-          <source src="/assets/hero-bg-videoplayback.mp4" type="video/mp4" />
+          <source src="https://ik.imagekit.io/ocot2fs3tf/tr:orig/hero-bg-video/Ocean9%20New%20VIdeo.mp4" type="video/mp4" />
+          <source src="/assets/ocean9-hero-video.mp4" type="video/mp4" />
         </video>
 
         {/* Subtle dark overlay for text contrast */}

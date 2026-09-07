@@ -7,10 +7,9 @@ import Link from "next/link";
 import { ArrowLeft, Play, X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingActionButton from "@/components/FloatingActionButton";
 import { galleryItems, GalleryItem } from "@/components/ProjectGallerySection";
 
-const categories = ["All", "Photos", "Videos", "Diving", "Salvage", "Inspection", "Repair", "Offshore"];
+const categories = ["All", "Photos", "Videos"];
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -82,17 +81,16 @@ export default function GalleryPage() {
             </p>
           </div>
 
-          {/* Filter Pills Bar with counts */}
+          {/* Filter Pills Bar with counts on Photos and Videos only */}
           <div className="flex items-center gap-2.5 overflow-x-auto pb-2 scrollbar-none pt-8 mt-4 border-t border-white/10">
             {categories.map((cat) => {
+              const showCount = cat === "Photos" || cat === "Videos";
               const count =
-                cat === "All"
-                  ? galleryItems.length
-                  : cat === "Photos"
+                cat === "Photos"
                   ? galleryItems.filter((i) => i.type === "image").length
                   : cat === "Videos"
                   ? galleryItems.filter((i) => i.type === "video").length
-                  : galleryItems.filter((i) => i.category === cat).length;
+                  : 0;
 
               return (
                 <button
@@ -105,15 +103,17 @@ export default function GalleryPage() {
                   }`}
                 >
                   <span>{cat}</span>
-                  <span
-                    className={`px-2 py-0.5 rounded-full text-[11px] font-bold transition-colors ${
-                      activeCategory === cat
-                        ? "bg-[#00173e] text-white shadow-xs"
-                        : "bg-white/15 text-cyan-300 border border-cyan-400/25 group-hover:bg-white/25"
-                    }`}
-                  >
-                    {count}
-                  </span>
+                  {showCount && (
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-[11px] font-bold transition-colors ${
+                        activeCategory === cat
+                          ? "bg-[#00173e] text-white shadow-xs"
+                          : "bg-white/15 text-cyan-300 border border-cyan-400/25 group-hover:bg-white/25"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -276,7 +276,6 @@ export default function GalleryPage() {
         )}
 
       <Footer />
-      <FloatingActionButton />
     </main>
   );
 }

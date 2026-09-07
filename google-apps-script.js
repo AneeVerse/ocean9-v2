@@ -34,7 +34,7 @@
  */
 
 // Notification recipient email address
-const NOTIFICATION_EMAIL = "team.ocean9999@gmail.com";
+const NOTIFICATION_EMAIL = "info@ocean9offshoreservices.com";
 
 /**
  * Handles POST requests sent from Next.js server route (/api/contact)

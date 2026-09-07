@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
 export default function ContactSection() {
@@ -275,7 +276,7 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2.5">
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -293,6 +294,14 @@ export default function ContactSection() {
                       <span>Contact us</span>
                     )}
                   </button>
+
+                  <p className="text-[11.5px] sm:text-xs text-white/70 leading-relaxed font-roboto">
+                    By submitting this form, you agree that Ocean 9 may use the information provided to respond to your enquiry or application. Please read our{" "}
+                    <Link href="/privacy-policy" className="text-cyan-300 underline hover:text-white transition-colors">
+                      Privacy Policy
+                    </Link>{" "}
+                    for more information.
+                  </p>
                 </div>
               </form>
             )}

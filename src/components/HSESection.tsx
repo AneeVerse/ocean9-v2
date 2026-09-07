@@ -1,13 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import {
   ShieldCheck,
   HeartPulse,
   Leaf,
   Users,
   ClipboardCheck,
-  ArrowUpRight,
 } from "lucide-react";
 
 export default function HSESection() {
@@ -53,10 +51,10 @@ export default function HSESection() {
       <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-30 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* Left Column: Content */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
+          <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6 lg:space-y-0">
+            <div className="space-y-4 sm:space-y-4.5">
               {/* Tag / Badge */}
-              <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[50.39px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
+              <div className="inline-flex items-center justify-center gap-2.5 px-5 h-[48px] rounded-full bg-[#002365]/80 border border-white/20 shadow-[0_0_15px_rgba(32,91,158,0.2)] backdrop-blur-md shrink-0 w-fit">
                 <ShieldCheck className="w-4.5 h-4.5 text-cyan-400 shrink-0 stroke-[2.5]" />
                 <span className="font-roboto font-normal text-white text-[14px] tracking-normal">
                   Health, Safety and Environment
@@ -88,88 +86,67 @@ export default function HSESection() {
                   Ocean 9&apos;s profile places safety, health and environmental responsibility at the centre of its operations.
                 </p>
               </div>
-
-              {/* 4 Feature Cards Grid (2x2) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                {features.map((feat, idx) => {
-                  const FeatIcon = feat.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="group relative overflow-hidden bg-transparent backdrop-blur-md border border-white/15 hover:border-cyan-300/30 rounded-2xl p-3.5 flex items-center gap-3.5 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:bg-cyan-500/5 transition-all duration-300"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 group-hover:bg-cyan-400 group-hover:text-[#00173e] flex items-center justify-center shrink-0 transition-all duration-300">
-                        <FeatIcon className="w-4.5 h-4.5 stroke-[2]" />
-                      </div>
-                      <span className="font-poppins font-bold text-xs sm:text-[13.5px] text-white group-hover:text-cyan-300 leading-snug whitespace-pre-line">
-                        {feat.title}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
             </div>
 
-            {/* CTA Button */}
-            <div className="pt-2 flex justify-start">
-              <Link
-                href="/?preview=true#contact"
-                onClick={(e) => {
-                  const contactEl = document.getElementById("contact");
-                  if (contactEl) {
-                    e.preventDefault();
-                    contactEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                    window.history.pushState(null, "", "/?preview=true#contact");
-                  }
-                }}
-                className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
-              >
-                <span className="font-dm-sans font-semibold text-sm leading-none text-[#002365] whitespace-nowrap">
-                  View Our HSE Policy
-                </span>
-                <div className="w-8 h-8 rounded-full bg-[#002365] text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-xs">
-                  <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
-                </div>
-              </Link>
+            {/* 4 Feature Cards Grid (2x2) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-6 lg:pt-0">
+              {features.map((feat, idx) => {
+                const FeatIcon = feat.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="group relative overflow-hidden bg-transparent backdrop-blur-md border border-white/15 hover:border-cyan-300/30 rounded-2xl p-4 sm:p-4.5 flex items-center gap-3.5 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:bg-cyan-500/5 transition-all duration-300"
+                  >
+                    <div className="w-11 h-11 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 group-hover:bg-cyan-400 group-hover:text-[#00173e] flex items-center justify-center shrink-0 transition-all duration-300">
+                      <FeatIcon className="w-5 h-5 stroke-[2]" />
+                    </div>
+                    <span className="font-poppins font-bold text-xs sm:text-[13.5px] text-white group-hover:text-cyan-300 leading-snug whitespace-pre-line">
+                      {feat.title}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           {/* Right Column: Glass Container */}
           <div className="lg:col-span-5 h-full">
-            <div className="bg-transparent backdrop-blur-md border border-white/20 rounded-[28px] p-6 sm:p-8 flex flex-col justify-between h-full shadow-2xl relative overflow-hidden">
-              <div className="pb-4">
-                <h3 className="font-poppins font-bold text-2xl sm:text-[26px] text-white tracking-tight">
-                  Our Core HSE Pillars
-                </h3>
-                <div className="w-10 h-[3px] bg-cyan-400 mt-2.5 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+            <div className="bg-transparent backdrop-blur-md border border-white/20 rounded-[28px] p-6 sm:p-7 flex flex-col justify-between h-full shadow-2xl relative overflow-hidden">
+              <div>
+                <div className="pb-3.5 sm:pb-4">
+                  <h3 className="font-poppins font-bold text-2xl sm:text-[26px] text-white tracking-tight">
+                    Our Core HSE Pillars
+                  </h3>
+                  <div className="w-10 h-[3px] bg-cyan-400 mt-2.5 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                </div>
+
+                <div className="space-y-3.5 sm:space-y-4 my-2">
+                  {pillars.map((pillar, idx) => {
+                    const Icon = pillar.icon;
+                    return (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-300"
+                      >
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-xs">
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2]" />
+                        </div>
+                        <div className="space-y-1 flex-1">
+                          <h4 className="font-poppins font-bold text-base sm:text-[16.5px] text-white leading-snug">
+                            {pillar.title}
+                          </h4>
+                          <p className="font-roboto text-white/80 text-xs sm:text-sm leading-relaxed">
+                            {pillar.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div className="space-y-4 my-2">
-                {pillars.map((pillar, idx) => {
-                  const Icon = pillar.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 rounded-2xl bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-xs">
-                        <Icon className="w-6 h-6 stroke-[2]" />
-                      </div>
-                      <div className="space-y-1 flex-1">
-                        <h4 className="font-poppins font-bold text-base sm:text-[17px] text-white leading-snug">
-                          {pillar.title}
-                        </h4>
-                        <p className="font-roboto text-white/80 text-xs sm:text-sm leading-relaxed">
-                          {pillar.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="mt-4 p-4.5 sm:p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 flex items-center gap-4 text-white shadow-md">
-                <div className="w-11 h-11 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-xs">
+              <div className="mt-4 p-4 sm:p-4.5 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 flex items-center gap-3.5 sm:gap-4 text-white shadow-md">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center shrink-0 shadow-xs">
                   <ShieldCheck className="w-5 h-5 stroke-[2.2]" />
                 </div>
                 <div className="space-y-0.5">

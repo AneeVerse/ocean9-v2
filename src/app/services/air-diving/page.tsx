@@ -966,13 +966,23 @@ export default function AirDivingPage() {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-[#002365] hover:bg-[#001742] text-white font-dm-sans font-bold text-base py-4 rounded-xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2"
-                  >
-                    <Send className="w-5 h-5" />
-                    <span>Submit Quotation Request</span>
-                  </button>
+                  <div className="space-y-2.5">
+                    <button
+                      type="submit"
+                      className="w-full bg-[#002365] hover:bg-[#001742] text-white font-dm-sans font-bold text-base py-4 rounded-xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2"
+                    >
+                      <Send className="w-5 h-5" />
+                      <span>Submit Quotation Request</span>
+                    </button>
+
+                    <p className="text-[11.5px] sm:text-xs text-slate-500 leading-relaxed font-roboto text-center">
+                      By submitting this form, you agree that Ocean 9 may use the information provided to respond to your enquiry or application. Please read our{" "}
+                      <Link href="/privacy-policy" className="text-[#002365] underline font-medium hover:text-cyan-600 transition-colors">
+                        Privacy Policy
+                      </Link>{" "}
+                      for more information.
+                    </p>
+                  </div>
                 </form>
               )}
             </div>

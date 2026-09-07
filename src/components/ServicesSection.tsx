@@ -1,8 +1,8 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const baseServices = [
   {
@@ -43,7 +43,57 @@ export default function ServicesSection() {
   // Only unique services, no duplicates
   const services = baseServices;
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isMouseDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeftStart = useRef(0);
+  const dragDistance = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    isMouseDown.current = true;
+    startX.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeftStart.current = scrollContainerRef.current.scrollLeft;
+    dragDistance.current = 0;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isMouseDown.current || !scrollContainerRef.current) return;
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const dist = Math.abs(x - startX.current);
+    dragDistance.current = dist;
+    if (dist > 5) {
+      setIsDragging(true);
+    }
+    const walk = (x - startX.current) * 1.5;
+    scrollContainerRef.current.scrollLeft = scrollLeftStart.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    isMouseDown.current = false;
+    setTimeout(() => {
+      setIsDragging(false);
+    }, 50);
+  };
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -320, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
+
   const handleCardClick = (title: string) => {
+    if (dragDistance.current > 6) {
+      return; // User was dragging to scroll, ignore click
+    }
+
     if (typeof window !== "undefined") {
       // Dispatch custom event so ContactSection pre-selects this service
       window.dispatchEvent(new CustomEvent("select-service", { detail: title }));
@@ -85,49 +135,57 @@ export default function ServicesSection() {
             Complete support for underwater, Onshore, Offshore and Marine projects.
           </p>
 
-          {/* Top Right "View All Services" Button */}
-          <div className="md:absolute md:right-0 md:bottom-0 mt-6 md:mt-0 flex justify-start md:justify-end">
-            <Link
-              href="/?preview=true#contact"
-              onClick={(e) => {
-                const contactEl = document.getElementById("contact");
-                if (contactEl) {
-                  e.preventDefault();
-                  contactEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                  window.history.pushState(null, "", "/?preview=true#contact");
-                }
-              }}
-              className="inline-flex items-center gap-4 bg-white hover:bg-slate-100 text-[#002365] pl-6 pr-1.5 py-1.5 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] group cursor-pointer transform hover:scale-[1.02]"
+          {/* Top Right Scroll Arrows for Desktop */}
+          <div className="hidden sm:flex items-center gap-2 md:absolute md:right-0 md:bottom-0 mt-6 md:mt-0 justify-end">
+            <button
+              type="button"
+              onClick={scrollLeft}
+              aria-label="Scroll services left"
+              className="w-10 h-10 rounded-full bg-[#001742]/80 hover:bg-cyan-500 text-white hover:text-[#001742] border border-white/20 hover:border-cyan-400 flex items-center justify-center transition-all duration-200 shadow-md backdrop-blur-md cursor-pointer"
             >
-              <span className="font-dm-sans font-semibold text-[15px] leading-[24px] tracking-normal text-[#002365] whitespace-nowrap">
-                View All Services
-              </span>
-              <div className="w-[38px] h-[38px] rounded-full bg-[#002365] flex items-center justify-center text-white group-hover:scale-105 transition-transform shrink-0 shadow-xs">
-                <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
-              </div>
-            </Link>
+              <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+            </button>
+            <button
+              type="button"
+              onClick={scrollRight}
+              aria-label="Scroll services right"
+              className="w-10 h-10 rounded-full bg-[#001742]/80 hover:bg-cyan-500 text-white hover:text-[#001742] border border-white/20 hover:border-cyan-400 flex items-center justify-center transition-all duration-200 shadow-md backdrop-blur-md cursor-pointer"
+            >
+              <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Horizontal Scrollable Cards Track without duplicates */}
-      <div className="w-full overflow-x-auto scrollbar-none pb-4 pt-2 relative z-10">
+      {/* Horizontal Scrollable Cards Track with Mouse Drag Support */}
+      <div
+        ref={scrollContainerRef}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUpOrLeave}
+        onMouseLeave={handleMouseUpOrLeave}
+        className={`w-full overflow-x-auto scrollbar-none pb-4 pt-2 relative z-10 select-none ${
+          isDragging ? "cursor-grabbing" : "cursor-grab"
+        }`}
+      >
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-4 sm:gap-4.5 lg:gap-5 w-max pr-12">
             {services.map((service, index) => (
               <button
                 key={index}
                 type="button"
+                draggable={false}
                 onClick={() => handleCardClick(service.title)}
-                className="w-[250px] sm:w-[270px] lg:w-[280px] xl:w-[290px] h-auto bg-transparent backdrop-blur-md border border-white/20 rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] hover:border-cyan-300/40 hover:bg-cyan-500/5 flex flex-col shrink-0 snap-start transition-all duration-300 hover:-translate-y-1.5 group cursor-pointer text-left block"
+                className="w-[250px] sm:w-[270px] lg:w-[280px] xl:w-[290px] h-auto bg-transparent backdrop-blur-md border border-white/20 rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-xl hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] hover:border-cyan-300/40 hover:bg-cyan-500/5 flex flex-col shrink-0 snap-start transition-all duration-300 hover:-translate-y-1.5 group cursor-pointer text-left block select-none"
               >
                 {/* Card Top Image */}
-                <div className="relative h-[210px] sm:h-[225px] lg:h-[235px] w-full overflow-hidden bg-slate-900 rounded-t-[20px] sm:rounded-t-[24px] shrink-0">
+                <div className="relative h-[210px] sm:h-[225px] lg:h-[235px] w-full overflow-hidden bg-slate-900 rounded-t-[20px] sm:rounded-t-[24px] shrink-0 pointer-events-none">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    draggable={false}
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 select-none pointer-events-none"
                   />
                 </div>
 
