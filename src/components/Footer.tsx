@@ -69,7 +69,9 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 hover:text-cyan-300 transition-colors">
                 <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Phone: 022-27701886</span>
+                <a href="tel:+912227701886" className="hover:text-cyan-300">
+                  Phone: +91 022-27701886
+                </a>
               </div>
               <div className="flex items-center gap-3 hover:text-cyan-300 transition-colors">
                 <Smartphone className="w-4 h-4 text-cyan-400 shrink-0" />

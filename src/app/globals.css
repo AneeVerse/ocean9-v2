@@ -120,19 +120,19 @@ body {
     transform: translate3d(-350px, 0, 0);
   }
   50% {
-    transform: translate3d(calc(50vw - 150px), -8px, 0);
+    transform: translate3d(calc(50vw - 130px), -8px, 0);
   }
   100% {
-    transform: translate3d(calc(100vw + 50px), 0, 0);
+    transform: translate3d(calc(100vw + 60px), 0, 0);
   }
 }
 
 @keyframes swim-left {
   0% {
-    transform: translate3d(calc(100vw + 50px), 0, 0);
+    transform: translate3d(calc(100vw + 60px), 0, 0);
   }
   50% {
-    transform: translate3d(calc(50vw - 150px), 8px, 0);
+    transform: translate3d(calc(50vw - 130px), 8px, 0);
   }
   100% {
     transform: translate3d(-350px, 0, 0);
@@ -143,50 +143,50 @@ body {
 /* Symmetrically offsets divers so both enter at the same instant, cross at center (50vw), and exit together */
 @keyframes swim-right-mobile {
   0% {
-    transform: translate3d(-140px, 0, 0);
+    transform: translate3d(-190px, 0, 0);
   }
   50% {
-    transform: translate3d(calc(50vw - 64px), -6px, 0);
+    transform: translate3d(calc(50vw - 88px), -6px, 0);
   }
   100% {
-    transform: translate3d(calc(100vw + 14px), 0, 0);
+    transform: translate3d(calc(100vw + 24px), 0, 0);
   }
 }
 
 @keyframes swim-left-mobile {
   0% {
-    transform: translate3d(calc(100vw + 14px), 0, 0);
+    transform: translate3d(calc(100vw + 24px), 0, 0);
   }
   50% {
-    transform: translate3d(calc(50vw - 64px), 6px, 0);
+    transform: translate3d(calc(50vw - 88px), 6px, 0);
   }
   100% {
-    transform: translate3d(-140px, 0, 0);
+    transform: translate3d(-190px, 0, 0);
   }
 }
 
 /* Synchronized Infinite Loop Swimming Divers (Tablet 640px - 767px) */
 @keyframes swim-right-tablet {
   0% {
-    transform: translate3d(-190px, 0, 0);
+    transform: translate3d(-240px, 0, 0);
   }
   50% {
-    transform: translate3d(calc(50vw - 88px), -7px, 0);
+    transform: translate3d(calc(50vw - 112px), -7px, 0);
   }
   100% {
-    transform: translate3d(calc(100vw + 16px), 0, 0);
+    transform: translate3d(calc(100vw + 28px), 0, 0);
   }
 }
 
 @keyframes swim-left-tablet {
   0% {
-    transform: translate3d(calc(100vw + 16px), 0, 0);
+    transform: translate3d(calc(100vw + 28px), 0, 0);
   }
   50% {
-    transform: translate3d(calc(50vw - 88px), 7px, 0);
+    transform: translate3d(calc(50vw - 112px), 7px, 0);
   }
   100% {
-    transform: translate3d(-190px, 0, 0);
+    transform: translate3d(-240px, 0, 0);
   }
 }
 
@@ -267,4 +267,12 @@ body {
   width: max-content;
   animation: swim-track-left 34s linear infinite;
   will-change: transform;
+}
+
+/* Hide Next.js dev indicator badge and route announcer */
+nextjs-portal,
+[data-nextjs-dev-indicator],
+[data-nextjs-toast],
+#next-route-announcer {
+  display: none !important;
 }

@@ -94,11 +94,13 @@ export default function OceanBubbles({
       radius: 110,
     };
 
+    let touchTimeout: NodeJS.Timeout | null = null;
     const handlePointerMove = (e: MouseEvent | TouchEvent) => {
       if (!interactive || !container) return;
       const rect = container.getBoundingClientRect();
-      const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-      const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+      const isTouch = "touches" in e;
+      const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+      const clientY = isTouch ? e.touches[0].clientY : e.clientY;
 
       if (isFixed) {
         mouse.targetX = clientX;
@@ -107,17 +109,32 @@ export default function OceanBubbles({
         mouse.targetX = clientX - rect.left;
         mouse.targetY = clientY - rect.top;
       }
+
+      if (isTouch) {
+        if (touchTimeout) clearTimeout(touchTimeout);
+        // On mobile touch, auto-clear coordinates after 350ms so touch never lingers as a stuck trap
+        touchTimeout = setTimeout(() => {
+          mouse.targetX = -1000;
+          mouse.targetY = -1000;
+          mouse.x = -1000;
+          mouse.y = -1000;
+        }, 350);
+      }
     };
 
     const handlePointerLeave = () => {
+      if (touchTimeout) clearTimeout(touchTimeout);
       mouse.targetX = -1000;
       mouse.targetY = -1000;
+      mouse.x = -1000;
+      mouse.y = -1000;
     };
 
     window.addEventListener("mousemove", handlePointerMove, { passive: true });
     window.addEventListener("mouseleave", handlePointerLeave, { passive: true });
     window.addEventListener("touchstart", handlePointerMove, { passive: true });
     window.addEventListener("touchend", handlePointerLeave, { passive: true });
+    window.addEventListener("touchcancel", handlePointerLeave, { passive: true });
 
     // Track scroll position if startAfterHero is active
     let scrollY = window.scrollY;
@@ -173,20 +190,20 @@ export default function OceanBubbles({
       const rand = Math.random();
       let layer = 1;
       let radius = 3.5 + Math.random() * 4.5;
-      let speed = 0.95 + Math.random() * 1.0;
+      let speed = 0.8 + (radius / 10) * 0.8 + Math.random() * 0.5;
       let opacity = 0.3 + Math.random() * 0.35;
 
       if (rand < 0.4) {
         // Background small micro bubbles
         layer = 0;
         radius = 1.8 + Math.random() * 2.2;
-        speed = 0.5 + Math.random() * 0.6;
+        speed = 0.5 + (radius / 8) * 0.4 + Math.random() * 0.3;
         opacity = 0.18 + Math.random() * 0.25;
       } else if (rand > 0.82) {
         // Foreground large shiny bubbles
         layer = 2;
         radius = 7.5 + Math.random() * 8.5;
-        speed = 1.6 + Math.random() * 1.3;
+        speed = 1.3 + (radius / 16) * 1.0 + Math.random() * 0.6;
         opacity = 0.42 + Math.random() * 0.35;
       }
 
@@ -197,17 +214,20 @@ export default function OceanBubbles({
       if (initialSpawn) {
         y = spawnYMin + Math.random() * Math.max(100, height - spawnYMin);
       } else {
-        // Continuous viewport recycling: For tall sections, spawn bubbles right below current view
+        // Continuous viewport recycling: Disperse smoothly throughout the deep water column
         if (container && height > 1000) {
           const rect = container.getBoundingClientRect();
           const viewBottom = Math.min(height, Math.max(spawnYMin + 400, -rect.top + window.innerHeight));
-          if (Math.random() < 0.7) {
-            y = viewBottom + Math.random() * 180;
+          const spawnDepth = Math.max(1200, window.innerHeight * 1.8);
+          if (Math.random() < 0.65) {
+            // Evenly distributed across a deep ocean gradient below the view (prevents dense horizontal bands)
+            y = viewBottom + 30 + Math.random() * spawnDepth;
           } else {
-            y = height + radius + 10 + Math.random() * 50;
+            // Spawn from the bottom of the container
+            y = height + radius + 10 + Math.random() * 400;
           }
         } else {
-          y = height + radius + 10 + Math.random() * 50;
+          y = height + radius + 10 + Math.random() * 60;
         }
       }
 
@@ -441,7 +461,7 @@ export default function OceanBubbles({
           }
         }
 
-        // Gentle interactive mouse hover nudge
+        // Gentle interactive mouse hover nudge (horizontal parting only)
         if (interactive && mouse.x > -500 && mouse.y > -500) {
           const dx = currentX - mouse.x;
           const dy = b.y - mouse.y;
@@ -450,8 +470,9 @@ export default function OceanBubbles({
           if (dist < mouse.radius) {
             const force = (1 - dist / mouse.radius) * 12;
             const angle = Math.atan2(dy, dx);
+            // Deflect horizontally away from pointer like real water parting
             currentX += Math.cos(angle) * force;
-            b.y += Math.sin(angle) * force * 0.15;
+            // CRITICAL: NEVER add downward force to b.y! Bubbles always rise with buoyancy.
           }
         }
 
@@ -606,6 +627,7 @@ export default function OceanBubbles({
       window.removeEventListener("mouseleave", handlePointerLeave);
       window.removeEventListener("touchstart", handlePointerMove);
       window.removeEventListener("touchend", handlePointerLeave);
+      window.removeEventListener("touchcancel", handlePointerLeave);
       window.removeEventListener("pointerdown", handlePointerDown);
       window.removeEventListener("mousedown", handlePointerDown);
     };

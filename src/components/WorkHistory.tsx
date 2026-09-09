@@ -5,29 +5,38 @@ export default function WorkHistory() {
     {
       name: "Indian Navy",
       src: "/images/indian-navy-logo2.png",
-      heightClass: "h-10 sm:h-12 lg:h-13",
-      showText: true,
-      text: "INDIAN NAVY",
+      heightClass: "h-8 sm:h-9",
+      boxClass: "w-12 sm:w-14",
+      role: "Maritime Defense Client",
     },
     {
       name: "Adani",
       src: "/images/adani-transparent-logo.png",
-      heightClass: "h-8 sm:h-10 lg:h-11",
+      heightClass: "h-6 sm:h-7",
+      boxClass: "w-16 sm:w-18",
+      role: "Port & Infrastructure Client",
     },
     {
       name: "Airtel",
       src: "/assets/Airtel-logo.png",
-      heightClass: "h-9 sm:h-11 lg:h-12",
+      heightClass: "h-6 sm:h-7",
+      boxClass: "w-16 sm:w-18",
+      role: "Telecom Network Partner",
     },
     {
       name: "Reliance Industries",
       src: "/images/reliance-logo.png",
-      heightClass: "h-12 sm:h-15 lg:h-16",
+      heightClass: "h-7 sm:h-8",
+      boxClass: "w-14 sm:w-16",
+      role: "Offshore & Marine Client",
     },
     {
       name: "Tata Communications",
       src: "/assets/397-3971561_tata-communications-logo-tata-communications-logo.png",
-      heightClass: "h-8 sm:h-10 lg:h-11",
+      heightClass: "h-7 sm:h-8",
+      boxClass: "w-24 sm:w-28",
+      extraClass: "brightness-125 contrast-125 drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]",
+      role: "Network Partner",
     },
   ];
 
@@ -47,58 +56,176 @@ export default function WorkHistory() {
               </p>
             </div>
 
-            {/* Right Side: Infinite Marquee Carousel with 3 Logos visible in view */}
+            {/* Right Side: Option 3 Frosted Glass Client Cards Marquee */}
             <div
               className="lg:col-span-6 w-full overflow-hidden relative py-2"
+              style={{
+                maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+              }}
+            >
+              <div className="flex items-center animate-marquee shrink-0 hover:[animation-play-state:paused]">
+                {/* Track Set 1 */}
+                <div className="flex items-center gap-4 sm:gap-5 shrink-0 pr-4 sm:pr-5">
+                  {clientsList.map((client, idx) => (
+                    <div
+                      key={`card-set1-${idx}`}
+                      className="group shrink-0 flex items-center gap-3 sm:gap-3.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-transparent hover:bg-white/5 border border-white/20 hover:border-cyan-400/50 shadow-lg transition-all duration-300 hover:scale-[1.03] cursor-pointer select-none"
+                    >
+                      {/* Transparent Logo Box */}
+                      <div className={`${client.boxClass || "w-12 sm:w-14"} h-10 sm:h-11 flex items-center justify-center p-1 shrink-0`}>
+                        <img
+                          src={client.src}
+                          alt={client.name}
+                          className={`${client.heightClass} ${client.extraClass || ""} w-auto object-contain transition-all duration-300 group-hover:scale-105 group-hover:brightness-110`}
+                        />
+                      </div>
+
+                      {/* Client Name & Partnership Role */}
+                      <div className="flex flex-col justify-center space-y-0.5 text-left pr-1">
+                        <span className="font-poppins font-bold text-xs sm:text-[13px] text-white group-hover:text-cyan-200 transition-colors whitespace-nowrap leading-tight drop-shadow-sm">
+                          {client.name}
+                        </span>
+                        <span className="font-roboto text-[10px] sm:text-[11px] font-medium text-cyan-300 whitespace-nowrap leading-tight flex items-center gap-1.5 drop-shadow-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                          <span>{client.role}</span>
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Track Set 2 (Identical Duplicate for Seamless 60fps Loop) */}
+                <div className="flex items-center gap-4 sm:gap-5 shrink-0 pr-4 sm:pr-5" aria-hidden="true">
+                  {clientsList.map((client, idx) => (
+                    <div
+                      key={`card-set2-${idx}`}
+                      className="group shrink-0 flex items-center gap-3 sm:gap-3.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-transparent hover:bg-white/5 border border-white/20 hover:border-cyan-400/50 shadow-lg transition-all duration-300 hover:scale-[1.03] cursor-pointer select-none"
+                    >
+                      {/* Transparent Logo Box */}
+                      <div className={`${client.boxClass || "w-12 sm:w-14"} h-10 sm:h-11 flex items-center justify-center p-1 shrink-0`}>
+                        <img
+                          src={client.src}
+                          alt={client.name}
+                          className={`${client.heightClass} ${client.extraClass || ""} w-auto object-contain transition-all duration-300 group-hover:scale-105 group-hover:brightness-110`}
+                        />
+                      </div>
+
+                      {/* Client Name & Partnership Role */}
+                      <div className="flex flex-col justify-center space-y-0.5 text-left pr-1">
+                        <span className="font-poppins font-bold text-xs sm:text-[13px] text-white group-hover:text-cyan-200 transition-colors whitespace-nowrap leading-tight drop-shadow-sm">
+                          {client.name}
+                        </span>
+                        <span className="font-roboto text-[10px] sm:text-[11px] font-medium text-cyan-300 whitespace-nowrap leading-tight flex items-center gap-1.5 drop-shadow-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                          <span>{client.role}</span>
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ========================================================================= */}
+            {/* OPTION 1 IMPLEMENTATION (ROLE BADGES UNDER LOGO - PRESERVED FOR FUTURE USE) */}
+            {/* ========================================================================= */}
+            {/*
+            <div
+              className="hidden lg:col-span-6 w-full overflow-hidden relative py-2"
               style={{
                 maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
                 WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
               }}
             >
               <div className="flex items-center animate-marquee shrink-0">
-                {/* Track Set 1 */}
-                <div className="flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12">
+                <div className="flex items-center gap-8 sm:gap-10 shrink-0 pr-8 sm:pr-10">
                   {clientsList.map((client, idx) => (
                     <div
-                      key={`set1-${idx}`}
-                      className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
+                      key={`opt1-set1-${idx}`}
+                      className="w-[170px] sm:w-[210px] shrink-0 group flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:scale-105 cursor-pointer py-2"
                     >
-                      <img
-                        src={client.src}
-                        alt={client.name}
-                        className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
-                      />
-                      {client.showText && (
-                        <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-1">
-                          {client.text}
-                        </span>
-                      )}
+                      <div className="h-12 sm:h-14 flex items-center justify-center">
+                        <img
+                          src={client.src}
+                          alt={client.name}
+                          className={`${client.heightClass} w-auto object-contain transition-all duration-300 group-hover:brightness-110`}
+                        />
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#001c47]/85 border border-cyan-400/35 backdrop-blur-md text-cyan-300 text-[10px] sm:text-[11px] font-poppins font-medium tracking-normal whitespace-nowrap shadow-sm group-hover:border-cyan-300/60 group-hover:bg-[#002866]/90 transition-all duration-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                        <span>{client.role}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
-
-                {/* Track Set 2 (Identical Duplicate for Seamless 60fps Loop) */}
-                <div className="flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12" aria-hidden="true">
+                <div className="flex items-center gap-8 sm:gap-10 shrink-0 pr-8 sm:pr-10" aria-hidden="true">
                   {clientsList.map((client, idx) => (
                     <div
-                      key={`set2-${idx}`}
-                      className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
+                      key={`opt1-set2-${idx}`}
+                      className="w-[170px] sm:w-[210px] shrink-0 group flex flex-col items-center justify-center gap-2.5 transition-all duration-300 hover:scale-105 cursor-pointer py-2"
                     >
-                      <img
-                        src={client.src}
-                        alt={client.name}
-                        className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
-                      />
-                      {client.showText && (
-                        <span className="font-poppins font-bold text-white text-[11px] sm:text-xs lg:text-[13px] tracking-[0.14em] uppercase text-center drop-shadow-md whitespace-nowrap mt-1">
-                          {client.text}
-                        </span>
-                      )}
+                      <div className="h-12 sm:h-14 flex items-center justify-center">
+                        <img
+                          src={client.src}
+                          alt={client.name}
+                          className={`${client.heightClass} w-auto object-contain transition-all duration-300 group-hover:brightness-110`}
+                        />
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#001c47]/85 border border-cyan-400/35 backdrop-blur-md text-cyan-300 text-[10px] sm:text-[11px] font-poppins font-medium tracking-normal whitespace-nowrap shadow-sm group-hover:border-cyan-300/60 group-hover:bg-[#002866]/90 transition-all duration-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                        <span>{client.role}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
+            */}
+
+            {/* ========================================================================= */}
+            {/* ORIGINAL LOGO-ONLY IMPLEMENTATION (PRESERVED FOR FUTURE USE) */}
+            {/* ========================================================================= */}
+            {/*
+            <div
+              className="hidden lg:col-span-6 w-full overflow-hidden relative py-2"
+              style={{
+                maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+              }}
+            >
+              <div className="flex items-center animate-marquee shrink-0">
+                <div className="flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12">
+                  {clientsList.map((client, idx) => (
+                    <div
+                      key={`prev-set1-${idx}`}
+                      className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    >
+                      <img
+                        src={client.src}
+                        alt={client.name}
+                        className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center gap-8 sm:gap-12 shrink-0 pr-8 sm:pr-12" aria-hidden="true">
+                  {clientsList.map((client, idx) => (
+                    <div
+                      key={`prev-set2-${idx}`}
+                      className="w-[120px] sm:w-[150px] shrink-0 group flex flex-col items-center justify-center h-16 sm:h-20 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    >
+                      <img
+                        src={client.src}
+                        alt={client.name}
+                        className={`${client.heightClass} w-auto object-contain transition-all duration-300`}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            */}
           </div>
         </div>
       </div>

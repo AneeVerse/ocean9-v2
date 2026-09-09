@@ -27,15 +27,15 @@ export const baseServices = [
   },
   {
     title: "Marine Survey and Inspection",
-    image: "/assets/home-cable-repair-and-protection.jpg",
+    image: "https://ik.imagekit.io/ocot2fs3tf/images/Marine%20Survey%20and%20Inspection.png",
   },
   {
     title: "Underwater Cutting, Welding and Salvage",
-    image: "/assets/home-under-water-savage.jpg",
+    image: "https://ik.imagekit.io/ocot2fs3tf/images/Underwater%20Cutting,%20Welding%20and%20Salvage.png",
   },
   {
     title: "Marine Crew and Manning",
-    image: "/assets/home-dock-and-gate-operation.jpg",
+    image: "https://ik.imagekit.io/ocot2fs3tf/images/Marine%20Crew%20and%20Manning.png",
   },
 ];
 

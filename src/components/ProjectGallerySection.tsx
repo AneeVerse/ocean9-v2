@@ -380,48 +380,50 @@ export default function ProjectGallerySection() {
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedItems.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setSelectedItem(item)}
-              className="group relative bg-[#00173e] border border-[#dbeafe] rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer shadow-md hover:shadow-2xl hover:border-[#1e66f5]/60 transition-all duration-300"
-            >
-              {item.type === "image" ? (
-                <Image
-                  src={item.mediaUrl}
-                  alt={item.title || "Project Operation"}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              ) : (
-                <div className="relative w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden">
-                  <video
+        {/* Gallery Grid / Mobile horizontal scroll */}
+        <div className="max-sm:overflow-x-auto max-sm:scrollbar-none max-sm:-mx-4 max-sm:px-4 max-sm:pb-4 max-sm:pt-1">
+          <div className="max-sm:flex max-sm:w-max max-sm:gap-4 max-sm:pr-4 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 max-sm:snap-x max-sm:snap-mandatory">
+            {displayedItems.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedItem(item)}
+                className="group relative bg-[#00173e] border border-[#dbeafe] rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer shadow-md hover:shadow-2xl hover:border-[#1e66f5]/60 transition-all duration-300 max-sm:w-[82vw] max-sm:max-w-[340px] max-sm:shrink-0 max-sm:snap-start"
+              >
+                {item.type === "image" ? (
+                  <Image
                     src={item.mediaUrl}
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    alt={item.title || "Project Operation"}
+                    fill
+                    sizes="(max-width: 640px) 82vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                </div>
-              )}
-
-              {/* Subtle Hover Overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-
-              {/* Zoom / Play Indicator on Top Right */}
-              <div className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#00173e]/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-[#00173e] transition-all duration-300 shadow-md">
-                {item.type === "video" ? (
-                  <Play className="w-4 h-4 fill-current ml-0.5" />
                 ) : (
-                  <ZoomIn className="w-4 h-4" />
+                  <div className="relative w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden">
+                    <video
+                      src={item.mediaUrl}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
                 )}
+
+                {/* Subtle Hover Overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+
+                {/* Zoom / Play Indicator on Top Right */}
+                <div className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#00173e]/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-90 group-hover:opacity-100 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-[#00173e] transition-all duration-300 shadow-md">
+                  {item.type === "video" ? (
+                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                  ) : (
+                    <ZoomIn className="w-4 h-4" />
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

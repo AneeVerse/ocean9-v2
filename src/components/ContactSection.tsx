@@ -294,14 +294,6 @@ export default function ContactSection() {
                       <span>Contact us</span>
                     )}
                   </button>
-
-                  <p className="text-[11.5px] sm:text-xs text-white/70 leading-relaxed font-roboto">
-                    By submitting this form, you agree that Ocean 9 may use the information provided to respond to your enquiry or application. Please read our{" "}
-                    <Link href="/privacy-policy" className="text-cyan-300 underline hover:text-white transition-colors">
-                      Privacy Policy
-                    </Link>{" "}
-                    for more information.
-                  </p>
                 </div>
               </form>
             )}
