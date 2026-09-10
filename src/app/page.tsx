@@ -11,6 +11,7 @@ import CapabilitiesSection from "@/components/CapabilitiesSection";
 import Testimonials from "@/components/Testimonials";
 import ProjectExperience from "@/components/ProjectExperience";
 import WorkHistory from "@/components/WorkHistory";
+import AssociatedPartners from "@/components/AssociatedPartners";
 import ReviewsSection from "@/components/ReviewsSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
@@ -90,6 +91,7 @@ export default function Home() {
           />
           <div className="relative z-30">
             <WorkHistory />
+            <AssociatedPartners />
             <HSESection />
             <ContactSection />
           </div>
