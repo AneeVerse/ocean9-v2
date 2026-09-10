@@ -90,8 +90,8 @@ export default function Home() {
             priority
           />
           <div className="relative z-30">
-            <WorkHistory />
             <AssociatedPartners />
+            <WorkHistory />
             <HSESection />
             <ContactSection />
           </div>
