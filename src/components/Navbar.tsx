@@ -87,6 +87,7 @@ export default function Navbar() {
     { label: "Gallery", href: "/gallery", isAnchor: false, targetId: "" },
     { label: "HSE", href: "/hse", isAnchor: false, targetId: "" },
     { label: "ISO Certificate", href: "/iso", isAnchor: false, targetId: "" },
+    { label: "MSME", href: "/msme", isAnchor: false, targetId: "" },
     { label: "Equipment", href: "/equipment", isAnchor: false, targetId: "" },
   ];
 
@@ -108,7 +109,7 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={handleHomeClick}
-            className="flex items-center gap-1 sm:gap-1.5 group"
+            className="flex items-center gap-1.5 sm:gap-2 group"
           >
             <div
               className={`relative transition-all duration-500 ease-in-out shrink-0 ${
@@ -125,57 +126,68 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <span
-              className={`font-bold tracking-tight leading-none transition-all duration-500 ease-in-out select-none flex items-center ${
-                isScrolled
-                  ? "text-2xl sm:text-3xl"
-                  : "text-3xl sm:text-4xl lg:text-[42px]"
-              }`}
-            >
-              <span className="text-white drop-shadow-md">Ocean</span>
-              <span className="text-[#ba1319] drop-shadow-md">9</span>
-            </span>
+            <div className="flex flex-col justify-center">
+              <span
+                className={`font-bold tracking-tight leading-none transition-all duration-500 ease-in-out select-none flex items-center ${
+                  isScrolled
+                    ? "text-2xl sm:text-3xl"
+                    : "text-3xl sm:text-4xl lg:text-[40px]"
+                }`}
+              >
+                <span className="text-white drop-shadow-md">Ocean</span>
+                <span className="text-[#ba1319] drop-shadow-md">9</span>
+              </span>
+              <span
+                className={`font-medium tracking-[0.03em] sm:tracking-[0.05em] text-white/90 drop-shadow-md transition-all duration-500 ease-in-out select-none whitespace-nowrap ${
+                  isScrolled
+                    ? "text-[7px] sm:text-[8.5px] lg:text-[9.5px] mt-0.5"
+                    : "text-[8px] sm:text-[10px] lg:text-[11.5px] mt-0.5 sm:mt-1"
+                }`}
+              >
+                Offshore Services Pvt. Ltd.
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-[14px] lg:gap-[20px] xl:gap-[26px]">
+          <nav className="hidden md:flex items-center gap-[10px] lg:gap-[16px] xl:gap-[22px]">
             <Link
               href="/"
               onClick={handleHomeClick}
-              className="font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal text-white hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
+              className="font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal text-white hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
             >
               Home
             </Link>
             <Link
               href="/#about"
               onClick={(e) => handleNavClick(e, "about")}
-              className="font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
+              className="font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
             >
               About Us
             </Link>
             <Link
               href="/#services"
               onClick={(e) => handleNavClick(e, "services")}
-              className="font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
+              className="font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
             >
               Service
             </Link>
             <Link
               href="/#projects"
               onClick={(e) => handleNavClick(e, "projects")}
-              className="font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
+              className="font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
             >
               Projects
             </Link>
             <Link
               href="/gallery"
-              className="font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
+              className="font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal text-white/90 hover:text-cyan-300 transition-colors duration-300 drop-shadow-md"
             >
               Gallery
             </Link>
             <Link
               href="/hse"
-              className={`font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md ${
+              className={`font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md ${
                 pathname === "/hse" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
               }`}
             >
@@ -183,15 +195,23 @@ export default function Navbar() {
             </Link>
             <Link
               href="/iso"
-              className={`font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md whitespace-nowrap ${
+              className={`font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md whitespace-nowrap ${
                 pathname === "/iso" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
               }`}
             >
               ISO Certificate
             </Link>
             <Link
+              href="/msme"
+              className={`font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md whitespace-nowrap ${
+                pathname === "/msme" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
+              }`}
+            >
+              MSME
+            </Link>
+            <Link
               href="/equipment"
-              className={`font-semibold text-[15px] lg:text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md ${
+              className={`font-semibold text-[13.5px] lg:text-[15px] xl:text-[16px] leading-[22px] tracking-normal transition-colors duration-300 drop-shadow-md ${
                 pathname === "/equipment" ? "text-cyan-300 font-bold" : "text-white/90 hover:text-cyan-300"
               }`}
             >
@@ -240,7 +260,7 @@ export default function Navbar() {
               <Link
                 href="/"
                 onClick={handleHomeClick}
-                className="flex items-center gap-1 sm:gap-1.5 group"
+                className="flex items-center gap-1.5 sm:gap-2 group"
               >
                 <div className="relative w-8 sm:w-10 h-8 sm:h-10 shrink-0">
                   <Image
@@ -251,10 +271,15 @@ export default function Navbar() {
                     priority
                   />
                 </div>
-                <span className="font-bold tracking-tight text-2xl sm:text-3xl leading-none flex items-center">
-                  <span className="text-white drop-shadow-md">Ocean</span>
-                  <span className="text-[#ba1319] drop-shadow-md">9</span>
-                </span>
+                <div className="flex flex-col justify-center">
+                  <span className="font-bold tracking-tight text-2xl sm:text-3xl leading-none flex items-center">
+                    <span className="text-white drop-shadow-md">Ocean</span>
+                    <span className="text-[#ba1319] drop-shadow-md">9</span>
+                  </span>
+                  <span className="text-[7.5px] sm:text-[9px] font-medium tracking-[0.03em] sm:tracking-[0.05em] text-white/90 drop-shadow-md select-none whitespace-nowrap mt-0.5">
+                    Offshore Services Pvt. Ltd.
+                  </span>
+                </div>
               </Link>
 
               <button

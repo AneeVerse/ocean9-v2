@@ -256,6 +256,11 @@ export default function EquipmentSection() {
               </li>
             </ul>
 
+            {/* Project Discussion Opportunity Text */}
+            <p className="font-roboto text-slate-800 text-[14.5px] sm:text-[15.5px] leading-relaxed pt-1">
+              We welcome the opportunity to discuss your upcoming project requirements and demonstrate how we can support your underwater operations. Please let us know a convenient time to connect, or feel free to reach out directly with any specific technical queries.
+            </p>
+
             {/* Contact Inquiry CTA Button */}
             <div className="pt-4 border-t border-slate-200">
               <Link

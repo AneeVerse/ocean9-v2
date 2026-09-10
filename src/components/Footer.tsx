@@ -167,13 +167,16 @@ export default function Footer() {
             © 2026 Ocean 9 Offshore Services Pvt. Ltd. All rights reserved.
           </div>
 
-          {/* Middle: HSE & ISO Certificate */}
+          {/* Middle: HSE & ISO Certificate & MSME */}
           <div className="flex items-center gap-6">
             <Link href="/hse" className="hover:text-cyan-300 transition-colors">
               HSE
             </Link>
             <Link href="/iso" className="hover:text-cyan-300 transition-colors">
               ISO Certificate
+            </Link>
+            <Link href="/msme" className="hover:text-cyan-300 transition-colors">
+              MSME
             </Link>
           </div>
 

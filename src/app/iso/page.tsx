@@ -44,7 +44,7 @@ export default function ISOPage() {
           className="relative max-w-3xl w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-2xl border border-white/25 hover:border-cyan-300/60 transition-all duration-300 cursor-pointer hover:shadow-[0_0_40px_rgba(34,211,238,0.25)]"
         >
           <Image
-            src="/ISO Ocean 9_page-0001.jpg"
+            src="https://ik.imagekit.io/ocot2fs3tf/images/ISO%20Ocean%209_page-0001.jpg"
             alt="ISO 9001:2015 Certificate Ocean 9 Offshore Services"
             width={2479}
             height={3508}
@@ -56,8 +56,10 @@ export default function ISOPage() {
         {/* Centered Download PDF Button below image */}
         <div className="flex justify-center items-center pt-8 sm:pt-12">
           <a
-            href="/ISO Ocean 9.pdf"
+            href="https://ik.imagekit.io/ocot2fs3tf/images/ISO%20Ocean%209.pdf"
             download="ISO_9001_2015_Certificate_Ocean9.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#001742] font-poppins font-bold text-sm tracking-wide shadow-xl shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-cyan-400/35"
           >
             <Download className="w-4 h-4 stroke-[2.5]" />
@@ -84,8 +86,10 @@ export default function ISOPage() {
 
               <div className="flex items-center gap-2">
                 <a
-                  href="/ISO Ocean 9.pdf"
+                  href="https://ik.imagekit.io/ocot2fs3tf/images/ISO%20Ocean%209.pdf"
                   download="ISO_9001_2015_Certificate_Ocean9.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-[#001742] font-poppins font-bold text-xs transition-colors"
                 >
                   <Download className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -106,7 +110,7 @@ export default function ISOPage() {
             <div className="relative p-2 sm:p-3 bg-slate-950/80 flex items-center justify-center overflow-hidden">
               <div className="relative h-[72vh] sm:h-[76vh] max-h-[820px] aspect-[1/1.414] bg-white rounded-lg shadow-xl overflow-hidden">
                 <Image
-                  src="/ISO Ocean 9_page-0001.jpg"
+                  src="https://ik.imagekit.io/ocot2fs3tf/images/ISO%20Ocean%209_page-0001.jpg"
                   alt="ISO 9001:2015 Certificate Ocean 9 Offshore Services"
                   fill
                   className="object-contain"
@@ -119,7 +123,7 @@ export default function ISOPage() {
             <div className="px-4 py-2 border-t border-white/10 bg-[#001742] flex items-center justify-between text-xs text-slate-400 shrink-0">
               <span>Press <kbd className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-white text-[11px]">ESC</kbd> or click outside to close</span>
               <a
-                href="/ISO Ocean 9.pdf"
+                href="https://ik.imagekit.io/ocot2fs3tf/images/ISO%20Ocean%209.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-cyan-400 hover:underline"

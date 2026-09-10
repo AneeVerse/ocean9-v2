@@ -190,20 +190,20 @@ export default function OceanBubbles({
       const rand = Math.random();
       let layer = 1;
       let radius = 3.5 + Math.random() * 4.5;
-      let speed = 0.8 + (radius / 10) * 0.8 + Math.random() * 0.5;
+      let speed = 0.55 + (radius / 10) * 0.55 + Math.random() * 0.35;
       let opacity = 0.3 + Math.random() * 0.35;
 
       if (rand < 0.4) {
         // Background small micro bubbles
         layer = 0;
         radius = 1.8 + Math.random() * 2.2;
-        speed = 0.5 + (radius / 8) * 0.4 + Math.random() * 0.3;
+        speed = 0.35 + (radius / 8) * 0.3 + Math.random() * 0.2;
         opacity = 0.18 + Math.random() * 0.25;
       } else if (rand > 0.82) {
         // Foreground large shiny bubbles
         layer = 2;
         radius = 7.5 + Math.random() * 8.5;
-        speed = 1.3 + (radius / 16) * 1.0 + Math.random() * 0.6;
+        speed = 0.9 + (radius / 16) * 0.7 + Math.random() * 0.4;
         opacity = 0.42 + Math.random() * 0.35;
       }
 
@@ -237,7 +237,7 @@ export default function OceanBubbles({
         baseX: x,
         radius,
         speed,
-        wobbleSpeed: 0.01 + Math.random() * 0.018,
+        wobbleSpeed: 0.008 + Math.random() * 0.014,
         wobbleAmp: 6 + Math.random() * 15,
         wobblePhase: Math.random() * Math.PI * 2,
         opacity,

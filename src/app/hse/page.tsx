@@ -30,12 +30,12 @@ export default function HSEPage() {
 
   const images = [
     {
-      src: "/QUALITY policy Ocean 9_page-0001.jpg",
+      src: "https://ik.imagekit.io/ocot2fs3tf/images/QUALITY%20policy%20Ocean%209_page-0001.jpg",
       alt: "Quality Policy (Page 1)",
       page: 1,
     },
     {
-      src: "/QUALITY policy Ocean 9_page-0002.jpg",
+      src: "https://ik.imagekit.io/ocot2fs3tf/images/QUALITY%20policy%20Ocean%209_page-0002.jpg",
       alt: "Quality Objectives (Page 2)",
       page: 2,
     },
@@ -78,8 +78,10 @@ export default function HSEPage() {
         {/* Centered Download PDF Button below images */}
         <div className="flex justify-center items-center pt-8 sm:pt-12">
           <a
-            href="/QUALITY policy Ocean 9.pdf"
+            href="https://ik.imagekit.io/ocot2fs3tf/images/QUALITY%20policy%20Ocean%209.pdf"
             download="Quality_Policy_Ocean9.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#001742] font-poppins font-bold text-sm tracking-wide shadow-xl shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-cyan-400/35"
           >
             <Download className="w-4 h-4 stroke-[2.5]" />
@@ -106,8 +108,10 @@ export default function HSEPage() {
 
               <div className="flex items-center gap-2">
                 <a
-                  href="/QUALITY policy Ocean 9.pdf"
+                  href="https://ik.imagekit.io/ocot2fs3tf/images/QUALITY%20policy%20Ocean%209.pdf"
                   download="Quality_Policy_Ocean9.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-[#001742] font-poppins font-bold text-xs transition-colors"
                 >
                   <Download className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -141,7 +145,7 @@ export default function HSEPage() {
             <div className="px-4 py-2 border-t border-white/10 bg-[#001742] flex items-center justify-between text-xs text-slate-400 shrink-0">
               <span>Press <kbd className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-white text-[11px]">ESC</kbd> or click outside to close</span>
               <a
-                href="/QUALITY policy Ocean 9.pdf"
+                href="https://ik.imagekit.io/ocot2fs3tf/images/QUALITY%20policy%20Ocean%209.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-cyan-400 hover:underline"

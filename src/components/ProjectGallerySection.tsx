@@ -99,18 +99,6 @@ export const galleryItems: GalleryItem[] = [
     mediaUrl: "https://ik.imagekit.io/ocot2fs3tf/Project%20photos-20260902T152708Z-1-001/Project%20photos/IMG-20260501-WA0034.jpg",
   },
   {
-    id: 16,
-    type: "image",
-    category: "Inspection",
-    mediaUrl: "https://ik.imagekit.io/ocot2fs3tf/Project%20photos-20260902T152708Z-1-001/Project%20photos/WhatsApp%20Image%202026-01-20%20at%207.40.57%20AM.jpeg",
-  },
-  {
-    id: 17,
-    type: "image",
-    category: "Inspection",
-    mediaUrl: "https://ik.imagekit.io/ocot2fs3tf/Project%20photos-20260902T152708Z-1-001/Project%20photos/WhatsApp%20Image%202026-01-20%20at%207.40.57%20AM%20(1).jpeg",
-  },
-  {
     id: 18,
     type: "image",
     category: "Diving",

@@ -31,7 +31,7 @@ export default function Hero() {
         <div className="pt-1">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#003D82]/90 border border-cyan-400/40 backdrop-blur-md text-white text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-lg shadow-[#003D82]/30">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse" />
-            From Seabed to Surface
+            Underwater Excellence &amp; Delivery
           </div>
         </div>
 
