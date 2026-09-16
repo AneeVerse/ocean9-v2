@@ -35,7 +35,7 @@ export const baseServices = [
   },
   {
     title: "Marine Crew and Manning",
-    image: "https://ik.imagekit.io/ocot2fs3tf/images/Marine%20Crew%20and%20Manning.png",
+    image: "https://ik.imagekit.io/ocot2fs3tf/images/crew-management.png",
   },
 ];
 
