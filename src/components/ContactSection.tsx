@@ -73,6 +73,7 @@ export default function ContactSection() {
     "Marine Survey and Inspection",
     "Underwater Cutting, Welding and Salvage",
     "Marine Crew and Manning",
+    "Remotely Operated Vehicle (ROV)",
     "Other",
   ];
 

@@ -43,6 +43,8 @@ export const metadata: Metadata = {
     "Offshore Operations",
     "Air Diving",
     "Saturation Diving",
+    "Remotely Operated Vehicle",
+    "ROV Services",
     "Ocean 9",
   ],
   icons: {
