@@ -21,8 +21,8 @@ export interface AssociatedPartner {
   name: string;
   established: string;
   role: string;
-  logo: string;
-  logoAlt: string;
+  logo?: string;
+  logoAlt?: string;
   tagline: string;
   summary: string;
   topExpertise: string[];
@@ -42,7 +42,7 @@ const allPartnersDatabase: AssociatedPartner[] = [
     name: "Jagat Engineers",
     established: "1994",
     role: "Marine & Offshore Engineering Partner",
-    logo: "/assets/logos/omega-ship-management.png", // Demo logo from existing assets
+    logo: "", // Set logo path when available (e.g. "/assets/logos/jagat-engineers.png")
     logoAlt: "Jagat Engineers Logo",
     tagline: "Marine, Offshore, Shipbuilding & Infrastructure Engineering",
     summary:
@@ -798,13 +798,15 @@ export default function AssociatedPartners() {
                                 : "bg-white/5 hover:bg-white/10 backdrop-blur-md border-white/10 hover:border-cyan-400/30 text-white/80 opacity-75 hover:opacity-100"
                             }`}
                           >
-                            <div className="h-7 sm:h-8 w-full flex items-center justify-center px-1 rounded-lg bg-white/95 p-1">
-                              <img
-                                src={partner.logo}
-                                alt={partner.name}
-                                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover/tab:scale-105"
-                              />
-                            </div>
+                            {Boolean(partner.logo) && (
+                              <div className="h-7 sm:h-8 w-full flex items-center justify-center px-1 rounded-lg bg-white/95 p-1">
+                                <img
+                                  src={partner.logo}
+                                  alt={partner.logoAlt || partner.name}
+                                  className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover/tab:scale-105"
+                                />
+                              </div>
+                            )}
                             <span
                               className={`font-poppins text-[10px] sm:text-[11px] font-semibold truncate w-full text-center leading-tight ${
                                 isSelected ? "text-cyan-300 font-bold" : "text-white/90"
@@ -863,13 +865,15 @@ export default function AssociatedPartners() {
                                   : "bg-white/5 hover:bg-white/10 backdrop-blur-md border-white/10 hover:border-cyan-400/30 text-white/80 opacity-75 hover:opacity-100"
                               }`}
                             >
-                              <div className="h-7 sm:h-8 w-full flex items-center justify-center px-1 rounded-lg bg-white/95 p-1">
-                                <img
-                                  src={partner.logo}
-                                  alt={partner.name}
-                                  className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover/tab:scale-105"
-                                />
-                              </div>
+                              {Boolean(partner.logo) && (
+                                <div className="h-7 sm:h-8 w-full flex items-center justify-center px-1 rounded-lg bg-white/95 p-1">
+                                  <img
+                                    src={partner.logo}
+                                    alt={partner.logoAlt || partner.name}
+                                    className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover/tab:scale-105"
+                                  />
+                                </div>
+                              )}
                               <span
                                 className={`font-poppins text-[10px] sm:text-[11px] font-semibold truncate w-full text-center leading-tight ${
                                   isSelected ? "text-cyan-300 font-bold" : "text-white/90"
@@ -898,14 +902,16 @@ export default function AssociatedPartners() {
                   {/* Card Header: Logo Plate + Partner Info */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
                     <div className="flex items-center gap-4">
-                      {/* Logo Container with Light Plate for Contrast */}
-                      <div className="h-14 sm:h-16 w-32 sm:w-40 px-3 py-1.5 rounded-2xl bg-white shadow-md border border-white/40 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                        <img
-                          src={activePartner.logo}
-                          alt={activePartner.name}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
+                      {/* Logo Container with Light Plate for Contrast (shown only when logo is available) */}
+                      {Boolean(activePartner.logo) && (
+                        <div className="h-14 sm:h-16 w-32 sm:w-40 px-3 py-1.5 rounded-2xl bg-white shadow-md border border-white/40 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <img
+                            src={activePartner.logo}
+                            alt={activePartner.logoAlt || activePartner.name}
+                            className="max-h-full max-w-full object-contain"
+                          />
+                        </div>
+                      )}
 
                       {/* Partner Name & Subtitle */}
                       <div className="space-y-1">
@@ -1025,13 +1031,15 @@ export default function AssociatedPartners() {
               {/* Modal Header */}
               <div className="flex items-center justify-between p-5 sm:p-6 bg-gradient-to-r from-[#001333] to-[#002256] border-b border-white/15 shrink-0">
                 <div className="flex items-center gap-3.5 sm:gap-4">
-                  <div className="h-12 w-28 px-2 py-1 rounded-xl bg-white border border-white/50 flex items-center justify-center shrink-0 shadow-md">
-                    <img
-                      src={selectedPartnerForModal.logo}
-                      alt={selectedPartnerForModal.name}
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
+                  {Boolean(selectedPartnerForModal.logo) && (
+                    <div className="h-12 w-28 px-2 py-1 rounded-xl bg-white border border-white/50 flex items-center justify-center shrink-0 shadow-md">
+                      <img
+                        src={selectedPartnerForModal.logo}
+                        alt={selectedPartnerForModal.logoAlt || selectedPartnerForModal.name}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                  )}
                   <div>
                     <h3 className="font-poppins font-bold text-lg sm:text-xl text-white">
                       {selectedPartnerForModal.name}
